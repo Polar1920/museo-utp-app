@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-tab0',
-  templateUrl: './tab0.page.html',
-  styleUrls: ['./tab0.page.scss'],
+  selector: 'app-index',
+  templateUrl: './index.page.html',
+  styleUrls: ['./index.page.scss'],
 })
-export class Tab0Page implements OnInit {
+export class IndexPage implements OnInit {
 
   constructor(private navCtrl: NavController) { }
 
