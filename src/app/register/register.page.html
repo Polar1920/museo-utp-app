@@ -1,0 +1,59 @@
+<!--ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header-->
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">register</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <img src="../../assets/img/buho-logo.svg"/> 
+
+  <h1>Registro</h1>
+
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input placeholder="Nombre" [(ngModel)]="name"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Apellido</ion-label>
+    <ion-input placeholder="Apellido" [(ngModel)]="lastName"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Facultad</ion-label>
+    <ion-select placeholder="Facultad" [(ngModel)]="selectedFacultad">
+      <ion-select-option value="opcion1">Opción 1</ion-select-option>
+      <ion-select-option value="opcion2">Opción 2</ion-select-option>
+      <ion-select-option value="opcion3">Opción 3</ion-select-option>
+    </ion-select>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Carrera</ion-label>
+    <ion-select placeholder="Carrera" [(ngModel)]="selectedCarrera">
+      <ion-select-option value="opcion1">Opción 1</ion-select-option>
+      <ion-select-option value="opcion2">Opción 2</ion-select-option>
+      <ion-select-option value="opcion3">Opción 3</ion-select-option>
+    </ion-select>
+  </ion-item>
+  
+  
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Repetir Contraseña</ion-label>
+    <ion-input type="password" placeholder="Repetir Contraseña" [(ngModel)]="passwordRepet"></ion-input>
+  </ion-item>
+  
+  <ion-button expand="full" (click)="submitRegister()">Registrarme</ion-button>
+  
+</ion-content>
