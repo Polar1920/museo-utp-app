@@ -24,3 +24,38 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+@font-face {
+    font-family: 'inter-regular';
+    src: url('./assets/fonts/inter/Inter-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: 'inter-medium';
+    src: url('./assets/fonts/inter/Inter-Medium.ttf');
+  }
+
+  @font-face {
+    font-family: 'inter-semibold';
+    src: url('./assets/fonts/inter/Inter-SemiBold.ttf');
+  }
+
+  @font-face {
+    font-family: 'inter-bold';
+    src: url('./assets/fonts/inter/Inter-Bold.ttf');
+  }
+
+  @font-face {
+    font-family: 'jomolhari-regular';
+    src: url('./assets/fonts/jomolhari/Jomolhari-Regular.ttf');
+  }
+
+  @font-face {
+    font-family: 'kameron-regular';
+    src: url('./assets/fonts/kameron/Kameron-Regular.ttf');
+  }
+  
+  @font-face {
+    font-family: 'kameron-bold';
+    src: url('./assets/fonts/kameron/Kameron-Bold.ttf');
+  }
