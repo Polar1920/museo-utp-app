@@ -1,0 +1,38 @@
+* {
+    background-color: #252525;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .center-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 170px;
+    height: 170px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  .center-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .footer {
+    text-align: center;
+  }
+  
+  .footer p {
+    font-size: 20px;
+    color: white;
+  }
