@@ -1,0 +1,26 @@
+.nombre {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+
+.imagen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+img{
+    border-radius: 100%;
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Kameron-regular';
+    font-size: 23px;
+    margin-top: auto;
+}
+  
