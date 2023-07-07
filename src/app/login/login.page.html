@@ -1,37 +1,46 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
 <ion-content [fullscreen]="true">
 
-  <div class="container">
-    <div class="center-image">
-      <img src="../../assets/img/buho-logo.svg" alt="Logo redondeado" />
-    </div>
+<div class="container">
 
-    <div class="login-container">
-      <h1>Iniciar Sesión</h1>
+  <div class="div-imagen">
+    <img src="../../assets/img/buho-logo.svg"/> 
+  </div>  
 
-      <div class="form-group">
-        <ion-input type="email" placeholder="Correo@ejemplo.com" [(ngModel)]="email"></ion-input>
-      </div>
-      <div class="form-group">
-        <ion-input type="password" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
-      </div>
+  <h1>Iniciar Sesión</h1>
+  
+  <ion-item class="ion-item-inputs">
+    <ion-input class="a" type="text" label="Correo electronico" labelPlacement="floating" placeholder="Correo@ejemplo.com" [(ngModel)]="email"></ion-input>         
+  </ion-item>  
 
-      <div class="checkbox-container">
-        <ion-checkbox slot="start" id="remember-password"></ion-checkbox>
-        <ion-label for="remember-password">Recordarme</ion-label>
-      </div>
+  <ion-item class="ion-item-inputs">
+    <ion-input type="{{ showPassword ? 'text' : 'password' }}" label="Contraseña" labelPlacement="floating" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
+    <ion-icon [name]="showPassword ? 'eye-off-sharp' : 'eye-sharp'" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
+  </ion-item> 
 
-      <a class="forgot-password" (click)="goToPasswordRecovery()">¿Olvidaste tu contraseña?</a>
-        
-      <ion-button class="btn-login custom-btn-login" shape="round" expand="full" (click)="submitLogin()">Entrar</ion-button>
-      
-      <a class="sign-up" (click)="goToRegistration()">Registrarse</a>
-    </div>
-
-    <div class="footer">
-      <p>Museo</p>
-      <p>Tecnología en el Tiempo</p>
-    </div>
-
+  <div class="div-chk_recordarme">
+    <ion-checkbox labelPlacement="end">Recordarme</ion-checkbox>
+    <a class="recordarme" (click)="goToPasswordRecovery()">Olvidaste tu contraseña?</a>
   </div>
+  
+  <ion-button class="button-round" expand="full" (click)="submitLogin()">Entrar</ion-button>
+  
+  <div class="space-register">
+    <hr class="divider divider1">
+    <div class="div-no_reg">
+      <a (click)="goToRegistration()">No tienes cuenta? <span class="spn_reg">REGISTRATE</span></a>
+    </div>
+    <hr class="divider divider2">
+  </div>
+
+
+</div>
+
+  <div class="nombre">
+    <h3>Museo<br>Tecnología en el tiempo</h3>
+</div>
 
 </ion-content>
