@@ -11,8 +11,8 @@ export class IndexPage implements OnInit {
   constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
-    //setTimeout(()=>{
-      //this.navCtrl.navigateForward('/login');
-    //}, 5000);
+    setTimeout(()=>{
+      this.navCtrl.navigateForward('/login');
+    }, 5000);
   }
 }

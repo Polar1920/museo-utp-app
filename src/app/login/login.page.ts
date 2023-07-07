@@ -9,14 +9,18 @@ import { Router } from '@angular/router';
 export class LoginPage {
   email: string = '';
   password: string = '';
+  showPassword: boolean = false;
 
   constructor(private router: Router) { }
+  
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
   submitLogin() {
-    // Aquí puedes procesar la información o enviar una solicitud al servidor
     console.log('Datos del login:', this.email, this.password);
 
-    // Redirigir a otra página
     this.router.navigate(['/tabs/tab1']);
   }
 
