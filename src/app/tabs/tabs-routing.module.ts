@@ -17,15 +17,15 @@ const routes: Routes = [
       },
       {
         path: 'tab3',
-        loadChildren: () => import('../tab3-qr/tab3.module').then(m => m.Tab3PageModule)
+        loadChildren: () => import('../tab3-qr/qr.module').then(m => m.QrPageModule)
       },
       {
         path: 'tab4',
-        loadChildren: () => import('../tab4-timeline/tab4.module').then(m => m.Tab4PageModule)
+        loadChildren: () => import('../tab4-timeline/timeline.module').then(m => m.TimelinePageModule)
       },
       {
         path: 'tab5',
-        loadChildren: () => import('../tab5-account/tab5.module').then(m => m.Tab5PageModule)
+        loadChildren: () => import('../tab5-account/account.module').then(m => m.AccountPageModule)
       },
       {
         path: '',
@@ -36,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tab0',
+    redirectTo: '/index',
     pathMatch: 'full'
   }
 ];

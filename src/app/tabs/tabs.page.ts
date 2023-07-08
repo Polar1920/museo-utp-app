@@ -6,7 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+  selectedTab: string;
 
-  constructor() {}
+  constructor() {
+    this.selectedTab = 'tab1'; // Inicialización predeterminada
+  }
+
+  tabChanged(event: any) {
+    this.selectedTab = event.tab;
+  }
 
 }
