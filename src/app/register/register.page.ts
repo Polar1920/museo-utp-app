@@ -11,12 +11,18 @@ export class RegisterPage implements OnInit {
   lastName: string = '';
   password: string = '';
   passwordRepet: string = '';
+  showPassword: boolean = false;
   selectedFacultad: string = '';
   selectedCarrera: string = '';
+  highlightLabelFlag: boolean = false;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   submitRegister() {
@@ -31,5 +37,9 @@ export class RegisterPage implements OnInit {
 
     this.router.navigate(['/login']);
     // Aquí puedes realizar cualquier otra lógica necesaria para el registro
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 }
