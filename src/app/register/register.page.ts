@@ -12,6 +12,7 @@ export class RegisterPage implements OnInit {
   password: string = '';
   passwordRepet: string = '';
   showPassword: boolean = false;
+  showPassword2: boolean = false;
   selectedFacultad: string = '';
   selectedCarrera: string = '';
   highlightLabelFlag: boolean = false;
@@ -23,6 +24,10 @@ export class RegisterPage implements OnInit {
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
+  }
+
+  togglePasswordVisibility2() {
+    this.showPassword2 = !this.showPassword2;
   }
 
   submitRegister() {

@@ -44,7 +44,7 @@
   
   <ion-list>
     <ion-item class="ion-item-inputs">
-      <ion-select interface="popover" class="a" type="text" label="Carrera" labelPlacement="floating" placeholder="Escoga su carrera" [(ngModel)]="selectedCarrera">
+      <ion-select interface="popover" class="ion-valid" type="text" label="Carrera" labelPlacement="floating" placeholder="Escoga su carrera" [(ngModel)]="selectedCarrera">
         <ion-select-option value="1">Licenciatura</ion-select-option>
         <ion-select-option value="2">Ingeniería</ion-select-option>
       </ion-select>
@@ -66,8 +66,8 @@
   </ion-item> 
 
   <ion-item class="ion-item-inputs">
-    <ion-input type="{{ showPassword ? 'text' : 'password' }}" label="Repetir contraseña" labelPlacement="floating" placeholder="Repetir contraseña" [(ngModel)]="passwordRepet"></ion-input>
-    <ion-icon [name]="showPassword ? 'eye-off-sharp' : 'eye-sharp'" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
+    <ion-input type="{{ showPassword2 ? 'text' : 'password' }}" label="Repetir contraseña" labelPlacement="floating" placeholder="Repetir contraseña" [(ngModel)]="passwordRepet"></ion-input>
+    <ion-icon [name]="showPassword2 ? 'eye-off-sharp' : 'eye-sharp'" slot="end" (click)="togglePasswordVisibility2()"></ion-icon>
   </ion-item> 
   
   <ion-button class="button-round" expand="full" (click)="submitRegister()">Registrarme</ion-button>
