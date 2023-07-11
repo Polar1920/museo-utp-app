@@ -1,20 +1,18 @@
-import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { QrPage } from './qr.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { QRPage } from './qr.page';
 
-import { QrPageRoutingModule } from './qr-routing.module';
+import { QRRoutingModule } from './qr-routing.module';
 
 @NgModule({
   imports: [
-    IonicModule,
     CommonModule,
     FormsModule,
-    ExploreContainerComponentModule,
-    QrPageRoutingModule
+    IonicModule,
+    QRRoutingModule
   ],
-  declarations: [QrPage]
+  declarations: [QRPage]
 })
-export class QrPageModule {}
+export class QRPageModule {}
