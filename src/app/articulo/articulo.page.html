@@ -31,7 +31,7 @@
                   <h3 class="hora">1 h</h3>                
                 </ion-label>              
                   
-                <p class="comments">comentario</p>                
+                <p class="comments">{{ comentario.contenido }}</p>                
                 <h4 class="responses">Responder</h4>              
   
                 <ion-label class="dividerViewR">
@@ -52,12 +52,12 @@
           <ion-avatar slot="start">
             <ion-img src="../../assets/img/Foto.jpeg"></ion-img>
           </ion-avatar>       
-          <ion-input type="text" placeholder="Agrega un comentario..." [(ngModel)]="nuevoComentario"></ion-input>         
+          <ion-input class="input-coment" type="text" placeholder="Agrega un comentario..." [(ngModel)]="nuevoComentario"></ion-input>         
           <ion-icon name="send-sharp" (click)="agregarComentario(nuevoComentario)"></ion-icon>
         </ion-footer>
       </ng-template>
     </ion-modal>
 </ion-content>
 
-<!--h2>{{ comentario.usuario.nombre }}</h2-->
+<!--h2></h2-->
 <!--p>{{ comentario.contenido }}</p-->

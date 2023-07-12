@@ -33,10 +33,12 @@ ion-modal {
 
 .info {
     margin-left: 10px;
+    width: 75%;
 }
 
 ion-label.nomHora.sc-ion-label-md-h.sc-ion-label-md-s.md.hydrated {
     margin: 0px;
+    justify-content: start;
 }
 
 .nombre{
@@ -67,55 +69,18 @@ ion-label.dividerViewR.sc-ion-label-md-h.sc-ion-label-md-s.md.hydrated {
 
 .divider2 {
     border-top: 2px solid var(--ion-color-dorado);
-    width: 18%;
+    width: 22px;
+    margin-left: 23px;
+    margin-right: 12px;
 }
 
 .viewResponses {
     font-family: 'inter-semibold';
     font-size: 10px;
+    margin: 0;
+    margin-left: 0; /* Remueve el margen izquierdo anterior */
+    margin-right: auto; /* Alinea el elemento a la izquierda */
 }
-
-/*
-.container ion-avatar {
-  grid-column: 1; 
-  grid-area: "col1";
-}
-
-.container .nomHora, .container .comments, .container .responses, .container .dividerViewR {
-    grid-column: 2;
-    gap: 10px;
-    justify-self: start;
-}
-
-.divider2 {
-    border-top: 1px solid var(--ion-color-dorado);
-}
-
-
-.container .nombre {
-    grid-area: "col11";
-}
-
-.container .hora {
-    grid-area: "col12";
-}
-
-.container .comments{
-    grid-area: "col2";
-}
-
-.container .responses {
-    grid-area: "col3";
-}
-
-.container .divider {
-    grid-area: "col41";
-}
-
-.container .viewResponses {
-    grid-area: "col42";
-}
-*/
 
 .no-comentarios {
     display: flex;
@@ -132,6 +97,10 @@ ion-footer {
 
 ion-footer ion-avatar {
     padding: 7px;
+}
+
+ion-footer ion-input {
+    font-size: 18px;
 }
 
 ion-footer ion-icon {
