@@ -17,7 +17,7 @@ const routes: Routes = [
       },
       {
         path: 'tab3',
-        loadChildren: () => import('../tab3-qr/qr.module').then(m => m.QrPageModule)
+        loadChildren: () => import('../tab3-qr/qr.module').then(m => m.QRPageModule)
       },
       {
         path: 'tab4',

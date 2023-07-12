@@ -2,29 +2,29 @@
 
   <ion-tab-bar slot="bottom">
 
-    <ion-tab-button tab="tab1" class="custom-tab-button">
+    <ion-tab-button tab="tab1" [class.custom-selected-tab]="selectedTab === 'tab1'" class="custom-tab-button">
       <ion-icon name="home-sharp" class="custom-icon"></ion-icon>
-      <ion-label class="custom-label" *ngIf="selectedTab === 'tab1'">Home</ion-label>
+      <ion-label class="custom-label" *ngIf="selectedTab === 'tab1'">Inicio</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab2" class="custom-tab-button">
+    <ion-tab-button tab="tab2" [class.custom-selected-tab]="selectedTab === 'tab2'" class="custom-tab-button">
       <ion-icon name="search-sharp"></ion-icon>  
-      <ion-label class="custom-label" *ngIf="selectedTab === 'tab2'">Search</ion-label>
+      <ion-label class="custom-label" *ngIf="selectedTab === 'tab2'">Buscar</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab3" class="custom-tab-button">
+    <ion-tab-button tab="tab3" [class.custom-selected-tab]="selectedTab === 'tab3'" class="custom-tab-button">
       <ion-icon name="qr-code-sharp"></ion-icon>
       <ion-label class="custom-label" *ngIf="selectedTab === 'tab3'">QR</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab4" class="custom-tab-button">
+    <ion-tab-button tab="tab4" [class.custom-selected-tab]="selectedTab === 'tab4'" class="custom-tab-button">
       <ion-icon name="time-sharp"></ion-icon>
       <ion-label class="custom-label" *ngIf="selectedTab === 'tab4'">TimeLine</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="tab5" class="custom-tab-button">
+    <ion-tab-button tab="tab5" [class.custom-selected-tab]="selectedTab === 'tab5'" class="custom-tab-button">
       <ion-icon name="person-sharp"></ion-icon>
-      <ion-label class="custom-label" *ngIf="selectedTab === 'tab5'">Account</ion-label>
+      <ion-label class="custom-label" *ngIf="selectedTab === 'tab5'">Mi cuenta</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>
