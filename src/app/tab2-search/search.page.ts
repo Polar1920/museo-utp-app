@@ -6,7 +6,35 @@ import { Component } from '@angular/core';
   styleUrls: ['search.page.scss']
 })
 export class SearchPage {
+  numeroResultados: number = 0;
+  resultados: any[] = [];
+  resultadosFiltrados: any[] = [];
+  busqueda: string = '';
 
-  constructor() {}
+  constructor() {
+    this.resultados = [
+      {
+        titulo: "Articulo 1",
+        descripcion: "Descripcion del articulo 1",
+        imagen: "imagen"
+      },
+      {
+        titulo: "Articulo 2",
+        descripcion: "Descripcion del articulo 2",
+        imagen: "imagen2"
+      },
+      {
+        titulo: "Articulo 3",
+        descripcion: "Descripcion del articulo 3",
+        imagen: "imagen3"
+      }
+    ];
+  }
 
+  realizarBusqueda() {
+    this.resultadosFiltrados = this.resultados.filter(resultado =>
+      resultado.titulo.toLowerCase().includes(this.busqueda.toLowerCase())
+    );
+    this.numeroResultados = this.resultadosFiltrados.length;
+  }
 }

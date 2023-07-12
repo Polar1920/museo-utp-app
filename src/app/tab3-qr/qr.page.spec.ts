@@ -1,21 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { QRPage } from './qr.page';
 
-import { QrPage } from './qr.page';
-
-describe('QrPage', () => {
-  let component: QrPage;
-  let fixture: ComponentFixture<QrPage>;
+describe('QRPage', () => {
+  let component: QRPage;
+  let fixture: ComponentFixture<QRPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [QrPage],
-      imports: [IonicModule.forRoot(), ExploreContainerComponentModule]
+      declarations: [QRPage],
+      imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(QrPage);
+    fixture = TestBed.createComponent(QRPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
