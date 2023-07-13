@@ -1,0 +1,109 @@
+ion-back-button {
+    --icon-font-size: 35px;
+    --icon-margin-top: 15px;
+}
+
+ion-modal {
+    opacity: 0.99;
+}
+
+.ion-padding ion-label {
+    font-family: 'inter-regular';
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.divider1 {       
+    border-top: 1px solid var(--ion-color-dorado);
+    margin: 20px 15px;
+}
+
+.list-md {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background: var(--ion-color-negro);
+}
+
+.container {
+    display: flex;   
+    margin-bottom: 15px; 
+}
+
+.info {
+    margin-left: 10px;
+    width: 75%;
+}
+
+ion-label.nomHora.sc-ion-label-md-h.sc-ion-label-md-s.md.hydrated {
+    margin: 0px;
+    justify-content: start;
+}
+
+.nombre{
+    font-family: 'inter-regular';
+    font-size: 12px;
+}
+
+.hora {
+    margin-left: 10px;
+    font-family: 'inter-regular';
+    font-size: 10px;
+    opacity: 0.4;
+}
+
+.comments {
+    margin: 0;
+}
+
+.responses {
+    font-family: 'inter-semibold';
+    font-size: 10px;
+    margin: 0;
+}
+
+ion-label.dividerViewR.sc-ion-label-md-h.sc-ion-label-md-s.md.hydrated {
+    margin: 0;
+}
+
+.divider2 {
+    border-top: 2px solid var(--ion-color-dorado);
+    width: 22px;
+    margin-left: 23px;
+    margin-right: 12px;
+}
+
+.viewResponses {
+    font-family: 'inter-semibold';
+    font-size: 10px;
+    margin: 0;
+    margin-left: 0; /* Remueve el margen izquierdo anterior */
+    margin-right: auto; /* Alinea el elemento a la izquierda */
+}
+
+.no-comentarios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    font-size: 20px;
+  }
+
+ion-footer {
+    display: grid;
+    grid-template-columns: 16% 74% 10%;
+}
+
+ion-footer ion-avatar {
+    padding: 7px;
+}
+
+ion-footer ion-input {
+    font-size: 18px;
+}
+
+ion-footer ion-icon {
+    width: 70%;
+    height: auto;
+}
