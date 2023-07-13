@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
+//import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class RegisterPage implements OnInit {
 
-  host: string = environment.apiBaseUrl;
+  //host: string = environment.apiBaseUrl;
 
   name: string = '';
   lastName: string = '';
@@ -21,10 +23,12 @@ export class RegisterPage implements OnInit {
   selectedCarrera: string = '';
   highlightLabelFlag: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
   }
+
+  
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
