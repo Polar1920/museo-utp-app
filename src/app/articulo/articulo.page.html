@@ -15,9 +15,9 @@
 <!-- HEADER -->
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-button slot="start" (click)="goHome()" routerDirection="forward" fill="clear" color="dark">
       <ion-icon name="arrow-back" size="large" aria-label="Atras" ></ion-icon>
-    </ion-buttons>
+    </ion-button>
     <ion-title>Titi</ion-title>
     <ion-buttons slot="end">
       <ion-icon name="information-circle-outline" size="large" aria-label="Información"></ion-icon>
@@ -37,7 +37,7 @@
     </div>
     <div id="body-contenedor-title">
       <div id="body-contenedor-title-nombre">
-        <h1 id="nombre-articulo">Maquina de Escribir</h1>
+        <h1 id="nombre-articulo">Máquina de Escribir</h1>
       </div>
       <div id="body-contenedor-title-contador">
         <ion-icon name="eye" ></ion-icon>

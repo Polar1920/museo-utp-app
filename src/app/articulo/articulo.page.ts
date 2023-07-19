@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -10,7 +11,7 @@ export class ArticuloPage implements OnInit {
   comentarios: any[] = [];
   nuevoComentario: string = "";
 
-  constructor() { }
+  constructor(private navCtrl: NavController) {}
 
   ngOnInit() {
   }
@@ -24,6 +25,11 @@ export class ArticuloPage implements OnInit {
     };
     this.comentarios.push(comentario);
     this.nuevoComentario = "";
+  }
+
+
+  goHome(){
+    this.navCtrl.navigateForward('/home');
   }
   
 

@@ -6,6 +6,12 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
+
+  {
+    path: 'home',
+    loadChildren: () => import('./tab1-home/home.module').then( m => m.HomePageModule)
+  },
+
   {
     path: 'index',
     loadChildren: () => import('./index/index.module').then( m => m.IndexPageModule)
@@ -21,7 +27,8 @@ const routes: Routes = [
   {
     path: 'password-recovery',
     loadChildren: () => import('./password-recovery/password-recovery.module').then( m => m.PasswordRecoveryPageModule)
-  },  {
+  },
+  {
     path: 'articulo',
     loadChildren: () => import('./articulo/articulo.module').then( m => m.ArticuloPageModule)
   },
