@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-articulo',
   templateUrl: './articulo.page.html',
@@ -24,6 +25,8 @@ export class ArticuloPage implements OnInit {
     this.comentarios.push(comentario);
     this.nuevoComentario = "";
   }
+  
+
   
 
 }

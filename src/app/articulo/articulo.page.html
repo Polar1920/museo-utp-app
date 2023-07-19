@@ -1,9 +1,86 @@
-<ion-buttons slot="start">
-  <ion-back-button defaultHref="/home"></ion-back-button>
-</ion-buttons>  
 
+<!-- FUENTES  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kameron&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jomolhari&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+<!-- HEADER -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon name="arrow-back" size="large" aria-label="Atras" ></ion-icon>
+    </ion-buttons>
+    <ion-title>Titi</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="information-circle-outline" size="large" aria-label="Información"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<!-- BODY -->
 <ion-content [fullscreen]="true">
-  <img src="../../assets/img/iPhone.jpeg">
+
+  <div id="body-encabezado">
+    <div id="body-contenedor-img">
+      <ion-img id="img-articulo" src="../../assets/img/MaquinaDeEscribir.svg"></ion-img>
+    </div>
+    <div id="body-contenedor-title">
+      <div id="body-contenedor-title-nombre">
+        <h1 id="nombre-articulo">Maquina de Escribir</h1>
+      </div>
+      <div id="body-contenedor-title-contador">
+        <ion-icon name="eye" ></ion-icon>
+        <p id="visitas" name="visitas">10</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="body-cuerpo">
+
+    <div id="body-cuerpo-soundarea">
+      <div id="shapeline"> </div>
+      <ion-buttons id="body-cuerpo-soundarea-icon">
+        <ion-icon name="volume-high-outline" size="large"></ion-icon>   
+      </ion-buttons>
+    </div>
+
+    <div id="body-cuerpo-textarea">
+      <div id="body-cuerpo-textarea-texto">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, 
+          sit odio, iure eius quisquam non molestiae, dignissimos voluptatem 
+          sint accusantium cupiditate pariatur dolore ipsam voluptas aliquid 
+          itaque ad sequi laboriosam!
+          Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+    </div>
+
+    <div id="body-cuerpo-buttonarea">
+      <ion-button id="button-buttonarea" fill="solid" shape="round" >
+       <ion-icon name="play-circle" size="large"></ion-icon>
+        <p>Ver historia</p>
+      </ion-button>
+    </div>
+  </div>
+
+  
+    
+  
+
+  <!--SECCION DE COMENTARIOS (NO TOCAR)-->
   <ion-modal
       #modal      
       [isOpen]="true"

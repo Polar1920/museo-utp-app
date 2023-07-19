@@ -1,8 +1,155 @@
-ion-back-button {
-    --icon-font-size: 35px;
-    --icon-margin-top: 15px;
+
+//HEADER
+ion-header{
+    text-align: center;
 }
 
+ion-header ion-title {
+    font-style: bold;
+    font-size: 32px;
+    font-family: 'Kameron', serif;
+}
+
+ion-toolbar{
+    --background:#DAA641;
+    
+}
+
+//BODY
+#body-encabezado {
+    display: flex;
+    width: 100%;
+    height: 40%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+#body-contenedor-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+    height: 240px;
+
+    //Esto de aqui es un agregado solo para previsualizar
+    background-color: aliceblue;
+    border-style: solid;
+    border-radius: 20px;
+}
+
+#img-articulo{
+    width: 200px;
+    height: 200px;
+    // background-color: aqua;
+    
+}
+
+#body-contenedor-title{
+    display: flex;
+    flex-direction: row;
+    // background-color: blueviolet;
+    width: 99%;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Jomolhari', serif;
+}
+
+#body-contenedor-title-nombre{
+    margin-left: 20px;
+    width: 80%;
+    font-size: 24px;
+}
+
+#body-contenedor-title-contador{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+
+#body-cuerpo{
+    width: 100%;
+    height: 60%;
+    // background-color: burlywood;
+}
+
+#body-cuerpo-soundarea{
+    display: flex;
+    // background-color: cornflowerblue;
+    width: 100%;
+    height: 10%;
+    flex-direction: row;
+    align-items: center;
+}
+
+#shapeline{
+    width: 60%;
+    height: 2px;
+    background-color: #DAA641;
+    margin-right: 12px;
+}
+
+#body-cuerpo-soundarea-icon{
+    color: #DAA641;
+}
+
+#body-cuerpo-textarea{
+    display: flex;
+    width: 100%;
+    height: 65%;
+    // background-color: blueviolet;
+
+}
+
+#body-cuerpo-textarea-texto{
+    width: 100%;
+    height: 95%;
+    // background-color: coral;
+    margin: 0 25px 0px 25px;
+    
+}
+
+
+#body-cuerpo-textarea-texto p{
+    margin: 0;
+    text-align: start;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+#body-cuerpo-buttonarea{
+    display: flex;
+    justify-content: center;
+    // background-color: chartreuse;
+
+}
+
+#button-buttonarea {
+    --background: #DAA641;
+    color: black;
+    width: 55%;
+    height: 50px;
+}
+
+#body-cuerpo-buttonarea p{
+    margin-left: 6px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+
+
+
+
+
+//CSS DE LA SECCION DE COMENTARIOS
 ion-modal {
     opacity: 0.99;
 }
