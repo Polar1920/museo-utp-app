@@ -1,0 +1,104 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="div-header" (click)="goToBack()">
+    <ion-icon name="chevron-back-outline"></ion-icon>
+    <ion-label>Editar cuenta</ion-label>
+  </div>
+
+  <div class="imagen">
+    <img src="assets/img/foto_perfil.png">
+    <ion-icon name="add-circle-sharp"></ion-icon>
+  </div>
+
+<!-- Nombre -->
+<div class="div-info">
+  <div class="div-div-info">
+    <ion-label class="lbl">Nombre</ion-label>
+    <p class="p" [contentEditable]="isNameEditing">{{ name }}</p>
+  </div>
+  <ion-icon name="create-outline" *ngIf="!isNameEditing" (click)="enableNameEditing()"></ion-icon>
+  <div class="edits" *ngIf="isNameEditing">
+    <ion-icon name="close-sharp" *ngIf="isNameEditing" (click)="cancelNameEditing()"></ion-icon>
+    <ion-icon name="checkmark-sharp" *ngIf="isNameEditing" (click)="saveName()"></ion-icon>
+  </div>  
+</div>
+<hr class="divider">
+
+<!-- Cédula -->
+<div class="div-info">
+  <div class="div-div-info">
+    <ion-label class="lbl">Cedula</ion-label>
+    <p class="p" [contentEditable]="isCedulaEditing">{{ cedula }}</p>
+  </div>
+  <ion-icon name="create-outline" *ngIf="!isCedulaEditing" (click)="enableCedulaEditing()"></ion-icon>
+  <div class="edits" *ngIf="isCedulaEditing">
+    <ion-icon name="close-sharp" *ngIf="isCedulaEditing" (click)="cancelCedulaEditing()"></ion-icon>
+    <ion-icon name="checkmark-sharp" *ngIf="isCedulaEditing" (click)="saveCedula()"></ion-icon>
+  </div>  
+</div>
+<hr class="divider">
+
+<!-- Cambiar Datos -->
+
+<!-- Teléfono -->
+<div class="div-info">
+  <div class="div-div-info">
+    <ion-label class="lbl">Teléfono</ion-label>
+    <p class="p" [contentEditable]="isCedulaEditing">+507 6370-1372</p>
+  </div>
+  <ion-icon name="create-outline" *ngIf="!isCedulaEditing" (click)="enableCedulaEditing()"></ion-icon>
+  <div class="edits" *ngIf="isCedulaEditing">
+    <ion-icon name="close-sharp" *ngIf="isCedulaEditing" (click)="cancelCedulaEditing()"></ion-icon>
+    <ion-icon name="checkmark-sharp" *ngIf="isCedulaEditing" (click)="saveCedula()"></ion-icon>
+  </div>  
+</div>
+<hr class="divider">
+
+<!-- Correo -->
+<div class="div-info">
+  <div class="div-div-info">
+    <ion-label class="lbl">Correo</ion-label>
+    <p class="p" [contentEditable]="isCedulaEditing">juan.zamora@ut.ac.pa</p>
+  </div>
+  <ion-icon name="create-outline" *ngIf="!isCedulaEditing" (click)="enableCedulaEditing()"></ion-icon>
+  <div class="edits" *ngIf="isCedulaEditing">
+    <ion-icon name="close-sharp" *ngIf="isCedulaEditing" (click)="cancelCedulaEditing()"></ion-icon>
+    <ion-icon name="checkmark-sharp" *ngIf="isCedulaEditing" (click)="saveCedula()"></ion-icon>
+  </div>  
+</div>
+<hr class="divider">
+
+<!-- Facultad -->
+<div class="div-info">
+  <div class="div-div-info">
+    <ion-label class="lbl">Facultad</ion-label>
+    <p class="p" [contentEditable]="isCedulaEditing">Ingeniería en Sistemas...</p>
+  </div>
+  <ion-icon name="create-outline" *ngIf="!isCedulaEditing" (click)="enableCedulaEditing()"></ion-icon>
+  <div class="edits" *ngIf="isCedulaEditing">
+    <ion-icon name="close-sharp" *ngIf="isCedulaEditing" (click)="cancelCedulaEditing()"></ion-icon>
+    <ion-icon name="checkmark-sharp" *ngIf="isCedulaEditing" (click)="saveCedula()"></ion-icon>
+  </div>  
+</div>
+<hr class="divider">
+
+<!-- Carrera -->
+<div class="div-info">
+  <div class="div-div-info">
+    <ion-label class="lbl">Carrera</ion-label>
+    <p class="p" [contentEditable]="isCedulaEditing">Licenciatura en Desarr...</p>
+  </div>
+  <ion-icon name="create-outline" *ngIf="!isCedulaEditing" (click)="enableCedulaEditing()"></ion-icon>
+  <div class="edits" *ngIf="isCedulaEditing">
+    <ion-icon name="close-sharp" *ngIf="isCedulaEditing" (click)="cancelCedulaEditing()"></ion-icon>
+    <ion-icon name="checkmark-sharp" *ngIf="isCedulaEditing" (click)="saveCedula()"></ion-icon>
+  </div>  
+</div>
+<hr class="divider">
+  
+
+</ion-content>

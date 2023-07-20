@@ -1,0 +1,157 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 76px;
+}
+
+.div-imagen {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+.div-imagen img {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 160px;
+    height: 160px;
+}
+
+h1 {
+    font-family: 'inter-regular';
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ion-item-inputs {
+    --background: var(--ion-color-blanco);
+    color: var(--ion-color-negro);
+    border-radius: 7px;
+    margin-inline: 40px;
+    margin-bottom: 18px;
+}
+
+.ion-valid.sc-ion-input-md-h {
+    --highlight-color: var(--ion-color-dorado);
+    color: var(--ion-color-negro);
+    font-family: 'inter-regular';    
+}
+
+ion-item ion-icon {
+    color: var(--ion-color-negro);
+}
+
+.div-chk_recordarme {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 40px;
+    margin-top: -7px;
+    margin-bottom: 20px;
+}
+
+ion-checkbox {
+    --border-width: 0;
+    --checkbox-background: var(--ion-color-blanco);
+    --checkbox-background-checked: var(--ion-color-dorado);        
+    font-size: 13px;
+} 
+
+a {
+    text-decoration: none;
+    font-family: 'inter-regular';
+    color: var(--ion-color-blanco);
+}
+
+.div-chk_recordarme a {
+    font-size: 13px;
+}
+
+ion-button {
+    margin-inline: 40px;
+    --padding-top: 22px;
+    --padding-bottom: 22px;
+    --background: var(--ion-color-dorado);
+    --border-radius: 7px;
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+
+    color: black;
+    font-size: 18px;
+    font-family: 'inter-regular';
+    text-transform: none;
+}
+
+.div-no_reg {
+    display: flex;
+    justify-content: center;
+}
+
+.spn_reg {
+    color: var(--ion-color-dorado);
+}
+
+.space-register {
+    margin-top: 56px;
+}
+
+.divider {    
+    height: 1px;        
+    border-top: 2px solid var(--ion-color-dorado); /* Establece el color y estilo de la línea */
+    margin: 10px 0; /* Ajusta el margen superior e inferior de la línea */
+}
+
+.divider1{
+    width: 40%;
+}
+
+.divider2{
+    margin-left: 60%;
+    width: 40%;
+}
+
+.nombre {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+
+h3 {
+    text-align: center;
+    font-family: 'Kameron-regular';
+    font-size: 23px;
+    margin-top: auto;
+}
+
+@media (max-height: 843px) {
+    .container {
+      margin-top: 40px; /* Ajusta el margen superior para dar más espacio vertical */
+    }
+  
+    .nombre {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+  
+    .div-imagen img {
+        width: 140px;
+        height: 140px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .space-register {
+        margin-top: 30px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+  }
+  
