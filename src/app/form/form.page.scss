@@ -1,0 +1,62 @@
+
+ion-avatar{
+    
+    width: 30%;
+    height: auto;
+    margin: auto;
+}
+
+ion-button{
+    height: fit-content;
+    width: fit-content;
+}
+
+.foto_icono{
+
+    position: fixed;
+    opacity: 40%;
+    margin-bottom: 60px;
+    margin-left: 100px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+
+html{
+    
+    background-color: #252525;
+
+    
+}
+hr{
+    background-color: gold;
+    margin-left: 30%;
+}
+
+ion-card-title{
+    color: grey;
+    font-size: medium;
+    margin-bottom: 0%;
+}
+
+ion-card-subtitle{
+    padding-left: 15px;
+}
+
+ion-input{
+    width: fit-content;
+}
+
+ion-item{
+    height: fit-content;
+    margin-top: 0%;
+}
+
+ion-card-title{
+    margin-left: 15px;
+}
+
+ion-content{
+    margin-top: 20px;
+}

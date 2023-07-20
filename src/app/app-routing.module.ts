@@ -32,6 +32,10 @@ const routes: Routes = [
     path: 'articulo',
     loadChildren: () => import('./articulo/articulo.module').then( m => m.ArticuloPageModule)
   },
+  {
+    path: 'form',
+    loadChildren: () => import('./form/form.module').then( m => m.FormPageModule)
+  },
 
 ];
 @NgModule({
