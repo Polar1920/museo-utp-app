@@ -1,11 +1,162 @@
-<ion-header [translucent]="true">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kameron&display=swap" rel="stylesheet">
 
-</ion-header>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jomolhari&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>Titi</ion-title>
+      <ion-buttons slot="end">
+        <ion-icon name="information-circle-outline" aria-label="Información"></ion-icon>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
 
 <ion-content [fullscreen]="true">
   
-  <div>
-    <ion-img src="../../assets/img/iPhone.jpeg" (click)="viewArticle()"></ion-img>    
+  <div id="home-header">
+    <div id="home-texto-bienvenida">
+      <div id="home-header-saludo"><p>Hola!</p></div>
+      <div id="home-header-mensaje"><p>Bienvenido al <b>Museo de Tecnología en el Tiempo</b></p></div>
+    </div>
+    <div id="home-categorias">
+      <ion-segment [scrollable]="true" value="categorias">
+        <ion-segment-button value="storage">
+          <ion-button size="small">Almacenamiento</ion-button>
+        </ion-segment-button>
+        <ion-segment-button value="OS">
+          <ion-button size="small">Sistemas operativos</ion-button>
+        </ion-segment-button>
+        <ion-segment-button value="cpu">
+          <ion-button size="small">CPU</ion-button>
+        </ion-segment-button>
+        <ion-segment-button value="software">
+          <ion-button size="small">Softwares</ion-button>
+        </ion-segment-button>
+        <ion-segment-button value="videogame">
+          <ion-button size="small">Videojuegos</ion-button>
+        </ion-segment-button>
+        <ion-segment-button value="retro">
+          <ion-button size="small">Retro</ion-button>
+        </ion-segment-button>
+        <ion-segment-button value="pc">
+          <ion-button size="small">Computadoras</ion-button>
+        </ion-segment-button>
+        <ion-segment-button value="mobile">
+          <ion-button size="small">Teléfonos</ion-button>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </div>
+
+  <div id="home-body"> 
+    <!-- (click)="viewArticle() -->
+    <ion-grid id="home-body-estructura">
+      <ion-row class="filas">
+        <ion-col class="columnas" size="6" size-md="4" size-lg="2" (click)="viewArticle()">
+         
+          <!-- COPIAR Y PEGAR, ARTICULO DE EJEMPLO -->
+
+          <!-- ------------------------------------------- -->
+         <div class="articulo">
+            <!-- ENCABEZADO -->
+            <div class="nombre-articulo"><h2>Máquina de escribir</h2></div>
+            <!-- IMAGEN DE MINIATURA -->
+            <ion-thumbnail>
+              <ion-img src="../../assets/img/MaquinaDeEscribir.svg" alt="Máquina de escribir"></ion-img>
+            </ion-thumbnail>
+            <!-- FOOTER DEL ARTICULO -->
+            <div class="footer-articulo">
+              <div class="contador-comentarios">
+                <ion-icon name="chatbubbles"></ion-icon>
+                <p>999</p>
+              </div>
+              <div class="contador-visitas">
+                <ion-icon name="eye">1231</ion-icon>
+                <p>999</p>
+              </div>
+            </div>
+          </div>
+          <!-- ------------------------------------------------- -->
+        </ion-col>
+
+        <ion-col class="columnas" size="6" size-md="4" size-lg="2">
+          <div class="articulo">
+            <!-- ENCABEZADO -->
+            <div class="nombre-articulo"><h2>Diskette de 8"</h2></div>
+            <!-- IMAGEN DE MINIATURA -->
+            <ion-thumbnail>
+              <ion-img src="../../assets/img/Diskette_ubt.svg" alt="Diskette"></ion-img>
+            </ion-thumbnail>
+            <!-- FOOTER DEL ARTICULO -->
+            <div class="footer-articulo">
+              <div class="contador-comentarios">
+                <ion-icon name="chatbubbles"></ion-icon>
+                <p>9</p>
+              </div>
+              <div class="contador-visitas">
+                <ion-icon name="eye">1231</ion-icon>
+                <p>1020</p>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col class="columnas" size="6" size-md="4" size-lg="2">
+          <div class="articulo">
+            <!-- ENCABEZADO -->
+            <div class="nombre-articulo"><h2>Consola Nintendo 64</h2></div>
+            <!-- IMAGEN DE MINIATURA -->
+            <ion-thumbnail>
+              <ion-img src="../../assets/img/consola-nintendo.svg" alt="Consola nintendo 64"></ion-img>
+            </ion-thumbnail>
+            <!-- FOOTER DEL ARTICULO -->
+            <div class="footer-articulo">
+              <div class="contador-comentarios">
+                <ion-icon name="chatbubbles"></ion-icon>
+                <p>999</p>
+              </div>
+              <div class="contador-visitas">
+                <ion-icon name="eye">1231</ion-icon>
+                <p>999</p>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col class="columnas" size="6" size-md="4" size-lg="2">
+
+          <div class="articulo">
+            <!-- ENCABEZADO -->
+            <div class="nombre-articulo"><h2>Televisor Antiguo</h2></div>
+            <!-- IMAGEN DE MINIATURA -->
+            <ion-thumbnail>
+              <ion-img src="../../assets/img/television_antigua.svg" alt="Televisor Antiguo"></ion-img>
+            </ion-thumbnail>
+            <!-- FOOTER DEL ARTICULO -->
+            <div class="footer-articulo">
+              <div class="contador-comentarios">
+                <ion-icon name="chatbubbles"></ion-icon>
+                <p>999</p>
+              </div>
+              <div class="contador-visitas">
+                <ion-icon name="eye">1231</ion-icon>
+                <p>999</p>
+              </div>
+            </div>
+          </div>
+
+        </ion-col>
+      </ion-row> 
+    </ion-grid>
   </div>
   
 

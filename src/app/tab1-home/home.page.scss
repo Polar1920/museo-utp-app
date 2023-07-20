@@ -1,11 +1,148 @@
-div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/*TAREAS POR HACER
+-CENTREAR EL TITULO DEL HEADER
+-CAMBIAR EL LOGO
+*/
+
+:root {
+    --font-kameron: 'Kameron', serif; 
+    --font-jomolhari:'Jomolhari', serif;
+    --font-inter: 'Inter', sans-serif;
+    --primary-color: #DAA641;
 }
 
-ion-img {    
-    width: 50%;
-    height: auto;
+ion-header ion-title {
+    font-style: bold;
+    font-size: 32px;
+    font-family: 'Kameron', serif;
 }
+
+ion-icon {
+    font-size: 40px;
+
+}
+
+
+#home-header{
+    
+    width: 100%;
+    height: 13%;
+}
+
+#home-texto-bienvenida{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    flex-direction: column;
+    padding-top: 20px;
+    font-family: var(--font-inter);
+}
+
+#home-texto-bienvenida p{
+    margin: 0;
+    padding: 0;
+}
+
+
+#home-header-saludo {
+    font-size: 10px;
+    margin-left: 15px
+    
+}
+
+#home-header-mensaje{
+    font-size: 16px;
+    text-align: center;
+}
+
+
+#home-categorias{
+    width: 100%;
+    height: 50%;
+}
+
+ion-segment-button {
+    --padding-end: 2px;
+    --padding-start: 2px;
+    --color-checked: white;
+    
+
+}
+
+ion-segment-button ion-button {
+    font-family: var(--font-inter);
+    font-weight: bolder;
+    --background: #DAA641;
+}
+
+//CSS DEL HOME BODY
+
+#home-body{
+    
+}
+
+.columnas{
+    
+}
+
+//ESTE VALOR SOLO ES UN APROXIMADO, SE PUEDE CAMBIAR 
+.articulo{
+    height: 290px;
+}
+
+.nombre-articulo {
+    width: 100%;
+    height: 5%;
+    margin-bottom: 5px;
+}
+
+.nombre-articulo h2 {
+    margin: 0;
+    text-align: center;
+    font-family: var(--font-inter);
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.articulo ion-thumbnail {
+    height: 90%;
+    width: fit-content;
+    object-fit: contain;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: rgba(240, 248, 255, 0);
+}
+
+.articulo ion-icon {
+    width: 13px;
+}
+
+.footer-articulo{
+    width: 100%;
+    height: 5%;
+    margin-top: 2px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.contador-comentarios{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.contador-visitas{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.footer-articulo p {
+    margin: 0;
+    padding: 0;
+    margin-left: 2px;
+} 
