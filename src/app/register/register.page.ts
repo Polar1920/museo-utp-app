@@ -28,13 +28,46 @@ export class RegisterPage implements OnInit {
   selectedFacultad: number = 0;
   selectedCarrera: number = 0;
   highlightLabelFlag: boolean = false;
+  carreras: any = [];
+  facultades: any = [];
+
+
 
   constructor(private router: Router, private data: Data) { }
 
+
   ngOnInit() {
+    this.obtenerCarreras();
+    this.obtenerFacultades();
+    
+  }
+  obtenerCarreras() {
+    this.data.getCarreras().subscribe(
+      (response) => {
+        this.carreras = response;
+        console.log(this.carreras);
+      },
+      (error) => {
+        console.log('Error al obtener las carreras:', error);
+      }
+    );
+
+
   }
 
-  
+  obtenerFacultades() {
+    this.data.getFacultades().subscribe(
+      (response) => {
+        this.facultades = response;
+        console.log(this.facultades);
+      },
+      (error) => {
+        console.log('Error al obtener las facultades:', error);
+      }
+    );
+  }
+
+
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
@@ -46,20 +79,7 @@ export class RegisterPage implements OnInit {
 
   submitRegister() {
     console.log('Datos del registro: Nombre:', this.name, this.lastName, this.selectedFacultad, this.selectedCarrera, this.password, this.passwordRepet);
-  
-    const userData = {
-      nombre_usuario: this.username,
-      password: this.password,
-      nombre: this.name,
-      apellido: this.lastName,
-      cedula: this.cedula,
-      nivel: this.level,
-      id_facultad: this.selectedFacultad,
-      id_carrera: this.selectedCarrera,
-      foto: this.foto
-    };
-  
-    this.data.registerUser(this.username,this.password,this.name,this.lastName,this.cedula,this.level,this.selectedFacultad,this.selectedCarrera,this.foto).subscribe(
+    this.data.registerUser(this.username, this.password, this.name, this.lastName, this.cedula, this.level, this.selectedFacultad, this.selectedCarrera, this.foto).subscribe(
       (response) => {
         // Manejar la respuesta del servidor en caso de éxito
         console.log('Registro exitoso:', response);

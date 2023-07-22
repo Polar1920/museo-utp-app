@@ -42,22 +42,26 @@
         <ion-item class="ion-item-inputs">
           <ion-select interface="popover" class="a" type="text" label="Facultad" labelPlacement="floating"
             placeholder="Escoga su facultad" [(ngModel)]="selectedFacultad" name="selectedFacultad">
-            <ion-select-option value="1">Facultad de Ingeniería de Sistemas Computacionales</ion-select-option>
+         <!-- <ion-select-option value="1">Facultad de Ingeniería de Sistemas Computacionales</ion-select-option>
             <ion-select-option value="2">Facultad de Ciencias y Tecnología</ion-select-option>
             <ion-select-option value="3">Facultad de Ingeniería Civil</ion-select-option>
             <ion-select-option value="4">Facultad de Ingeniería Eléctrica</ion-select-option>
             <ion-select-option value="5">Facultad de Ingeniería Industrial</ion-select-option>
-            <ion-select-option value="6">Facultad de Ingeniería Mecánica</ion-select-option>
+            <ion-select-option value="6">Facultad de Ingeniería Mecánica</ion-select-option>-->
+            <ion-select-option *ngFor="let facultad of facultades" [value]="facultad.id_facultad">{{ facultad.nombre }}</ion-select-option>
+
           </ion-select>
         </ion-item>
       </ion-list>
 
       <ion-list>
         <ion-item class="ion-item-inputs">
-          <ion-select interface="popover" class="ion-valid" type="text" label="Carrera" labelPlacement="floating"
-            placeholder="Escoga su carrera" [(ngModel)]="selectedCarrera" name="selectedCarrera">
-            <ion-select-option value="1">Licenciatura en Desarrollo y Gestión de Software</ion-select-option>
-            <ion-select-option value="2">Licenciatura en Ingeniería de Sistemas de Información Gerencial</ion-select-option>
+          <ion-select interface="popover" id="carreraSelect" class="ion-valid" type="text" label="Carrera" labelPlacement="floating"
+            placeholder="Escoga su carrera" [(ngModel)]="selectedCarrera" name="selectedCarrera" [disabled]="false">
+            <!--<ion-select-option value="1">Licenciatura en Desarrollo y Gestión de Software</ion-select-option>
+            <ion-select-option value="2">Licenciatura en Ingeniería de Sistemas de Información Gerencial</ion-select-option>-->
+            <ion-select-option *ngFor="let carrera of carreras" [value]="carrera.id">{{ carrera.nombre }}</ion-select-option>
+
           </ion-select>
         </ion-item>
       </ion-list>
