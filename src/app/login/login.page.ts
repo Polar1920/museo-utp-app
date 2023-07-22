@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Data } from '../data/data';
+import { User } from '../data/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -7,21 +9,39 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  email: string = '';
+  username: string = '';
   password: string = '';
   showPassword: boolean = false;
 
-  constructor(private router: Router) { }
-  
+  constructor(private router: Router, private data: Data) { }
+
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
 
   submitLogin() {
-    console.log('Datos del login:', this.email, this.password);
+    if(this.username && this.password){
+      console.log('Datos del login:', this.username, this.password);
+      //this.router.navigate(['/tabs/home']);
+      this.data.loginUser(this.username,this.password).subscribe(
+        (response) => {
+          // Manejar la respuesta del servidor en caso de éxito
+          console.log('Login exitoso:', response);
+          alert('Login exitoso.');
+          this.router.navigate(['/tabs']);
+          // Redirigir al usuario a la página de inicio de sesión
+        },
+        (error) => {
+          // Manejar cualquier error que se produzca
+          console.log('Error en el Login:', error);
+          alert('Error en el Login.');
+        }
+      );
+    }
+    else
+    alert("Por favor, ingrese el usuario y la contraseña.")
 
-    this.router.navigate(['/tabs/home']);
   }
 
   goToPasswordRecovery(){
@@ -29,6 +49,9 @@ export class LoginPage {
   }
 
   goToRegistration() {
+    this.data.getUsers().subscribe((data) => {
+      console.log(data);
+    });
     this.router.navigate(['/register']);
   }
 }

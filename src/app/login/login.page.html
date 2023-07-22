@@ -11,25 +11,27 @@
     </div>
 
     <h1>Iniciar Sesión</h1>
-
-    <ion-item class="ion-item-inputs">
-      <ion-input class="a" type="text" label="Correo electronico" labelPlacement="floating"
-        placeholder="Correo@ejemplo.com" [(ngModel)]="email"></ion-input>
-    </ion-item>
-
-    <ion-item class="ion-item-inputs">
-      <ion-input type="{{ showPassword ? 'text' : 'password' }}" label="Contraseña" labelPlacement="floating"
-        placeholder="Contraseña" [(ngModel)]="password"></ion-input>
-      <ion-icon [name]="showPassword ? 'eye-off-sharp' : 'eye-sharp'" slot="end"
-        (click)="togglePasswordVisibility()"></ion-icon>
-    </ion-item>
-
-    <div class="div-chk_recordarme">
-      <ion-checkbox labelPlacement="end">Recordarme</ion-checkbox>
-      <a class="recordarme" (click)="goToPasswordRecovery()">Olvidaste tu contraseña?</a>
-    </div>
-
-    <ion-button class="button-round" expand="full" (click)="submitLogin()">Entrar</ion-button>
+    <form (submit)="submitLogin()">
+      <ion-item class="ion-item-inputs">
+        <ion-input class="a" type="text" label="Nombre de Ususario" labelPlacement="floating"
+        placeholder ="Nombre de Usuario" [(ngModel)]="username" aria-required="true" name="username"></ion-input>
+      </ion-item>
+    
+      <ion-item class="ion-item-inputs">
+        <ion-input type="{{ showPassword ? 'text' : 'password' }}" label="Contraseña" labelPlacement="floating"
+          placeholder="Contraseña" [(ngModel)]="password" aria-required="true" name="password"></ion-input>
+        <ion-icon [name]="showPassword ? 'eye-off-sharp' : 'eye-sharp'" slot="end"
+          (click)="togglePasswordVisibility()"></ion-icon>
+      </ion-item>
+    
+      <div class="div-chk_recordarme">
+        <ion-checkbox labelPlacement="end">Recordarme</ion-checkbox>
+        <a class="recordarme" (click)="goToPasswordRecovery()">Olvidaste tu contraseña?</a>
+      </div>
+    
+      <ion-button class="button-round" expand="full" type="submit">Entrar</ion-button>
+    </form>
+    
 
     <div class="space-register">
       <hr class="divider divider1">
