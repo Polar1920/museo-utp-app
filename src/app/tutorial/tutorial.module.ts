@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { TutorialPageRoutingModule } from './tutorial-routing.module';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { TutorialPage } from './tutorial.page';
 
@@ -15,6 +16,7 @@ import { TutorialPage } from './tutorial.page';
     IonicModule,
     TutorialPageRoutingModule
   ],
-  declarations: [TutorialPage]
+  declarations: [TutorialPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TutorialPageModule {}
