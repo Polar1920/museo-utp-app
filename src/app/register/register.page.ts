@@ -63,11 +63,14 @@ export class RegisterPage implements OnInit {
       (response) => {
         // Manejar la respuesta del servidor en caso de éxito
         console.log('Registro exitoso:', response);
+        alert('Registro exitoso.');
+        this.goToLogin();
         // Redirigir al usuario a la página de inicio de sesión
       },
       (error) => {
         // Manejar cualquier error que se produzca
         console.log('Error en el registro:', error);
+        alert('Error en el registro.');
       }
     );
   }
