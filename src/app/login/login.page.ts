@@ -28,11 +28,14 @@ export class LoginPage {
         (response) => {
           // Manejar la respuesta del servidor en caso de éxito
           console.log('Login exitoso:', response);
+          alert('Login exitoso.');
+          this.router.navigate(['/tabs']);
           // Redirigir al usuario a la página de inicio de sesión
         },
         (error) => {
           // Manejar cualquier error que se produzca
           console.log('Error en el Login:', error);
+          alert('Error en el Login.');
         }
       );
     }
