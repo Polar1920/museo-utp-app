@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-icon name="close-sharp" (click)="regresar()"></ion-icon>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="div-information">
+    <ion-icon name="information-circle-outline"></ion-icon>
+    <h1>Informacion</h1>
+  </div>
+  <hr class="divider">
+
+  <div class="div-page-diferent" (click)="goToTutorial()">
+    <div>
+      <ion-icon name="information-sharp"></ion-icon>
+      <h2>Tutorial de la app</h2>
+    </div>
+    <ion-icon name="chevron-forward-sharp" class="icon-intro"></ion-icon>
+  </div>
+
+  <div class="div-page-diferent" (click)="goToProyecto()">
+    <div>
+      <ion-icon name="help-sharp"></ion-icon>
+      <h2>Sobre el proyecto</h2>
+    </div>    
+    <ion-icon name="chevron-forward-sharp" class="icon-intro"></ion-icon>
+  </div>
+
+  <div class="div-page-diferent" (click)="goToIntegrantes()">
+    <div>
+      <ion-icon name="people-sharp"></ion-icon>
+      <h2>Integrantes del equipo</h2>
+    </div>    
+    <ion-icon name="chevron-forward-sharp" class="icon-intro"></ion-icon>
+  </div>
+
+  
+</ion-content>

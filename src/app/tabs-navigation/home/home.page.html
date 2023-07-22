@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <img src="../../assets/img/buho-logo.svg" />
+  <h1>Titi</h1>
+  <ion-icon name="information-circle-outline" (click)="viewInformation()"></ion-icon>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h2>Hola!</h2>
+  <h1>Bienvenido al museo Tecnología en el tiempo</h1>
+  
+  <div class="div-categorias">
+    <ion-segment [scrollable]="true" value="categorias">
+      <ion-segment-button value="storage">
+        <ion-button size="small">Almacenamiento</ion-button>
+      </ion-segment-button>
+      <ion-segment-button value="OS">
+        <ion-button size="small">Sistemas operativos</ion-button>
+      </ion-segment-button>
+      <ion-segment-button value="cpu">
+        <ion-button size="small">CPU</ion-button>
+      </ion-segment-button>
+      <ion-segment-button value="software">
+        <ion-button size="small">Software</ion-button>
+      </ion-segment-button>
+      <ion-segment-button value="videogame">
+        <ion-button size="small">Videojuegos</ion-button>
+      </ion-segment-button>
+      <ion-segment-button value="retro">
+        <ion-button size="small">Retro</ion-button>
+      </ion-segment-button>
+      <ion-segment-button value="pc">
+        <ion-button size="small">Computadoras</ion-button>
+      </ion-segment-button>
+      <ion-segment-button value="mobile">
+        <ion-button size="small">Teléfonos</ion-button>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div>
+    <ion-img src="../../assets/img/iPhone.jpeg" (click)="viewArticle()"></ion-img>    
+  </div>
+  
+
+</ion-content>

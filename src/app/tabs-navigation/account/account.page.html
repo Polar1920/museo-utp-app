@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <div class="div-info">
+        <img src="/assets/img/foto_perfil.png">
+        <div class="div-info-datos">
+            <h1>Juan Zamora</h1>
+            <h2>8-987-2235</h2>
+            <h3>Docente</h3>
+        </div>
+        <ion-icon name="create-outline" (click)="goToEditAccount()"></ion-icon>
+    </div>
+
+    <div class="div-contra">
+        <ion-icon name="lock-closed"></ion-icon>
+        <ion-label>meg******54f</ion-label>
+    </div>
+    <div class="div-phone">
+        <ion-icon name="call-sharp"></ion-icon>
+        <ion-label>+507 6307-3241</ion-label>
+    </div>
+
+    <hr class="divider">
+
+    <ion-label class="lbl">Correo</ion-label>
+    <p class="p">juan.zamora@upt.ac.pa</p>
+    
+    <ion-label class="lbl">Facultad</ion-label>
+    <p class="p">Ingeniería de Sistemas Computacionales</p>
+
+    <ion-label class="lbl">Carrera</ion-label>
+    <p class="p">Licenciatura en Desarrollo de Software</p>
+
+    <hr class="divider">
+
+    <div class="cerrar" (click)="cerrarSesion()">
+        <ion-icon name="exit-outline"></ion-icon>
+        <ion-label>Cerrar sesión</ion-label>
+    </div>
+</ion-content>

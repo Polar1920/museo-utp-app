@@ -1,0 +1,25 @@
+ion-icon {
+    font-size: 45px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+  
+.div-information {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    margin-top: 55px;
+}
+
+.div-information h1 {
+    font-family: 'Jomolhari-Regular';
+    font-size: 26px;
+}
+
+.divider {    
+    height: 1px;
+    border-top: 2px solid var(--ion-color-dorado);
+    margin-top: 15px;
+    margin-left: 19%;
+    width: 81%;
+}
