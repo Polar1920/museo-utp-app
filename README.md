@@ -29,3 +29,6 @@ https://www.figma.com/file/5aPtaQ1VVf1tjEK29omzzV/Museo?type=design&node-id=0%3A
 ### Para cambiar el icono y el nombre de la app
 - android:icon="@drawable/logo_icon"
 - android:label="@string/app_name"
+
+### Fixes
+-Error gradle al compilar para android: cambiar barcodescanner.gradle de compile a implementation
