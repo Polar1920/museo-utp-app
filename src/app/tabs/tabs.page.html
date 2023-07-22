@@ -12,10 +12,16 @@
       <ion-label class="custom-label" *ngIf="selectedTab === 'search'">Search</ion-label>
     </ion-tab-button>
 
+    <ion-tab-button (click)="scan()" [class.custom-selected-tab]="selectedTab === 'qr'" class="custom-tab-button">
+      <ion-icon name="qr-code-sharp"></ion-icon>
+      <ion-label class="custom-label">QR</ion-label>
+    </ion-tab-button>
+    <!--
     <ion-tab-button tab="qr" [class.custom-selected-tab]="selectedTab === 'qr'" class="custom-tab-button">
       <ion-icon name="qr-code-sharp"></ion-icon>
       <ion-label class="custom-label" *ngIf="selectedTab === 'qr'">QR</ion-label>
     </ion-tab-button>
+    -->
 
     <ion-tab-button tab="timeline" [class.custom-selected-tab]="selectedTab === 'timeline'" class="custom-tab-button">
       <ion-icon name="time-sharp"></ion-icon>
