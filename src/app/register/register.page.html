@@ -4,45 +4,64 @@
 
 <ion-content [fullscreen]="true">
 
-<div class="container">
+  <div class="container">
 
-  <div class="div-imagen">
-    <img src="../../assets/img/buho-logo.svg"/> 
-  </div>  
+    <div class="div-imagen">
+      <img src="../../assets/img/buho-logo.svg" />
+    </div>
 
-  <h1>Registro</h1>
-  
-  <ion-item class="ion-item-inputs">
-    <ion-input class="a" type="text" label="Nombre" labelPlacement="floating" placeholder="Nombre" [(ngModel)]="name"></ion-input>
-  </ion-item>
+    <h1>Registro</h1>
+    
+    <form (submit)="submitRegister()">
+      <ion-item class="ion-item-inputs">
+        <ion-input class="a" type="text" label="Nombre de Usuario" labelPlacement="floating" placeholder="Nombre de Usuario"
+          [(ngModel)]="username" name="username"></ion-input>
+      </ion-item>
 
-  <ion-item class="ion-item-inputs">
-    <ion-input class="a" type="text" label="Apellido" labelPlacement="floating" placeholder="Apellido" [(ngModel)]="lastName"></ion-input>
-  </ion-item>
-  
-  <ion-list>
-    <ion-item class="ion-item-inputs">
-      <ion-select interface="popover" class="a" type="text" label="Facultad" labelPlacement="floating" placeholder="Escoga su facultad" [(ngModel)]="selectedFacultad">
-        <ion-select-option value="1">Ciencias y Tecnología</ion-select-option>
-        <ion-select-option value="2">Ingeniería Civil</ion-select-option>
-        <ion-select-option value="3">Ingeniería Eléctrica</ion-select-option>
-        <ion-select-option value="4">Ingeniería Industrial</ion-select-option>
-        <ion-select-option value="5">Ingeniería Mecánica</ion-select-option>
-        <ion-select-option value="6">Ingeniería de Sistemas Computacionales</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
-  
-  <ion-list>
-    <ion-item class="ion-item-inputs">
-      <ion-select interface="popover" class="ion-valid" type="text" label="Carrera" labelPlacement="floating" placeholder="Escoga su carrera" [(ngModel)]="selectedCarrera">
-        <ion-select-option value="1">Licenciatura</ion-select-option>
-        <ion-select-option value="2">Ingeniería</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+      <ion-item class="ion-item-inputs">
+        <ion-input class="a" type="text" label="Nombre" labelPlacement="floating" placeholder="Nombre"
+          [(ngModel)]="name" name="name"></ion-input>
+      </ion-item>
 
-  <!-- <ion-item>
+      <ion-item class="ion-item-inputs">
+        <ion-input class="a" type="text" label="Apellido" labelPlacement="floating" placeholder="Apellido"
+          [(ngModel)]="lastName" name="lastName"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-item-inputs">
+        <ion-input class="a" type="text" label="Cedula" labelPlacement="floating" placeholder="Cedula"
+          [(ngModel)]="cedula" name="cedula"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-item-inputs">
+        <ion-input class="a" type="number" label="Nivel" labelPlacement="floating" placeholder="Nivel"
+          [(ngModel)]="level" name="level"></ion-input>
+      </ion-item>
+
+      <ion-list>
+        <ion-item class="ion-item-inputs">
+          <ion-select interface="popover" class="a" type="text" label="Facultad" labelPlacement="floating"
+            placeholder="Escoga su facultad" [(ngModel)]="selectedFacultad" name="selectedFacultad">
+            <ion-select-option value="1">Facultad de Ingeniería de Sistemas Computacionales</ion-select-option>
+            <ion-select-option value="2">Facultad de Ciencias y Tecnología</ion-select-option>
+            <ion-select-option value="3">Facultad de Ingeniería Civil</ion-select-option>
+            <ion-select-option value="4">Facultad de Ingeniería Eléctrica</ion-select-option>
+            <ion-select-option value="5">Facultad de Ingeniería Industrial</ion-select-option>
+            <ion-select-option value="6">Facultad de Ingeniería Mecánica</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item class="ion-item-inputs">
+          <ion-select interface="popover" class="ion-valid" type="text" label="Carrera" labelPlacement="floating"
+            placeholder="Escoga su carrera" [(ngModel)]="selectedCarrera" name="selectedCarrera">
+            <ion-select-option value="1">Licenciatura en Desarrollo y Gestión de Software</ion-select-option>
+            <ion-select-option value="2">Licenciatura en Ingeniería de Sistemas de Información Gerencial</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <!-- <ion-item>
     <ion-label position="floating">Carrera</ion-label>
     <ion-select placeholder="Carrera" [(ngModel)]="selectedCarrera">
       <ion-select-option value="opcion1">Opción 1</ion-select-option>
@@ -50,30 +69,46 @@
       <ion-select-option value="opcion3">Opción 3</ion-select-option>
     </ion-select>
   </ion-item> -->
-  
-  <ion-item class="ion-item-inputs">
-    <ion-input type="{{ showPassword ? 'text' : 'password' }}" label="Contraseña" labelPlacement="floating" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
-    <ion-icon [name]="showPassword ? 'eye-off-sharp' : 'eye-sharp'" slot="end" (click)="togglePasswordVisibility()"></ion-icon>
-  </ion-item> 
 
-  <ion-item class="ion-item-inputs">
-    <ion-input type="{{ showPassword2 ? 'text' : 'password' }}" label="Repetir contraseña" labelPlacement="floating" placeholder="Repetir contraseña" [(ngModel)]="passwordRepet"></ion-input>
-    <ion-icon [name]="showPassword2 ? 'eye-off-sharp' : 'eye-sharp'" slot="end" (click)="togglePasswordVisibility2()"></ion-icon>
-  </ion-item> 
-  
-  <ion-button class="button-round" expand="full" (click)="submitRegister()">Registrarme</ion-button>
-  
-  <div class="space-login">
-    <hr class="divider divider1">
-    <div class="div-no_reg">
-      <a (click)="goToLogin()">Ya tienes cuenta? <span class="spn_reg">INICIA SESIÓN</span></a>
+        <!-- <ion-item>   este es de fotos 
+    <ion-label position="floating">Carrera</ion-label>
+    <ion-select placeholder="Carrera" [(ngModel)]="selectedCarrera">
+      <ion-select-option value="opcion1">Opción 1</ion-select-option>
+      <ion-select-option value="opcion2">Opción 2</ion-select-option>
+      <ion-select-option value="opcion3">Opción 3</ion-select-option>
+    </ion-select>
+  </ion-item> -->
+
+      <ion-item class="ion-item-inputs">
+        <ion-input type="{{ showPassword ? 'text' : 'password' }}" label="Contraseña" labelPlacement="floating"
+          placeholder="Contraseña" [(ngModel)]="password" name="password"></ion-input>
+        <ion-icon [name]="showPassword ? 'eye-off-sharp' : 'eye-sharp'" slot="end"
+          (click)="togglePasswordVisibility()"></ion-icon>
+      </ion-item>
+
+      <ion-item class="ion-item-inputs">
+        <ion-input type="{{ showPassword2 ? 'text' : 'password' }}" label="Repetir contraseña" labelPlacement="floating"
+          placeholder="Repetir contraseña" [(ngModel)]="passwordRepet" name="passwordRepet"></ion-input>
+        <ion-icon [name]="showPassword2 ? 'eye-off-sharp' : 'eye-sharp'" slot="end"
+          (click)="togglePasswordVisibility2()"></ion-icon>
+      </ion-item>
+
+      <ion-button class="button-round" expand="full" type="submit" >Registrarme</ion-button>
+
+    </form>
+
+
+    <div class="space-login">
+      <hr class="divider divider1">
+      <div class="div-no_reg">
+        <a (click)="goToLogin()">Ya tienes cuenta? <span class="spn_reg">INICIA SESIÓN</span></a>
+      </div>
+      <hr class="divider divider2">
     </div>
-    <hr class="divider divider2">
+
   </div>
 
-</div>
-
-<!-- <div class="nombre">
+  <!-- <div class="nombre">
   <h3>Museo<br>Tecnología en el tiempo</h3>
 </div> -->
 
