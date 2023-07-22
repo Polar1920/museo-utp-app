@@ -1,0 +1,255 @@
+ion-back-button {
+    --icon-font-size: 35px;
+    --icon-margin-top: 15px;
+}
+
+.contenedor {
+    position: absolute;
+    bottom: 0;
+    height: 80%;
+    background: var(--ion-color-blanco);
+    border-radius: 50px 50px 0 0;
+    -webkit-box-shadow: 0px -14px 16px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -14px 16px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px -14px 16px -2px rgba(0,0,0,0.75);
+}
+
+.div-info{
+    position: relative;
+    bottom: 100px;
+}
+
+.imagenes {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.imagenes img {
+    width: 50%;
+}
+
+.div-principio {
+    color: var(--ion-color-negro);
+    display: flex;
+    align-items: center;
+    font-family: 'Jomolhari-Regular';
+    font-size: 20px;
+    justify-content: space-around;
+}
+
+.div-principio div{
+    display: flex;
+    align-items: center;
+    padding-top: 11px;
+}
+
+.div-principio div p {
+    font-size: 17px;
+}
+
+.div-principio div ion-icon {
+    font-size: 20px;
+    margin-left: 3px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+}
+
+.divider hr {
+    height: 1px;
+    width: 59%;
+    border-top: 2px solid var(--ion-color-dorado);    
+    margin: 0;
+}
+
+.divider ion-icon {
+    color: var(--ion-color-dorado);
+    font-size: 32px;    
+    margin-left: 5px
+}
+
+.descripcion {
+    font-family: 'Inter-Bold';
+    color: var(--ion-color-negro);
+    font-size: 18px;
+    margin-inline: 10%;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    text-align: justify;
+}
+
+ion-button {
+    margin-inline: 20%;
+    --padding-top: 22px;
+    --padding-bottom: 22px;
+    --background: var(--ion-color-dorado);
+    --border-radius: 20px;  
+    margin-bottom: 18px;  
+}
+
+.div-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.div-btn ion-icon {
+    color: var(--ion-color-negro);
+    font-size: 25px;
+}
+
+.div-btn span {
+    color: black;
+    font-size: 16px;
+    font-family: 'inter-regular';
+    text-transform: none; 
+    margin-left: 25px;
+}
+
+.hr-divider1 {    
+    border-top: 2px solid var(--ion-color-dorado);
+    position: absolute;
+    bottom: 0;    
+    width: 45%;    
+    margin-bottom: 50px;
+    right: 0;
+}
+
+.comentarios {
+    font-family: 'Jomolhari-Regular';
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: var(--ion-color-negro);
+    margin-bottom: 20px;
+}
+
+.hr-divider2{
+    border-top: 2px solid var(--ion-color-dorado);
+    position: absolute;
+    bottom: 0;    
+    width: 45%; 
+    margin-bottom: 10px;
+}
+
+ion-modal {
+    opacity: 0.99;
+}
+
+.ion-padding ion-label {
+    font-family: 'inter-regular';
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.divider1 {       
+    border-top: 1px solid var(--ion-color-dorado);
+    margin: 20px 15px;
+}
+
+.list-md {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background: transparent;
+}
+
+.container { 
+    margin-bottom: 15px;
+    --background: transparent; 
+}
+
+.info {
+    width: 99%;
+}
+
+ion-label.nomHora.sc-ion-label-md-h.sc-ion-label-md-s.md.hydrated {
+    margin: 0px;
+    justify-content: start;
+}
+
+.nombre{
+    font-family: 'inter-regular';
+    font-size: 12px;
+}
+
+.hora {
+    margin-left: 10px;
+    font-family: 'inter-regular';
+    font-size: 10px;
+    opacity: 0.4;
+}
+
+.comments {
+    margin: 0;
+}
+
+.no-comentarios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    font-size: 20px;    
+  }
+
+ion-footer {
+    display: grid;
+    grid-template-columns: 16% 74% 10%;
+}
+
+ion-footer ion-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-footer {
+    width: 70%;
+    height: 70%;
+}
+
+ion-footer ion-input {
+    font-size: 18px;
+}
+
+.ion-valid.sc-ion-input-md-h {
+    --highlight-color: var(--ion-color-dorado);
+}
+
+.input-wrapper.sc-ion-input-md input.sc-ion-input-md {
+    padding-inline: 8px;
+}
+
+ion-footer ion-icon {
+    width: 70%;
+    height: auto;
+}
+
+ion-icon.disabled {
+    opacity: 0.5; /* Ajusta la opacidad o agrega otros estilos para desactivar visualmente el ícono */
+    pointer-events: none; /* Opcional: deshabilita los eventos de clic en el ícono */
+  }
+  
+  @media (max-height: 843px) {
+    .div-principio {
+        font-size: 26px;
+    }    
+
+    .div-principio div p {
+        font-size: 15px;
+    }
+
+    .descripcion {
+        font-family: 'Inter-Bold';
+        color: var(--ion-color-negro);
+        font-size: 14px;
+        margin-inline: 10%;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+  }

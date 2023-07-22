@@ -1,0 +1,120 @@
+
+.div-info {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.div-info img {
+    width: 30%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.div-info-datos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.div-info-datos h1 {
+    font-family: 'Inter-SemiBold';
+    margin: 0;
+    font-size: 25px;
+}
+
+.div-info-datos h2 {
+    font-family: 'Inter-Regular';
+    margin: 0;
+    font-size: 20px;
+}
+
+.div-info-datos h3 {
+    font-family: 'Inter-Regular';
+    margin: 0;
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.div-info ion-icon {
+    font-size: 30px;
+    color: var(--ion-color-dorado);
+    margin-top: 10px;
+}
+
+.div-contra {
+    display: flex;
+    margin-top: 20px;    
+    align-items: center;
+    margin-left: 40px;
+}
+
+.div-contra ion-icon {
+    font-size: 25px;
+    color: var(--ion-color-blanco);
+    opacity: 0.8;
+}
+
+.div-contra ion-label {
+    font-family: 'Inter-Regular';
+    color: var(--ion-color-blanco);
+    margin-left: 10px;
+    opacity: 0.8;
+}
+
+.div-phone {
+    display: flex;
+    margin-top: 10px;    
+    align-items: center;
+    margin-left: 40px;
+}
+
+.div-phone ion-icon {
+    font-size: 25px;
+    color: var(--ion-color-blanco);
+    opacity: 0.8;
+}
+
+.div-phone ion-label {
+    font-family: 'Inter-Regular';
+    color: var(--ion-color-blanco);
+    margin-left: 10px;
+    opacity: 0.8
+}
+
+.divider {          
+    border-top: 1px solid var(--ion-color-dorado);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.lbl {
+    margin: 0;
+    font-family: 'Inter-Medium';
+    margin-left: 15px;
+}
+
+.p {
+    margin: 0;
+    font-family: 'Inter-Regular';
+    margin-left: 35px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.cerrar {
+    display: flex;
+    align-items: center;
+    margin-left: 35px;
+}
+.cerrar ion-icon {
+    font-size: 30px;
+    color: var(--ion-color-dorado);
+}
+
+.cerrar ion-label {
+    font-size: 20px;
+    font-family: 'Inter-Regular';
+    color: var(--ion-color-blanco);
+    margin-left: 10px;
+}
