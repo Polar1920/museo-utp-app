@@ -2,6 +2,12 @@ ion-header {
     display: flex;
     justify-content: space-between;
     padding-top: 7px;
+    background: #121212;
+    
+    //agregados
+    position: sticky;
+    top: 0;
+    z-index: 9999;
 }
 
 .header-md {
@@ -53,7 +59,12 @@ ion-content h1 {
 .div-categorias{
     width: 100%;
     height: max-content;
-    margin-bottom: 10px;
+
+    //agregados - scroll wrap
+    position: sticky;
+    top: 0px;
+    background: #121212;
+    z-index: 9998;
 }
 
 ion-segment-button {
@@ -76,7 +87,94 @@ div {
     align-items: center;
 }
 
-ion-img {    
-    width: 50%;
-    height: auto;
-}
+
+#body-main-estructura {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 3px;
+    margin-right: 3px;
+    overflow: auto;
+  }
+  
+  ion-col {
+    width: 45vw;
+    height: 60vw; /* Altura relativa al 40% del ancho de la ventana gráfica (viewport) */
+    margin-left: 4px;
+    margin-right: 4px;
+    flex-basis: calc(40% - 10px); /* Tamaño de cada columna */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .nombre {
+    text-align: center;
+    padding: 1px; /* Agregamos un pequeño padding para que el texto no se corte alrededor del contenedor */
+  }
+  
+  .nombre h2 {
+    margin: 0;
+    font-family: 'Inter-SemiBold';
+    font-size: 12px;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el texto que se desborda del contenedor */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos (...) para indicar que hay más texto oculto */
+  }
+  
+  .miniatura-container {
+    width: 100%; /* El contenedor ocupará el 90% del ancho del ion-col */
+    height: 90%; /* La altura se ajustará automáticamente para mantener la proporción */
+    display: flex;
+    align-items: center; /* Centra verticalmente la imagen */
+    justify-content: center; /* Centra horizontalmente la imagen */
+    overflow: hidden; /* Oculta cualquier contenido que desborde el contenedor */
+    border-radius: 15px; /* Aplica los bordes redondeados al contenedor */
+    /* Agregar una ligera sombra */
+    box-shadow:  2px 2px 5px rgba(0, 0, 0, 23.9)
+  }
+  
+  .miniatura {
+    width: 100%; /* La imagen ocupará todo el ancho del contenedor */
+    height: 100%; /* La altura ocupará todo el alto del contenedor */
+    object-fit: cover; /* La imagen se ajustará manteniendo su relación de aspecto y cubriendo todo el contenedor */
+    display: block; /* Elimina el espacio en blanco debajo de la imagen */
+  }
+
+  .pie {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pie p {
+    margin: 0;
+    font-family: 'Inter-Regular';
+    font-size: 10px;
+    margin-left: 2px;
+  }
+
+  .pie ion-icon {
+    width: 10px;
+  }
+
+  .contador-visitas, .contador-comentarios {
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+  }
+
+  .contador-visitas {
+    justify-content: start;
+    margin-left: 3px;
+  }
+
+  .contador-comentarios {
+    justify-content: end;
+    margin-right: 3px;
+  }
+
+
+  
+  
+  
