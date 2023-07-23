@@ -98,18 +98,24 @@ div {
   
   ion-col {
     width: 45vw;
-    height: 60vw; /* Altura relativa al 40% del ancho de la ventana gráfica (viewport) */
+    height: 60vw; 
     margin-left: 4px;
     margin-right: 4px;
-    flex-basis: calc(40% - 10px); /* Tamaño de cada columna */
+    flex-basis: calc(40% - 10px); 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+
+  ion-col:active, ion-col:hover {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    background-color: #333; /* Color oscuro de fondo al pulsar o al pasar el mouse */
+    transform: scale(0.98); /* Ligero zoom al pulsar o al pasar el mouse */
+  }
   
   .nombre {
     text-align: center;
-    padding: 1px; /* Agregamos un pequeño padding para que el texto no se corte alrededor del contenedor */
+    padding: 1px; 
   }
   
   .nombre h2 {
@@ -122,22 +128,21 @@ div {
   }
   
   .miniatura-container {
-    width: 100%; /* El contenedor ocupará el 90% del ancho del ion-col */
-    height: 90%; /* La altura se ajustará automáticamente para mantener la proporción */
+    width: 100%; 
+    height: 90%; 
     display: flex;
-    align-items: center; /* Centra verticalmente la imagen */
-    justify-content: center; /* Centra horizontalmente la imagen */
-    overflow: hidden; /* Oculta cualquier contenido que desborde el contenedor */
-    border-radius: 15px; /* Aplica los bordes redondeados al contenedor */
-    /* Agregar una ligera sombra */
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden; 
+    border-radius: 15px; 
     box-shadow:  2px 2px 5px rgba(0, 0, 0, 23.9)
   }
   
   .miniatura {
-    width: 100%; /* La imagen ocupará todo el ancho del contenedor */
-    height: 100%; /* La altura ocupará todo el alto del contenedor */
-    object-fit: cover; /* La imagen se ajustará manteniendo su relación de aspecto y cubriendo todo el contenedor */
-    display: block; /* Elimina el espacio en blanco debajo de la imagen */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
   }
 
   .pie {
