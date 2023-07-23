@@ -1,83 +1,129 @@
-<ion-header [translucent]="true" collapse="fade">
-</ion-header>
+<ion-header [translucent]="true" collapse="fade"></ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="div-information">
-    <ion-icon name="chevron-back-sharp" (click)="regresar()"></ion-icon>
-    <h1>Tutorial</h1>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-  </div>
-  <swiper-container navigation="true">
-    <swiper-slide>
-        <ion-content class="ion-padding" [fullscreen]="true">
-        <h1>Sobre La Navegación en la APP</h1>
-        <ion-img class="video" src="\assets\img\TUTORIAL1GIF.gif"></ion-img>
-        <ion-card>
-          <ion-card-content>1. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>2. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>3. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>4. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>5. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-        </ion-card>
-        </ion-content>
-    </swiper-slide>
+<div class="div-information">
+  <ion-icon name="chevron-back-sharp" (click)="regresar()"></ion-icon>
+  <h1>Tutorial</h1>
+  <script
+    src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+</div>
 
+<swiper-container>
+  <swiper-slide>
+    <h1>Sobre navegar en la APP</h1>
+    <ion-content [fullscreen]="true" force-overscroll="false">
+      <ion-card>
+        <ion-card-content class="card-title"><h2>Pestañas</h2></ion-card-content>
+        <ion-img class="video" src="/assets/img/tabbar_gif.gif"></ion-img>
+        <p>
+          Ofrece una navegación simple basada en pestañas que están contenidas
+          en la parte inferior de la pantalla.
+        </p>
+        <ion-card-content class="card-title"><h2>Fácil acceso al contenido</h2></ion-card-content>
+        <ion-img class="video" src="/assets/img/TUTORIAL1GIF.gif"></ion-img>
+        <p>
+          Al seleccionar una de las pestañas,<br>
+          se muestra contenido y funcionalidades correspondientes.
+        </p>
+      </ion-card>
+    </ion-content>
+    <div class="arrow">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </swiper-slide>
 
-    <swiper-slide>
-      <ion-content class="ion-padding" [fullscreen]="true">
-      <h1>Sobre la busqueda de Artículos</h1>
-        <ion-img class="video" src="\assets\img\TUTORIAL1GIF.gif"></ion-img>
-        <ion-card>
-          <ion-card-content>1. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>2. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>3. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>4. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>5. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-        </ion-card>
-        </ion-content>
-    </swiper-slide>
+  <swiper-slide>
+    <h1>Sobre la búsqueda de Artículos</h1>
+    <ion-content [fullscreen]="true" force-overscroll="false">
+      <ion-card>
+        <ion-card-content class="card-title"><h2>Buscar</h2></ion-card-content>
+        <ion-img class="video" src="/assets/img/tabbar_gif.gif"></ion-img>
+        <p>
+          Presiona la segunda pestaña y podrás buscar un artículo de tu interés.
+        </p>
+        <ion-card-content class="card-title"><h2>Si te interesa conocer más de
+            un artículo.</h2></ion-card-content>
+        <ion-img class="video" src="/assets/img/TUTORIAL1GIF.gif"></ion-img>
+        <p>
+          Presiona el buscador e ingresa el nombre del artículo del que quieras
+          conocer más información.
+        </p>
+      </ion-card>
+    </ion-content>
+    <div class="arrow">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </swiper-slide>
 
-    <swiper-slide>
-      <ion-content class="ion-padding" [fullscreen]="true">
-        <h1>Sobre scanner de códigos QR de artículos</h1>
-          <ion-img class="video" src="\assets\img\TUTORIAL1GIF.gif"></ion-img>
-            <ion-card>
-              <ion-card-content>1. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-              <ion-card-content>2. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-              <ion-card-content>3. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-              <ion-card-content>4. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-              <ion-card-content>5. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          </ion-card>
-      </ion-content>
-    </swiper-slide>
+  <swiper-slide>
+    <h1>Cómo usar el Scanner de códigos QR</h1>
+    <ion-content [fullscreen]="true" force-overscroll="false">
+      <ion-card>
+        <ion-card-content class="card-title"><h2>Scanner QR</h2></ion-card-content>
+        <ion-img class="video" src="/assets/img/tabbar_gif.gif"></ion-img>
+        <p>
+          En los artículos del museo podrás encontrar un código QR que podrás
+          escanear con tu teléfono.
+        </p>
+        <ion-card-content class="card-title"><h2>Recuerda otorgar permisos de
+            ser necesario.</h2></ion-card-content>
+        <ion-img class="video" src="/assets/img/TUTORIAL1GIF.gif"></ion-img>
+        <p>
+          Presiona la pestaña del medio y podrás activar tu cámara. Ahora, solo
+          enfoca el código QR del artículo y recibirás la información de este.
+        </p>
+      </ion-card>
+    </ion-content>
+    <div class="arrow">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </swiper-slide>
 
-    <swiper-slide>
-      <ion-content class="ion-padding" [fullscreen]="true">
-      <h1>Sobre la linea de tiempo de artículos</h1>
-        <ion-img class="video" src="\assets\img\TUTORIAL1GIF.gif"></ion-img>
-        <ion-card>
-          <ion-card-content>1. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>2. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>3. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>4. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>5. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-        </ion-card>
-        </ion-content>
-    </swiper-slide>
+  <swiper-slide>
+    <h1>Cómo utilizar la línea de tiempo</h1>
+    <ion-content [fullscreen]="true" force-overscroll="false">
+      <ion-card>
+        <ion-card-content class="card-title"><h2>Línea de tiempo</h2></ion-card-content>
+        <ion-img class="video" src="/assets/img/tabbar_gif.gif"></ion-img>
+        <p>
+          En la línea de tiempo podrás ver cronológicamente cada artículo.
+        </p>
+        <ion-card-content class="card-title"><h2>Desplaza a los lados para ver
+            los artículos.</h2></ion-card-content>
+        <ion-img class="video" src="/assets/img/TUTORIAL1GIF.gif"></ion-img>
+      </ion-card>
+    </ion-content>
+    <div class="arrow">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </swiper-slide>
 
-    <swiper-slide>
-      <ion-content class="ion-padding" [fullscreen]="true">
-      <h1>Sobre la gestión de perfil</h1>
-        <ion-img class="video" src="\assets\img\TUTORIAL1GIF.gif"></ion-img>
-        <ion-card>
-          <ion-card-content>1. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>2. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>3. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>4. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-          <ion-card-content>5. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</ion-card-content>
-        </ion-card>
-        </ion-content>
-    </swiper-slide>
-  </swiper-container>
-  <hr class="divider">
-</ion-content>
+  <swiper-slide>
+    <h1>Gestión de Perfil</h1>
+    <ion-content [fullscreen]="true" force-overscroll="false">
+      <ion-card>
+        <ion-card-content class="card-title"><h2>Cuenta</h2></ion-card-content>
+        <ion-img class="video" src="/assets/img/tabbar_gif.gif"></ion-img>
+        <p>
+          En la pestaña de perfil podrás verificar y actualizar tu información
+          personal, cambiar tu foto de perfil y cerrar sesión.
+        </p>
+        <ion-card-content class="card-title"><h2>Presiona el botón de "Editar"
+            si quieres editar tus datos personales.</h2></ion-card-content>
+        <ion-img class="video" src="/assets/img/TUTORIAL1GIF.gif"></ion-img>
+        <ion-card-content class="card-title"><h2>Ahora selecciona y escribe en
+            el campo que quieras editar,<br>No te olvides de confirmar las
+            modificaciones.</h2></ion-card-content>
+        <ion-img class="video" src="/assets/img/TUTORIAL1GIF.gif"></ion-img>
+      </ion-card>
+    </ion-content>
+  </swiper-slide>
+</swiper-container>
+<hr class="divider">
