@@ -25,8 +25,8 @@
       </ion-item>
     
       <div class="div-chk_recordarme">
-        <ion-checkbox labelPlacement="end">Recordarme</ion-checkbox>
-        <a class="recordarme" (click)="goToPasswordRecovery()">Olvidaste tu contraseña?</a>
+        <ion-checkbox labelPlacement="end" name="recordarme" [(ngModel)]="rememberChecked" (ionChange)="checkBoxChanged($event)" [checked]="rememberChecked">Recordarme</ion-checkbox>
+        <a class="recordarme" name="" (click)="goToPasswordRecovery()">Olvidaste tu contraseña?</a>
       </div>
     
       <ion-button class="button-round" expand="full" type="submit">Entrar</ion-button>
