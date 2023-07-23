@@ -9,9 +9,11 @@ import { NavController } from '@ionic/angular';
 })
 export class AccountEditPage implements OnInit {
 
-  name: string = 'Juan Zamora';
+  name: string = 'Juan';
+  apellido: string = 'Zamora';
   cedula: string = '8-987-2235';
   isNameEditing: boolean = false;
+  isApellidoEditing: boolean = false;
   isCedulaEditing: boolean = false;
 
   constructor(private router: Router, private navCtrl: NavController) { }
@@ -31,8 +33,17 @@ export class AccountEditPage implements OnInit {
     this.isNameEditing = false;
   }
 
+  cancelApellidoEditing() {
+    this.isNameEditing = false;
+  }
+
   saveName() {
     this.isNameEditing = false;
+    // Aquí podrías guardar el nombre editado en una base de datos o hacer cualquier otra acción necesaria.
+  }
+
+  saveApellido() {
+    this.isApellidoEditing = false;
     // Aquí podrías guardar el nombre editado en una base de datos o hacer cualquier otra acción necesaria.
   }
 
