@@ -23,3 +23,37 @@ ion-icon {
     margin-left: 19%;
     width: 81%;
 }
+
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  
+    .card {
+      display: inline-block;
+    }
+  }
+
+  ion-button[shape=circle] {
+    --border-radius: 50%;
+    width: 56px;
+    height: 56px;
+}
+
+.foto_fondo{
+    background: black;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.foto{
+    background-color: white;
+    height: 400px;
+    width: 300px;
+    border-radius: 20px;
+}
+    

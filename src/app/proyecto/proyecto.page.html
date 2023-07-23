@@ -1,10 +1,41 @@
 <ion-header [translucent]="true">
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color="light">
   <div class="div-information">
     <ion-icon name="chevron-back-sharp" (click)="regresar()"></ion-icon>
     <h1>Proyecto</h1>
   </div>
   <hr class="divider">
+
+
+  <ion-accordion-group [multiple]="true" [value]="['first']">
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Info Uno</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-img src="/assets/img/ejemplo.png" ></ion-img>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo suscipit quo unde quisquam doloribus architecto aperiam qui quaerat fugiat.
+      </div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Info Dos</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-img src="/assets/img/ejemplo.png" ></ion-img>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo suscipit quo unde quisquam doloribus architecto aperiam qui quaerat fugiat.
+      </div>
+    </ion-accordion>
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Info Tres</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-img src="/assets/img/ejemplo.png" ></ion-img>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo suscipit quo unde quisquam doloribus architecto aperiam qui quaerat fugiat.
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>
