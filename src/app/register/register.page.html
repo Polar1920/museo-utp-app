@@ -48,7 +48,7 @@
             <ion-select-option value="4">Facultad de Ingeniería Eléctrica</ion-select-option>
             <ion-select-option value="5">Facultad de Ingeniería Industrial</ion-select-option>
             <ion-select-option value="6">Facultad de Ingeniería Mecánica</ion-select-option>-->
-            <ion-select-option *ngFor="let facultad of facultades" [value]="facultad.id_facultad">{{ facultad.nombre }}</ion-select-option>
+            <ion-select-option *ngFor="let facultad of facultades" [value]="facultad.id">{{ facultad.nombre }}</ion-select-option>
 
           </ion-select>
         </ion-item>
