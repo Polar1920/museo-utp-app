@@ -3,55 +3,19 @@ ion-icon {
   margin-top: 10px;
   margin-right: 10px;
 }
-
-ion-header {
-  position: fixed;
-}
-
-swiper-slide h1 {
-  font-family: "Inter-SemiBold";
-  font-size: 25px;
-  text-align: center;
-  margin-bottom: 0;
-  padding-bottom: 20px;
-}
-
-ion-content {
-  overflow: scroll;
-}
-
-swiper-slide h2 {
-  font-family: "Kameron-Regular";
-  font-size: 30px;
-  text-align: center;
-}
-
-swiper-slide p {
-  font-family: "Inter-Regular";
-  font-size: 20px;
-  margin: 20px;
-  text-align: justify;
-}
-
-ion-content {
-  --offset-bottom: auto !important;
-  --overflow: hidden;
-  overflow: auto;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+ion-accordion-group {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .div-information {
+  font-family: "Jomolhari-Regular";
+  font-size: 26px;
+  position: sticky;
   display: flex;
   align-items: center;
   margin-left: 20px;
-  margin-top: 55px;
-}
-
-.div-information h1 {
-  font-family: "Jomolhari-Regular";
-  font-size: 26px;
+  margin-top: 10px;
 }
 
 .divider {
@@ -61,149 +25,46 @@ ion-content {
   margin-left: 19%;
   width: 81%;
 }
-
-swiper-container {
-  width: 100%;
-  height: 100%;
-  padding: 2%;
-  stroke: green;
+ion-accordion div {
+  max-height: 100%; /* Establece la altura máxima deseada */
+  overflow-y: scroll; /* Agrega desplazamiento vertical cuando el contenido exceda la altura máxima */
 }
 
-ion-card {
-  margin-bottom: 5%;
-}
-
-.card-title {
-  padding: 3%;
-}
-
-swiper-slide h1 {
-  font-family: "Inter-SemiBold";
-  font-size: 20px;
-  font-style: normal;
-  padding: 0px;
-  text-align: center;
-  margin-bottom: 0;
-}
-
-swiper-slide ion-card-subtitle {
-  font-family: "Inter-Medium";
-  text-align: center;
-  margin-top: 0;
-  font-size: 15px;
-}
-
-swiper-slide img {
-  margin-top: 10px;
-  width: 75%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-}
-
-swiper-slide h3 {
+h2 {
   font-family: "Kameron-Regular";
   font-size: 20px;
   text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
-swiper-slide ion-card-subtitle {
+p {
   font-family: "Inter-Regular";
   font-size: 15px;
+  margin: 0;
+  padding: 5px;
   text-align: justify;
 }
 
+ion-accordion {
+  padding: 2px;
+}
+
 .video {
-  margin: 0px 0px 10px 0px;
-  padding: 3%;
+  margin: 0px 0px 0px 0px;
+  padding: 1%;
   height: 60%;
   width: 100%;
 }
 
-ion-card {
-  margin-bottom: 5%;
-  padding-bottom: 10%;
-}
-.arrow {
+.context {
+  width: 100%;
   position: absolute;
-  top: 50%;
-  right: 10px; /* Cambiamos "left" por "right" para moverlo hacia la derecha */
-  transform: translateY(-50%) rotate(90deg); /* Mantenemos la transformación para centrarlo verticalmente y rotarlo */
-  cursor: pointer;
+  top: 50vh;
 }
 
-/* El resto del CSS permanece sin cambios */
-.arrow span {
-  display: block;
-  width: 1.5vw;
-  height: 1.5vw;
-  border-bottom: 5px solid white;
-  border-right: 5px solid white;
-  transform: rotate(45deg);
-  margin: -10px;
-  animation: animate 2s infinite;
-}
-
-.arrow span:nth-child(2) {
-  animation-delay: -0.2s;
-}
-
-.arrow span:nth-child(3) {
-  animation-delay: -0.4s;
-}
-
-@keyframes animate {
-  0% {
-      opacity: 0;
-      transform: rotate(45deg) translate(-20px, -20px);
-  }
-  50% {
-      opacity: 1;
-  }
-  100% {
-      opacity: 0;
-      transform: rotate(45deg) translate(20px, 20px);
-  }
-}
-
-.inverted-arrow {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%) rotate(-90deg); /* Cambiamos el ángulo de rotación a -90 grados para invertirlo */
-  cursor: pointer;
-}
-
-.inverted-arrow span {
-  display: block;
-  width: 1.5vw;
-  height: 1.5vw;
-  border-top: 5px solid white; /* Cambiamos border-bottom a border-top */
-  border-left: 5px solid white; /* Cambiamos border-right a border-left */
-  transform: rotate(-45deg); /* Invertimos el ángulo de rotación a -45 grados */
-  margin: -10px;
-  animation: inverted-animate 2s infinite; /* Cambiamos el nombre de la animación a "inverted-animate" */
-}
-
-.inverted-arrow span:nth-child(2) {
-  animation-delay: -0.2s;
-}
-
-.inverted-arrow span:nth-child(3) {
-  animation-delay: -0.4s;
-}
-
-@keyframes inverted-animate { /* Creamos una nueva animación invertida */
-  0% {
-    opacity: 0;
-    transform: rotate(-45deg) translate(-20px, -20px); /* Invertimos el ángulo de rotación a -45 grados */
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: rotate(-45deg) translate(20px, 20px); /* Invertimos el ángulo de rotación a -45 grados */
-  }
+.context h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
 }
