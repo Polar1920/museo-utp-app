@@ -55,4 +55,12 @@ export class Data {
     return this.http.get(`${this.apiUrl}/facultades/all`);
   }
 
+  getArticuloID(id: string) {
+    return this.http.get(`${this.apiUrl}/articulos/`+id);
+  }
+
+  getArticuloQR(articulo: string) {
+    return this.http.get(`${articulo}`);
+  }
+
 }
