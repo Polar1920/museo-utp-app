@@ -21,6 +21,17 @@
           <ion-icon name="volume-high-outline"></ion-icon> 
         </div>
       </div>
-    </div>    
+    </div> 
+    <div class="contenedor-conversaciones"#conversacionesContainer >
+     
+    <div *ngFor="let mensaje of conversacion" class="mensaje" [class.emisor]="mensaje.emisor" [class.receptor]="!mensaje.emisor">
+      <p>{{ mensaje.mensaje }}</p>
+    </div>
+      
+    </div>
+    <div class="botones-container">
+      <ion-button shape="round" class="boton-salir" (click)="navegarAtras()">Salir</ion-button>
+      <ion-button shape="round" class="boton-continuar" [class.boton-desactivado]="!hayMensajesPorAgregar()" (click)="agregarMensaje()">Continuar</ion-button>
+    </div>
   </div>
 </ion-content>
