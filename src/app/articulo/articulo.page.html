@@ -6,21 +6,30 @@
 <div class="contenedor">
   <div class="div-info">
     <div class="imagenes">
-      <img src="../../assets/img/iPhone.jpeg"/>
+      <img src={{articulo.fotos[0].url}}/>
     </div>
     <div>
       <div class="div-principio">
-        <h1>iPhone 15 Ultra</h1>
+        <h1>{{ articulo.nombre }}</h1>
         <div>
           <p>341</p>
           <ion-icon name="eye-sharp"></ion-icon>
-        </div>        
-      </div>  
+        </div>
+      </div>
+      <!--
+        <div>
+          <ion-icon name="location-outline"></ion-icon>
+          <p>año: {{ articulo.ubicacion }}</p>
+        </div>
+      -->
+      
       <div class="divider">
         <hr>
-        <ion-icon name="volume-high-outline"></ion-icon> 
+        <p>{{ articulo.year }}</p>
       </div> 
-      <p class="descripcion">Macintosh, abreviado como Mac, es la línea de ordenadores personales diseñada, desarrollada y comercializada por Apple Inc. En sus inicios fue una alternativa económica y doméstica al Lisa, un avanzado microordenador empresarial, cuya línea de desarrollo fue absorbida por la línea Macintosh.</p>   
+      <p class="descripcion">
+        {{ articulo.descripcion }}
+      </p>   
 
       <ion-button class="button-round" expand="full" (click)="goToNarracion()">
         <div class="div-btn">
