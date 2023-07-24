@@ -14,7 +14,7 @@ export class NarrationPage implements OnInit {
     'Una de las cosas destacadas de las Macintosh es su interfaz gráfica fácil de usar.',
     '¡Eso es genial! Me encanta su diseño.',
   ];
-  mensajeActual: number = 0;
+  mensajeActual: number = 0; 
   @ViewChild('conversacionesContainer', { static: false })
   conversacionesContainer!: ElementRef;
 
@@ -63,7 +63,7 @@ export class NarrationPage implements OnInit {
     this.navCtrl.back();
   }
 
-  hayMensajesPorAgregar() {
-    return this.mensajeActual < this.mensajes.length;
-  }
+ hayMensajesPorAgregar() {
+  return this.mensajeActual < this.mensajes.length;
+}
 }
