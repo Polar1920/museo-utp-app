@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../data/data';
-import Navigation  from 'swiper';
+import Navigation from 'swiper';
 //import * as internal from 'stream';
 //import { environment } from 'src/environments/environment';
 //import { HttpClient } from '@angular/common/http';
@@ -40,7 +40,7 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
     this.obtenerCarreras();
     this.obtenerFacultades();
-    
+
   }
   obtenerCarreras() {
     this.data.getCarreras().subscribe(
@@ -65,8 +65,6 @@ export class RegisterPage implements OnInit {
       }
     );
   }
-
-
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
