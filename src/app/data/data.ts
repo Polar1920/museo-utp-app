@@ -56,6 +56,18 @@ export class Data {
     return this.http.get(`${this.apiUrl}/facultades/all`);
   }
 
+  getArticulosAll() {
+    return this.http.get(`${this.apiUrl}/articulos/all`);
+  }
+
+  getArticulosCat() {
+    return this.http.get(`${this.apiUrl}/categorias/all`);
+  }
+
+  getArticulosPorCategoria(categoria: string) {
+    return this.http.get(`${this.apiUrl}/articulos/all?categoria=${categoria}`);
+  }
+
   getArticuloID(id: string) {
     return this.http.get(`${this.apiUrl}/articulos/`+id);
   }
