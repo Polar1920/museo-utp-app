@@ -20,19 +20,19 @@ export class ArticuloPage implements OnInit {
 
   constructor(private router: Router, private data: Data) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.cargarArticulo();
+  }
+
+  async ionViewWillEnter() {
     this.cargarArticulo();
   }
 
-  ionViewWillEnter() {
+  async ionViewDidEnter() {
     this.cargarArticulo();
   }
 
-  ionViewDidEnter() {
-    this.cargarArticulo();
-  }
-
-  cargarArticulo() {
+  async cargarArticulo() {
     let articulo_id = localStorage.getItem('articulo_id');
 
     if(articulo_id != null){
@@ -40,10 +40,10 @@ export class ArticuloPage implements OnInit {
         (response) => {
           this.articulo = response;
           localStorage.setItem('articulo', this.articulo);
-          this.data.presentAlert('articulo obtenido de api', this.articulo);
+          //this.data.presentAlert('articulo obtenido de api', this.articulo);
         },
         (error) => {
-          this.data.presentAlert('Error al obtener articulo de api' , error);
+          //this.data.presentAlert('Error al obtener articulo de api' , error);
         }
       );
     }
@@ -72,12 +72,12 @@ export class ArticuloPage implements OnInit {
         "videos": [],
         "audios": []
       };
-      this.data.presentAlert("articulo en local", this.articulo.toString());
+      //this.data.presentAlert("articulo en local", this.articulo.toString());
     } else {
       console.log("existe");
-      this.data.presentAlert("articulo existe en api", articuloString);
+      //this.data.presentAlert("articulo existe en api", articuloString);
       this.articulo = articuloString;//localStorage.getItem('articulo');
-      this.data.presentAlert("objeto generado", this.articulo);
+      //this.data.presentAlert("objeto generado", this.articulo);
       
       if (this.articulo.fotos[0] == null) { this.articulo.fotos[0] = "../../assets/img/iPhone.jpeg" }
     }
