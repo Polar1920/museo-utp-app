@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class Data {
   apiUrl = 'https://ds6.glaciar.club/api';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private alertController: AlertController) { }
 
   getUsers() {
     return this.http.get(`${this.apiUrl}/usuarios/all`);
@@ -59,8 +60,38 @@ export class Data {
     return this.http.get(`${this.apiUrl}/articulos/`+id);
   }
 
-  getArticuloQR(articulo: string) {
+  getArticuloURL(articulo: string) {
     return this.http.get(`${articulo}`);
   }
 
+  getArticuloQR(articulo: string) {
+    return this.http.get(`${this.apiUrl}/`+articulo);
+  }
+
+  async presentAlert(header: string, message: string) {
+    const alert = await this.alertController.create({
+      header: header,
+      message: message,
+      buttons: ['Aceptar']
+    });
+
+    await alert.present();
+  }
+  
+  convertirObjeto(objeto: any) {
+    return {
+      "id": objeto.id,
+      "nombre": objeto.nombre,
+      "categoria": objeto.categoria,
+      "descripcion": objeto.descripcion,
+      "ubicacion": objeto.ubicacion,
+      "dueno": objeto.dueno,
+      "year": objeto.year,
+      "created_at": objeto.created_at,
+      "updated_at": objeto.updated_at,
+      "fotos": objeto.fotos,
+      "videos": objeto.videos,
+      "audios": objeto.audios,
+    };
+  }
 }
