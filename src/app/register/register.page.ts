@@ -39,7 +39,7 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
     this.obtenerCarreras();
     this.obtenerFacultades();
-    
+
   }
   obtenerCarreras() {
     this.data.getCarreras().subscribe(
@@ -51,8 +51,6 @@ export class RegisterPage implements OnInit {
         console.log('Error al obtener las carreras:', error);
       }
     );
-
-
   }
 
   obtenerFacultades() {
@@ -66,8 +64,6 @@ export class RegisterPage implements OnInit {
       }
     );
   }
-
-
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
