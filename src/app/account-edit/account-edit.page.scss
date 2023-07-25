@@ -48,9 +48,16 @@
 
 .div-div-info .p {
     margin: 0;
-    margin-top: 5px;
     font-family: 'Inter-Regular';
     font-size: 18px;
+}
+
+.sc-ion-input-md-h:not(.legacy-input) {
+    min-height: 38px;
+}
+
+.sc-ion-input-md-h {
+    --highlight-color-focused: none;
 }
 
 .div-info ion-icon {

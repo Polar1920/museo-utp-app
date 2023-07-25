@@ -10,118 +10,28 @@
   
   <div class="div-categorias">
     <ion-segment [scrollable]="true" value="categorias">
-      <ion-segment-button value="storage">
-        <ion-button size="small">Almacenamiento</ion-button>
+      <ion-segment-button *ngFor="let categoria of categorias" value="{{ categoria.id }}" (click)="cargarArticulosPorCategoria(categoria.id)">
+        <ion-button size="small">{{ categoria.nombre }}</ion-button>
       </ion-segment-button>
-      <ion-segment-button value="OS">
-        <ion-button size="small">Sistemas operativos</ion-button>
-      </ion-segment-button>
-      <ion-segment-button value="cpu">
-        <ion-button size="small">CPU</ion-button>
-      </ion-segment-button>
-      <ion-segment-button value="software">
-        <ion-button size="small">Software</ion-button>
-      </ion-segment-button>
-      <ion-segment-button value="videogame">
-        <ion-button size="small">Videojuegos</ion-button>
-      </ion-segment-button>
-      <ion-segment-button value="retro">
-        <ion-button size="small">Retro</ion-button>
-      </ion-segment-button>
-      <ion-segment-button value="pc">
-        <ion-button size="small">Computadoras</ion-button>
-      </ion-segment-button>
-      <ion-segment-button value="mobile">
-        <ion-button size="small">Teléfonos</ion-button>
-      </ion-segment-button>
-      
     </ion-segment>
   </div>
 
   <div id="body-main">
     <ion-grid id="body-main-estructura">
       <ion-row>
-        <ion-col class="articulo" size-md="6" size-lg="6" (click)="viewArticle()">
-          <div class="nombre"><h2>Maquina de Escribir</h2></div>
-          <div class="miniatura-container">
-            <ion-img class="miniatura" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Underwood.3.Typewriter.carro.ancho.jpg/800px-Underwood.3.Typewriter.carro.ancho.jpg"></ion-img>
+        <ion-col *ngFor="let articulo of articulos" class="articulo" size-md="6" size-lg="6" (click)="viewArticle(articulo)">
+          <div class="nombre"><h2>{{ articulo.nombre }}</h2></div>
+          <div class="miniatura-container" *ngIf="articulo.fotos && articulo.fotos.length > 0">
+            <ion-img class="miniatura" [src]="articulo.fotos[0].url"></ion-img>
           </div>
           <div class="pie">
             <div class="contador-visitas">
               <ion-icon name="eye"></ion-icon>
-              <p>9999</p>
+              <p>152</p>
             </div>
             <div class="contador-comentarios">
               <ion-icon name="chatbubble"></ion-icon>
-              <p>9999</p>
-            </div>
-          </div>
-        </ion-col>
-        
-        <ion-col class="articulo" size-md="6" size-lg="6" (click)="viewArticle()">
-          <div class="nombre"><h2>Diskette 2 D</h2></div>
-          <div class="miniatura-container">
-            <ion-img class="miniatura" src="https://media.snl.no/media/28455/standard_compressed_Diskett.jpg"></ion-img>
-          </div>
-          <div class="pie">
-            <div class="contador-visitas">
-              <ion-icon name="eye"></ion-icon>
-              <p>9999</p>
-            </div>
-            <div class="contador-comentarios">
-              <ion-icon name="chatbubble"></ion-icon>
-              <p>9999</p>
-            </div>
-          </div>
-        </ion-col>
-
-        <ion-col class="articulo" size-md="6" size-lg="6" (click)="viewArticle()">
-          <div class="nombre"><h2>Nintendo 64</h2></div>
-          <div class="miniatura-container">
-            <ion-img class="miniatura" src="https://dossierinteractivo.com/wp-content/uploads/2021/12/Nintendo-64-portada.jpg"></ion-img>
-          </div>
-          <div class="pie">
-            <div class="contador-visitas">
-              <ion-icon name="eye"></ion-icon>
-              <p>9999</p>
-            </div>
-            <div class="contador-comentarios">
-              <ion-icon name="chatbubble"></ion-icon>
-              <p>9999</p>
-            </div>
-          </div>
-        </ion-col>
-
-        <ion-col class="articulo" size-md="6" size-lg="6" (click)="viewArticle()">
-          <div class="nombre"><h2>Nintendo 64</h2></div>
-          <div class="miniatura-container">
-            <ion-img class="miniatura" src="https://dossierinteractivo.com/wp-content/uploads/2021/12/Nintendo-64-portada.jpg"></ion-img>
-          </div>
-          <div class="pie">
-            <div class="contador-visitas">
-              <ion-icon name="eye"></ion-icon>
-              <p>9999</p>
-            </div>
-            <div class="contador-comentarios">
-              <ion-icon name="chatbubble"></ion-icon>
-              <p>9999</p>
-            </div>
-          </div>
-        </ion-col>
-
-        <ion-col class="articulo" size-md="6" size-lg="6" (click)="viewArticle()">
-          <div class="nombre"><h2>Nintendo 64</h2></div>
-          <div class="miniatura-container">
-            <ion-img class="miniatura" src="https://dossierinteractivo.com/wp-content/uploads/2021/12/Nintendo-64-portada.jpg"></ion-img>
-          </div>
-          <div class="pie">
-            <div class="contador-visitas">
-              <ion-icon name="eye"></ion-icon>
-              <p>9999</p>
-            </div>
-            <div class="contador-comentarios">
-              <ion-icon name="chatbubble"></ion-icon>
-              <p>9999</p>
+              <p>25</p>
             </div>
           </div>
         </ion-col>

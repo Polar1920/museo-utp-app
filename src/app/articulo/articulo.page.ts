@@ -35,17 +35,31 @@ export class ArticuloPage implements OnInit {
   async cargarArticulo() {
     let articulo_id = localStorage.getItem('articulo_id');
 
-    if(articulo_id != null){
-      this.data.getArticuloQR(articulo_id.toString()).subscribe(
-        (response) => {
-          this.articulo = response;
-          localStorage.setItem('articulo', this.articulo);
-          //this.data.presentAlert('articulo obtenido de api', this.articulo);
-        },
-        (error) => {
-          //this.data.presentAlert('Error al obtener articulo de api' , error);
-        }
-      );
+    if (articulo_id != null) {
+      const showby = localStorage.getItem('showby');
+      if (showby === 'qr') { // Si el valor es "qr"
+        this.data.getArticuloQR(articulo_id.toString()).subscribe(
+          (response) => {
+            this.articulo = response;
+            localStorage.setItem('articulo', this.articulo);
+            //this.data.presentAlert('articulo obtenido de api', this.articulo);
+          },
+          (error) => {
+            //this.data.presentAlert('Error al obtener articulo de api' , error);
+          }
+        );
+      } else { // De lo contrario, usar getArticuloID
+        this.data.getArticuloID(articulo_id.toString()).subscribe(
+          (response) => {
+            this.articulo = response;
+            localStorage.setItem('articulo', this.articulo);
+            //this.data.presentAlert('articulo obtenido de api', this.articulo);
+          },
+          (error) => {
+            //this.data.presentAlert('Error al obtener articulo de api' , error);
+          }
+        );
+      }
     }
 
     let articuloString = localStorage.getItem('articulo');

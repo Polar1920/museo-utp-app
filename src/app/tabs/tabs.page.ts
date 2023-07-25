@@ -30,6 +30,8 @@ export class TabsPage {
 
       localStorage.setItem('articulo_id', this.ID.toString());
 
+      localStorage.setItem('showby', 'qr');
+
       this.router.navigate(['/articulo']);
     }
   }
