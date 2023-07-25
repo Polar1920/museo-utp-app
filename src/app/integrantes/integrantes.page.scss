@@ -47,9 +47,6 @@ ion-button[shape=circle]:hover{
     --border-radius: 50%;
     width: 100px;
     height: 100px;
-    
-
-
 
 }
 
@@ -67,29 +64,17 @@ ion-button[shape=circle]:hover{
     background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png");
     height: 500px;
     width: 300px;
-    margin-top: 40px;
     border-radius: 20px;
 }
 
 .datos{
-    padding-top: 20px;
     width: 100%;
     text-align: center;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
+    padding-top: 20px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-    /* CSS */
 
-    .foto_fondo{
-        background: white;
-        height: 60%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 50px;
-        margin-bottom: 50px;
-    }
 
-}
+
     
