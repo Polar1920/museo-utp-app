@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { Data } from '../data/data';
 
 @Component({
   selector: 'app-account-edit',
@@ -9,16 +10,21 @@ import { NavController } from '@ionic/angular';
 })
 export class AccountEditPage implements OnInit {
 
-  name: string = 'Juan';
-  apellido: string = 'Zamora';
-  cedula: string = '8-987-2235';
+  usuario: any; // Definir la propiedad "usuario"
+
   isNameEditing: boolean = false;
   isApellidoEditing: boolean = false;
   isCedulaEditing: boolean = false;
 
-  constructor(private router: Router, private navCtrl: NavController) { }
+  constructor(private router: Router, private navCtrl: NavController, private data: Data) { }
 
   ngOnInit() {
+    // Obtener el objeto de usuario del localStorage
+    let usuarioString = localStorage.getItem('usuario');
+
+    if (usuarioString !== null) {
+      this.usuario = JSON.parse(usuarioString);
+    }
   }
 
   goToBack() {

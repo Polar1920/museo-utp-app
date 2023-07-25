@@ -33,8 +33,6 @@ export class TabsPage {
       localStorage.setItem('showby', 'qr');
 
       this.router.navigate(['/articulo']);
-
-      
     }
   }
 }

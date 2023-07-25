@@ -36,8 +36,8 @@ export class ArticuloPage implements OnInit {
     let articulo_id = localStorage.getItem('articulo_id');
 
     if (articulo_id != null) {
-      const sowby = localStorage.getItem('sowby');
-      if (sowby === 'qr') { // Si el valor es "qr"
+      const showby = localStorage.getItem('showby');
+      if (showby === 'qr') { // Si el valor es "qr"
         this.data.getArticuloQR(articulo_id.toString()).subscribe(
           (response) => {
             this.articulo = response;
@@ -61,8 +61,6 @@ export class ArticuloPage implements OnInit {
         );
       }
     }
-
-      
 
     let articuloString = localStorage.getItem('articulo');
     console.log("ejecutando carga de articulo");
