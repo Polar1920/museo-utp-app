@@ -18,7 +18,7 @@
 <div class="div-info">
   <div class="div-div-info">
     <ion-label class="lbl">Nombre</ion-label>
-    <p class="p" [contentEditable]="isNameEditing">{{ name }}</p>
+    <ion-input class="p" value="{{ usuario.nombre }}" [readonly]="!isNameEditing"></ion-input>
   </div>
   <ion-icon name="create-outline" *ngIf="!isNameEditing" (click)="enableNameEditing()"></ion-icon>
   <div class="edits" *ngIf="isNameEditing">
@@ -32,7 +32,7 @@
 <div class="div-info">
   <div class="div-div-info">
     <ion-label class="lbl">Apellido</ion-label>
-    <p class="p" [contentEditable]="isApellidoEditing">{{ apellido }}</p>
+    <ion-input class="p" value="{{ usuario.apellido }}" [readonly]="!isApellidoEditing"></ion-input>
   </div>
   <ion-icon name="create-outline" *ngIf="!isApellidoEditing" (click)="enableNameEditing()"></ion-icon>
   <div class="edits" *ngIf="isApellidoEditing">
@@ -46,7 +46,7 @@
 <div class="div-info">
   <div class="div-div-info">
     <ion-label class="lbl">Cedula</ion-label>
-    <p class="p" [contentEditable]="isCedulaEditing">{{ cedula }}</p>
+    <ion-input class="p" value="{{ usuario.cedula }}" [readonly]="!isApellidoEditing"></ion-input>
   </div>
   <ion-icon name="create-outline" *ngIf="!isCedulaEditing" (click)="enableCedulaEditing()"></ion-icon>
   <div class="edits" *ngIf="isCedulaEditing">
@@ -58,25 +58,11 @@
 
 <!-- Cambiar Datos -->
 
-<!-- Teléfono -->
+<!-- Año -->
 <div class="div-info">
   <div class="div-div-info">
-    <ion-label class="lbl">Teléfono</ion-label>
-    <p class="p" [contentEditable]="isCedulaEditing">+507 6370-1372</p>
-  </div>
-  <ion-icon name="create-outline" *ngIf="!isCedulaEditing" (click)="enableCedulaEditing()"></ion-icon>
-  <div class="edits" *ngIf="isCedulaEditing">
-    <ion-icon name="close-sharp" *ngIf="isCedulaEditing" (click)="cancelCedulaEditing()"></ion-icon>
-    <ion-icon name="checkmark-sharp" *ngIf="isCedulaEditing" (click)="saveCedula()"></ion-icon>
-  </div>  
-</div>
-<hr class="divider">
-
-<!-- Correo -->
-<div class="div-info">
-  <div class="div-div-info">
-    <ion-label class="lbl">Correo</ion-label>
-    <p class="p" [contentEditable]="isCedulaEditing">juan.zamora@ut.ac.pa</p>
+    <ion-label class="lbl">Año</ion-label>
+    <ion-input class="p" value="{{ usuario.nivel }}" [readonly]="!isApellidoEditing"></ion-input>
   </div>
   <ion-icon name="create-outline" *ngIf="!isCedulaEditing" (click)="enableCedulaEditing()"></ion-icon>
   <div class="edits" *ngIf="isCedulaEditing">
@@ -90,7 +76,7 @@
 <div class="div-info">
   <div class="div-div-info">
     <ion-label class="lbl">Facultad</ion-label>
-    <p class="p" [contentEditable]="isCedulaEditing">Ingeniería en Sistemas...</p>
+    <ion-input class="p" value="{{ usuario.facultad }}" [readonly]="!isApellidoEditing"></ion-input>
   </div>
   <ion-icon name="create-outline" *ngIf="!isCedulaEditing" (click)="enableCedulaEditing()"></ion-icon>
   <div class="edits" *ngIf="isCedulaEditing">
@@ -104,7 +90,7 @@
 <div class="div-info">
   <div class="div-div-info">
     <ion-label class="lbl">Carrera</ion-label>
-    <p class="p" [contentEditable]="isCedulaEditing">Licenciatura en Desarr...</p>
+    <ion-input class="p" value="{{ usuario.carrera }}" [readonly]="!isApellidoEditing"></ion-input>
   </div>
   <ion-icon name="create-outline" *ngIf="!isCedulaEditing" (click)="enableCedulaEditing()"></ion-icon>
   <div class="edits" *ngIf="isCedulaEditing">

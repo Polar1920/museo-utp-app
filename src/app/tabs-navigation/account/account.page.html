@@ -14,30 +14,45 @@
         <ion-icon name="create-outline" (click)="goToEditAccount()"></ion-icon>
     </div>
 
-    <div class="div-contra">
+    <hr class="divider">
+
+    <!--div class="div-contra">
         <ion-icon name="lock-closed"></ion-icon>
         <ion-label>meg******54f</ion-label>
     </div>
     <div class="div-phone">
         <ion-icon name="call-sharp"></ion-icon>
         <ion-label>+507 6307-3241</ion-label>
-    </div>
+    </div-->
 
-    <hr class="divider">
+    <ion-label class="lbl">Usuario</ion-label>
+    <p class="p">{{ usuario.nombre_usuario }}</p>
 
-    <ion-label class="lbl">Correo</ion-label>
-    <p class="p">{{ usuario.correo }}</p>
-    
+    <hr class="divider divider2">
+
+    <ion-label class="lbl">Contraseña</ion-label>
+    <p class="p">meg********12</p>
+
+    <hr class="divider divider2">
+
+    <ion-label class="lbl">Año</ion-label>
+    <p class="p">{{ usuario.nivel }}</p>
+
+    <hr class="divider divider2">
+
     <ion-label class="lbl">Facultad</ion-label>
     <p class="p">{{ usuario.facultad }}</p>
+
+    <hr class="divider divider2">
 
     <ion-label class="lbl">Carrera</ion-label>
     <p class="p">{{ usuario.carrera }}</p>
 
-    <hr class="divider">
+    <hr class="divider divider2">
 
     <div class="cerrar" (click)="cerrarSesion()">
         <ion-icon name="exit-outline"></ion-icon>
         <ion-label>Cerrar sesión</ion-label>
     </div>
+    
 </ion-content>
