@@ -28,6 +28,7 @@ ion-icon {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+    padding-left: 40px;
   
     .card {
       display: inline-block;
@@ -36,12 +37,21 @@ ion-icon {
 
   ion-button[shape=circle] {
     --border-radius: 50%;
-    width: 56px;
-    height: 56px;
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+    
+}
+
+ion-button[shape=circle]:hover{
+    --border-radius: 50%;
+    width: 100px;
+    height: 100px;
+
 }
 
 .foto_fondo{
-    background: black;
+    background: white;
     height: 60%;
     display: flex;
     justify-content: center;
@@ -51,7 +61,7 @@ ion-icon {
 
 
 .foto{
-    background-color: white;
+    background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png");
     height: 400px;
     width: 300px;
     border-radius: 20px;

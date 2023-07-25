@@ -17,4 +17,8 @@ export class IntegrantesPage implements OnInit {
     this.navCtrl.back(); // Navegar a la página anterior
   }
 
+  buttonClicked(){
+    
+  }
+
 }
