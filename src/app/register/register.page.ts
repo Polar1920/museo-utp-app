@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../data/data';
-import Navigation from 'swiper';
+//import Navigation from 'swiper';
+
 //import * as internal from 'stream';
 //import { environment } from 'src/environments/environment';
 //import { HttpClient } from '@angular/common/http';
@@ -13,6 +14,18 @@ import Navigation from 'swiper';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+
+  //para mostrar la segunda parte del form
+  mostrarSegundaParte = false;
+
+  mostrarSegundaParteForm() {
+    this.mostrarSegundaParte = true;
+  }
+
+  regresarPrimeraParte() {
+    this.mostrarSegundaParte = false;
+  }
+  
 
   //host: string = environment.apiBaseUrl;
 

@@ -1,7 +1,26 @@
+.button-back {
+    position: absolute;
+}
+
+.button-back ion-button {
+    margin: 0;
+    padding: 0;
+    margin-left: 3px;
+}
+
+.button-back ion-icon {
+    color: white;
+    font-size: 30px;
+    border: none !important; 
+    background-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
 .container {
     display: flex;
     flex-direction: column;
-    margin-top: 24px;
+    margin-top: 40px;
 }
 
 .div-imagen {
@@ -115,3 +134,39 @@ h3 {
     margin-top: auto;
 }
 */
+
+@media (max-height: 843px) {
+    .button-back ion-icon {
+    font-size: 25px;
+    }
+  
+    .container {
+        margin-top: 30px;
+    }
+
+    .div-imagen img {
+        width: 120px;
+        height: 120px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .space-login {
+        margin-top: 30px;
+    }
+
+    .ion-item-inputs {
+        margin-inline: 40px;
+        margin-bottom: 5px;
+    }
+
+    ion-button {
+        --padding-top: 18px;
+        --padding-bottom: 18px;
+    
+        font-size: 14px;
+    }
+
+  }

@@ -1,9 +1,13 @@
-<ion-header [translucent]="true">
-
-</ion-header>
+<div *ngIf="mostrarSegundaParte">
+  <!-- botón para regresar a la primera parte del registro -->
+  <ion-buttons class="button-back">
+    <ion-button (click)="regresarPrimeraParte()" fill="clear">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</div>
 
 <ion-content [fullscreen]="true">
-
   <div class="container">
 
     <div class="div-imagen">
@@ -12,9 +16,9 @@
 
     <h1>Registro</h1>
     
-    <form (submit)="submitRegister()">
+    <form *ngIf="!mostrarSegundaParte">
       <ion-item class="ion-item-inputs">
-        <ion-input class="a" type="text" label="Nombre de Usuario" labelPlacement="floating" placeholder="Nombre de Usuario"
+        <ion-input class="a" type="text" label="Nombre de usuario" labelPlacement="floating" placeholder="Nombre de usuario"
           [(ngModel)]="username" name="username"></ion-input>
       </ion-item>
 
@@ -33,6 +37,10 @@
           [(ngModel)]="cedula" name="cedula"></ion-input>
       </ion-item>
 
+      <ion-button class="button-round" expand="full" (click)="mostrarSegundaParteForm()" >Continuar</ion-button>
+    </form>
+
+    <form (submit)="submitRegister()" *ngIf="mostrarSegundaParte">
       <ion-item class="ion-item-inputs">
         <ion-input class="a" type="number" label="Nivel" labelPlacement="floating" placeholder="Nivel"
           [(ngModel)]="level" name="level"></ion-input>
@@ -42,12 +50,6 @@
         <ion-item class="ion-item-inputs">
           <ion-select interface="popover" class="a" type="text" label="Facultad" labelPlacement="floating"
             placeholder="Escoga su facultad" [(ngModel)]="selectedFacultad" name="selectedFacultad">
-         <!-- <ion-select-option value="1">Facultad de Ingeniería de Sistemas Computacionales</ion-select-option>
-            <ion-select-option value="2">Facultad de Ciencias y Tecnología</ion-select-option>
-            <ion-select-option value="3">Facultad de Ingeniería Civil</ion-select-option>
-            <ion-select-option value="4">Facultad de Ingeniería Eléctrica</ion-select-option>
-            <ion-select-option value="5">Facultad de Ingeniería Industrial</ion-select-option>
-            <ion-select-option value="6">Facultad de Ingeniería Mecánica</ion-select-option>-->
             <ion-select-option *ngFor="let facultad of facultades" [value]="facultad.id">{{ facultad.nombre }}</ion-select-option>
 
           </ion-select>
@@ -58,30 +60,11 @@
         <ion-item class="ion-item-inputs">
           <ion-select interface="popover" id="carreraSelect" class="ion-valid" type="text" label="Carrera" labelPlacement="floating"
             placeholder="Escoga su carrera" [(ngModel)]="selectedCarrera" name="selectedCarrera" [disabled]="false">
-            <!--<ion-select-option value="1">Licenciatura en Desarrollo y Gestión de Software</ion-select-option>
-            <ion-select-option value="2">Licenciatura en Ingeniería de Sistemas de Información Gerencial</ion-select-option>-->
             <ion-select-option *ngFor="let carrera of carreras" [value]="carrera.id">{{ carrera.nombre }}</ion-select-option>
 
           </ion-select>
         </ion-item>
       </ion-list>
-      <!-- <ion-item>
-    <ion-label position="floating">Carrera</ion-label>
-    <ion-select placeholder="Carrera" [(ngModel)]="selectedCarrera">
-      <ion-select-option value="opcion1">Opción 1</ion-select-option>
-      <ion-select-option value="opcion2">Opción 2</ion-select-option>
-      <ion-select-option value="opcion3">Opción 3</ion-select-option>
-    </ion-select>
-  </ion-item> -->
-
-        <!-- <ion-item>   este es de fotos 
-    <ion-label position="floating">Carrera</ion-label>
-    <ion-select placeholder="Carrera" [(ngModel)]="selectedCarrera">
-      <ion-select-option value="opcion1">Opción 1</ion-select-option>
-      <ion-select-option value="opcion2">Opción 2</ion-select-option>
-      <ion-select-option value="opcion3">Opción 3</ion-select-option>
-    </ion-select>
-  </ion-item> -->
 
       <ion-item class="ion-item-inputs">
         <ion-input type="{{ showPassword ? 'text' : 'password' }}" label="Contraseña" labelPlacement="floating"
@@ -98,9 +81,7 @@
       </ion-item>
 
       <ion-button class="button-round" expand="full" type="submit" >Registrarme</ion-button>
-
     </form>
-
 
     <div class="space-login">
       <hr class="divider divider1">
