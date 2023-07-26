@@ -2,7 +2,7 @@ ion-header {
     display: flex;
     justify-content: space-between;
     padding-top: 7px;
-    background: #121212;
+    background: var(--ion-color-negro);
     
     //agregados
     position: sticky;
@@ -63,7 +63,7 @@ ion-content h1 {
     //agregados - scroll wrap
     position: sticky;
     top: 0px;
-    background: #121212;
+    background: var(--ion-color-negro);
     z-index: 9998;
 }
 

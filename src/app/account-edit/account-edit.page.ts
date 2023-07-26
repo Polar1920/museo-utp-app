@@ -12,9 +12,12 @@ export class AccountEditPage implements OnInit {
 
   usuario: any; // Definir la propiedad "usuario"
 
-  isNameEditing: boolean = false;
-  isApellidoEditing: boolean = false;
-  isCedulaEditing: boolean = false;
+  editarNombre: boolean = false;
+  editarApellido: boolean = false;
+  editarCedula: boolean = false;
+  editarNivel: boolean = false;
+  editarFacultad: boolean = false;
+  editarCarrera: boolean = false;
 
   constructor(private router: Router, private navCtrl: NavController, private data: Data) { }
 
@@ -31,39 +34,58 @@ export class AccountEditPage implements OnInit {
     this.navCtrl.back();
   }
 
-  enableNameEditing() {
-    this.isNameEditing = true;
-  }
-
-  cancelNameEditing() {
-    this.isNameEditing = false;
-  }
-
-  cancelApellidoEditing() {
-    this.isNameEditing = false;
-  }
+  /* NOMBRE */
+  enableNameEdt = () => this.editarNombre = true;
+  cancelNameEdt = () => this.editarNombre = false;
 
   saveName() {
-    this.isNameEditing = false;
+    this.editarNombre = false;
     // Aquí podrías guardar el nombre editado en una base de datos o hacer cualquier otra acción necesaria.
   }
 
+
+  /* APELLIDO */
+  enableApellidoEdt = () => this.editarApellido = true;  
+  cancelApellidoEdt = () => this.editarApellido = false;
+  
   saveApellido() {
-    this.isApellidoEditing = false;
+    this.editarApellido = false;
     // Aquí podrías guardar el nombre editado en una base de datos o hacer cualquier otra acción necesaria.
   }
 
-  enableCedulaEditing() {
-    this.isCedulaEditing = true;
-  }
-
-  cancelCedulaEditing() {
-    this.isCedulaEditing = false;
-  }
+  /* CEDULA */
+  enableCedulaEdt = () => this.editarCedula = true;  
+  cancelCedulaEdt = () => this.editarCedula = false;
 
   saveCedula() {
-    this.isCedulaEditing = false;
+    this.editarCedula = false;
     // Aquí podrías guardar la cédula editada en una base de datos o hacer cualquier otra acción necesaria.
   }
 
+  /* NIVEL */
+  enableNivelEdt = () => this.editarNivel = true;  
+  cancelNivelEdt = () => this.editarNivel = false;
+
+  saveNivel() {
+    this.editarNivel = false;
+    // Aquí podrías guardar la cédula editada en una base de datos o hacer cualquier otra acción necesaria.
+  }
+
+    /* FACULTAD */
+    enableFacultadEdt = () => this.editarFacultad = true;  
+    cancelFacultadEdt = () => this.editarFacultad = false;
+  
+    saveFacultad() {
+      this.editarFacultad = false;
+      // Aquí podrías guardar la cédula editada en una base de datos o hacer cualquier otra acción necesaria.
+    }
+
+    /* CARRERA */
+    enableCarreraEdt = () => this.editarCarrera = true;  
+    cancelCarreraEdt = () => this.editarCarrera = false;
+  
+    saveCarrera() {
+      this.editarCarrera = false;
+      // Aquí podrías guardar la cédula editada en una base de datos o hacer cualquier otra acción necesaria.
+    }
 }
