@@ -25,7 +25,7 @@
         <ion-col *ngFor="let articulo of articulos" class="articulo" size-md="6" size-lg="6" (click)="viewArticle(articulo)">
           <div class="nombre"><h2>{{ articulo.nombre }}</h2></div>
           <div class="miniatura-container" *ngIf="articulo.fotos && articulo.fotos.length > 0">
-            <ion-img class="miniatura" [src]="articulo.fotos[0].url"></ion-img>
+            <img class="miniatura" src="{{ getPhotoUrl(articulo) }}"/>
           </div>
           <div class="pie">
             <div class="contador-visitas">

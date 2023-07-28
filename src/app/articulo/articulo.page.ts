@@ -116,6 +116,23 @@ export class ArticuloPage implements OnInit {
     this.modal.present();
   }
 
+  getPhotoUrl(article: any): string {
+    if (article.fotos && article.fotos.length > 0) {
+      for (const foto of article.fotos) {
+        const url = foto.url;
+        const urlParts = url.split("/");
+        const urlPartEnd = urlParts[urlParts.length - 1];
+        const urlPartEndParts = urlPartEnd.split("?");
+        const fileName = urlPartEndParts[0];
+        const extension = fileName.split(".")[1];
+        if (extension === 'png') {
+          return foto.url;
+        }
+      }
+    }
+    return '../../assets/img/buho-logo.svg'; 
+  }
+
 
   
   cargarComentarios() {
