@@ -116,9 +116,9 @@ export class ArticuloPage implements OnInit {
     this.modal.present();
   }
 
-  getPhotoUrl(article: any): string {
-    if (article.fotos && article.fotos.length > 0) {
-      for (const foto of article.fotos) {
+  getPhotoUrl(articulo: any): string {
+    if (articulo.fotos && articulo.fotos.length > 0) {
+      for (const foto of articulo.fotos) {
         const url = foto.url;
         const urlParts = url.split("/");
         const urlPartEnd = urlParts[urlParts.length - 1];
