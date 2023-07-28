@@ -10,6 +10,9 @@
   
   <div class="div-categorias">
     <ion-segment [scrollable]="true" value="categorias">
+      <ion-segment-button value="todos" (click)="obtenerArticulos()">
+        <ion-button size="small">Todos</ion-button>
+      </ion-segment-button>
       <ion-segment-button *ngFor="let categoria of categorias" value="{{ categoria.id }}" (click)="cargarArticulosPorCategoria(categoria.id)">
         <ion-button size="small">{{ categoria.nombre }}</ion-button>
       </ion-segment-button>
