@@ -3,6 +3,7 @@ import { ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../data/data';
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -15,6 +16,9 @@ export class ArticuloPage implements OnInit {
   informacionContainer!: ElementRef;
   articulo: any;
   primeraFoto: any;
+
+  mostrarImagen: boolean = true;
+  imagenUrl: string = '../../assets/img/Foto.jpeg'; 
   
   articuloId: number | null=null;
   comentarios: any[] = [];
@@ -23,7 +27,7 @@ export class ArticuloPage implements OnInit {
   @ViewChild('modal')
   modal: any;
 
-  constructor(private router: Router, private data: Data,private http: HttpClient) { }
+  constructor(private navCtrl: NavController, private router: Router, private data: Data,private http: HttpClient) { }
 
   async ngOnInit() {
     await this.cargarArticulo();
@@ -40,6 +44,11 @@ export class ArticuloPage implements OnInit {
   }
 
   async cargarArticulo() {
+    // Mostrar la imagen por 1 segundo
+    this.mostrarImagen = true;
+    setTimeout(() => {
+      this.mostrarImagen = false;
+    }, 1000);
 
     let articulo_id = localStorage.getItem('articulo_id');
 
@@ -195,7 +204,7 @@ export class ArticuloPage implements OnInit {
   }
 
   goToHistory() {
-    this.router.navigate(['/history']);
+    this.router.navigate(['/history'], { queryParams: { nombre: this.articulo.nombre, videoUrl: this.articulo.videos[0]?.url } });
   }
   scrollDown() {
     const element = document.getElementById('contenedor-informacion');
