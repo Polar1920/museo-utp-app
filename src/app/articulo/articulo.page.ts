@@ -15,6 +15,9 @@ export class ArticuloPage implements OnInit {
   informacionContainer!: ElementRef;
   articulo: any;
   primeraFoto: any;
+
+  mostrarImagen: boolean = true;
+  imagenUrl: string = '../../assets/img/Foto.jpeg'; 
   
   articuloId: number | null=null;
   comentarios: any[] = [];
@@ -40,6 +43,11 @@ export class ArticuloPage implements OnInit {
   }
 
   async cargarArticulo() {
+    // Mostrar la imagen por 1 segundo
+    this.mostrarImagen = true;
+    setTimeout(() => {
+      this.mostrarImagen = false;
+    }, 1000);
 
     let articulo_id = localStorage.getItem('articulo_id');
 
