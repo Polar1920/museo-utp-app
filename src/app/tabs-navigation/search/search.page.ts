@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component,OnInit  } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../../data/data';
 
 @Component({
+
+  
   selector: 'app-search',
   templateUrl: './search.page.html',
   styleUrls: ['./search.page.scss']
@@ -15,7 +17,7 @@ export class SearchPage {
   articles: any[] = [];
   searchedArticle: any[] = [];
   searchText: string = '';
-
+  
   constructor(private router: Router, private dataService: Data) {}
 
   ngOnInit() {
@@ -63,5 +65,3 @@ export class SearchPage {
     return '/assets/imagen-no-disponible.jpg';
   }
 }
-
-

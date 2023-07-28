@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../data/data';
+import { HttpClient,HttpHeaders  } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-articulo',
@@ -11,17 +13,20 @@ import { Data } from '../data/data';
 export class ArticuloPage implements OnInit {
   articulo: any;
   primeraFoto: any;
-
+  
+  articuloId: number | null=null;
   comentarios: any[] = [];
   nuevoComentario: string = "";
 
   @ViewChild('modal')
   modal: any;
 
-  constructor(private router: Router, private data: Data) { }
+  constructor(private router: Router, private data: Data,private http: HttpClient) { }
 
   async ngOnInit() {
     await this.cargarArticulo();
+    
+    
   }
 
   async ionViewWillEnter() {
@@ -33,10 +38,15 @@ export class ArticuloPage implements OnInit {
   }
 
   async cargarArticulo() {
+
     let articulo_id = localStorage.getItem('articulo_id');
 
     if (articulo_id != null) {
+      this.articuloId = +articulo_id;
+
+      if (this.articuloId != null) { 
       const showby = localStorage.getItem('showby');
+
       if (showby === 'qr') { // Si el valor es "qr"
         this.data.getArticuloQR(articulo_id.toString()).subscribe(
           (response) => {
@@ -61,6 +71,7 @@ export class ArticuloPage implements OnInit {
         );
       }
     }
+  }
 
     let articuloString = localStorage.getItem('articulo');
     console.log("ejecutando carga de articulo");
@@ -95,26 +106,69 @@ export class ArticuloPage implements OnInit {
       
       if (this.articulo.fotos[0] == null) { this.articulo.fotos[0] = "../../assets/img/iPhone.jpeg" }
     }
+    await this.cargarComentarios();
   }
 
-  openModal() {
+  async openModal() {
+    await this.cargarComentarios();
     this.modal.present();
   }
 
-  agregarComentario(nuevoComentario: string) {
-    if (nuevoComentario.trim() === '') {
-      return; // Evita agregar comentarios vacíos
+
+  
+  cargarComentarios() {
+    if (this.articuloId === null) {
+      console.error('El artículoId es nulo. Asegúrate de cargar el artículo antes de los comentarios.');
+      return;
     }
 
-    const comentario = {
-      contenido: nuevoComentario,
-      usuario: {
-        nombre: "Nombre del usuario" // Reemplaza "Nombre del usuario" con el nombre real obtenido de algún lugar
+    const apiUrl = `https://ds6.glaciar.club/api/comentarios/${this.articuloId}`;
+
+    this.http.get<any[]>(apiUrl).subscribe(
+      (response) => {
+        this.comentarios = response;
+      },
+      (error) => {
+        console.error('Error al obtener los comentarios:', error);
       }
+    );
+  }
+
+
+  agregarComentario() {
+    if (!this.nuevoComentario.trim()) {
+      return;
+    }
+  
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No se ha proporcionado un token de sesión válido.');
+      return;
+    }
+  
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-token': token
+    });
+  
+    const body = {
+      comentario: this.nuevoComentario
     };
-    console.log(comentario);
-    this.comentarios.push(comentario);
-    this.nuevoComentario = "";
+  
+    this.http.post<any>(`https://ds6.glaciar.club/api/comentarios/${this.articuloId}`, body, { headers }).subscribe(
+      (response) => {
+        console.log('Comentario agregado:', response);
+  
+        // Agregar el nuevo comentario a la lista local de comentarios
+        this.comentarios.push(response);
+  
+        // Limpiar el campo de nuevoComentario después de agregarlo con éxito
+        this.nuevoComentario = "";
+      },
+      (error) => {
+        console.error('Error al agregar el comentario:', error);
+      }
+    );
   }
 
   goToNarracion() {
