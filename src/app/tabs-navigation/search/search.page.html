@@ -5,81 +5,32 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-<ion-searchbar placeholder="Nombre de un articulo..." ></ion-searchbar>
-<!--animated(ionChange)="searchArticle($event)"-->
+  <ion-searchbar placeholder="Nombre de un artículo..." (ionInput)="searchArticle($event)" [(ngModel)]="searchText"></ion-searchbar>
 
-<ion-label class="resultados">Resultados: 3</ion-label>
+  <ion-label class="resultados">Resultados: {{ searchedArticle.length }}</ion-label>
 
-<ion-list>
-  <hr class="divider">
-  <ion-item (click)="verArticulo()" [ngClass]="{'selected': isSelected}">
-    <div class="div-img">
-      <img src="/assets/img/iPhone.jpeg" />
-    </div>
-    <div class="div-info">
-      <h1>iPhone 15 Ultra</h1>
-      <p>Macintosh, abreviado como Mac, es la línea de ordenadores personales diseñada, desarrollada y comercializada por Apple Inc. En sus inicios fue una alternativa económica y doméstica al Lisa, un avanzado microordenador...</p>
-      <div class="div-abajo">
-        <h5>341</h5>
-        <ion-icon name="eye-sharp"></ion-icon>
-        <h5>10</h5>
-        <ion-icon name="chatbubble-sharp"></ion-icon>        
-        <h4>1984</h4>      
+  <ion-list>
+    <hr class="divider">
+    <ion-item *ngFor="let article of searchedArticle" (click)="verArticulo()" [ngClass]="{'selected': isSelected}">
+      <div class="div-img">
+        <img src="{{ getFirstPhotoUrl(article) }}" />
       </div>
-    </div>
-  </ion-item>
-  <hr class="divider">
-  <ion-item>
-    <div class="div-img">
-      <img src="/assets/img/iPhone.jpeg" />
-    </div>
-    <div class="div-info">
-      <h1>iPhone 15 Ultra</h1>
-      <p>Macintosh, abreviado como Mac, es la línea de ordenadores personales diseñada, desarrollada y comercializada por Apple Inc. En sus inicios fue una alternativa económica y doméstica al Lisa, un avanzado microordenador...</p>
-      <div class="div-abajo">
-        <h5>341</h5>
-        <ion-icon name="eye-sharp"></ion-icon>
-        <h5>10</h5>
-        <ion-icon name="chatbubble-sharp"></ion-icon>        
-        <h4>1984</h4>      
+      <div class="div-info">
+        <h1>{{ article.nombre }}</h1>
+        <p>{{ article.descripcion }}</p>
+        <div class="div-abajo">
+          <h5>{{ article.vistas }}</h5>
+          <ion-icon name="eye-sharp"></ion-icon>
+          <h5>{{ article.comentarios }}</h5>
+          <ion-icon name="chatbubble-sharp"></ion-icon>        
+          <h4>{{ article.year }}</h4>      
+        </div>
       </div>
-    </div>
-  </ion-item>
-  <hr class="divider">
-  <ion-item>
-    <div class="div-img">
-      <img src="/assets/img/iPhone.jpeg" />
-    </div>
-    <div class="div-info">
-      <h1>iPhone 15 Ultra</h1>
-      <p>Macintosh, abreviado como Mac, es la línea de ordenadores personales diseñada, desarrollada y comercializada por Apple Inc. En sus inicios fue una alternativa económica y doméstica al Lisa, un avanzado microordenador...</p>
-      <div class="div-abajo">
-        <h5>341</h5>
-        <ion-icon name="eye-sharp"></ion-icon>
-        <h5>10</h5>
-        <ion-icon name="chatbubble-sharp"></ion-icon>        
-        <h4>1984</h4>      
-      </div>
-    </div>
-  </ion-item>
-  <hr class="divider">
-  <ion-item>
-    <div class="div-img">
-      <img src="/assets/img/iPhone.jpeg" />
-    </div>
-    <div class="div-info">
-      <h1>iPhone 15 Ultra</h1>
-      <p>Macintosh, abreviado como Mac, es la línea de ordenadores personales diseñada, desarrollada y comercializada por Apple Inc. En sus inicios fue una alternativa económica y doméstica al Lisa, un avanzado microordenador...</p>
-      <div class="div-abajo">
-        <h5>341</h5>
-        <ion-icon name="eye-sharp" class="vistas"></ion-icon>
-        <h5>10</h5>
-        <ion-icon name="chatbubble-sharp"></ion-icon>        
-        <h4>1984</h4>      
-      </div>
-    </div>
-  </ion-item>
-  <hr class="divider">
-</ion-list>
+    </ion-item>
+    <hr class="divider">
+  </ion-list>
+
+  <div *ngIf="searchedArticle.length === 0" class="no-results">
+    No se encontraron resultados.
+  </div>
 </ion-content>
