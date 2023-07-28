@@ -1,35 +1,135 @@
+/* Estilos para los íconos de Ionicons */
 ion-icon {
-    font-size: 45px;
-    margin-top: 10px;
-    margin-right: 10px;
+  font-size: 45px;
+  margin-top: 10px;
+  margin-right: 10px;
 }
-  
+
+/* Estilos para el contenedor de información */
 .div-information {
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
-    margin-top: 55px;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: 55px;
 }
-
+/* Estilos para el título h1 dentro del contenedor de información */
 .div-information h1 {
-    font-family: 'Jomolhari-Regular';
+  font-family: "Jomolhari-Regular";
+  font-size: 35px;
+}
+
+.imgs {
+  overflow: hidden;
+  height: fit-content;
+  width: 100%;
+  border-radius: 0 0 0 30px;
+  padding: 0 25% 0 25%;
+}
+/* Estilos para la línea divisoria */
+.divider {
+  height: 1px;
+  border-top: 2px solid var(--ion-color-dorado);
+  margin-top: 15px;
+  margin-left: 19%;
+  width: 81%;
+}
+
+.div-contenido-proyecto {
+  overflow: scroll;
+}
+
+/* Estilos para la imagen con clase "logo-img-buho" dentro de "div-contenido-proyecto" */
+.div-contenido-proyecto .logo-img-buho {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+}
+
+/*CSS Predeterminado ^^^^^^*/
+
+/*CSS nuevo vvvv*/
+.hr-titulo {
+  border: none; /* Eliminamos el borde predeterminado del HR */
+  height: 2px; /* Altura de la línea horizontal */
+  background-color: #ffd700; /* Amarillo dorado (#FFD700) */
+  width: 40%; /* Anchura de la línea horizontal */
+}
+
+ion-card-header {
+  padding-bottom: 0;
+  padding-top: 3%;
+}
+ul {
+  margin-left: 20px;
+  list-style-type: none; /* Eliminamos las viñetas predeterminadas */
+  padding: 0; /* Eliminamos el padding predeterminado de la lista */
+}
+
+/* Estilos para los elementos de la lista (li) */
+li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+/* Pseudo-elemento ::before para crear la viñeta dorada */
+li::before {
+  content: "•"; /* Caracter para representar la viñeta */
+  color: #ffd700; /* Amarillo dorado (#FFD700) */
+  font-size: 60px; /* Tamaño de la viñeta */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+ion-card-title {
+  text-align: center;
+  font-family: "Kameron-regular";
+  font-size: 35px;
+  margin-top: auto;
+}
+ion-card-content {
+  margin: 0;
+  padding: 1%;
+  padding-inline: 3%;
+  font-size: 28px;
+  text-align: justify;
+}
+
+.div-contenido-proyecto ion-label {
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .div-information h1 {
     font-size: 26px;
-}
+  }
 
-.divider {    
-    height: 1px;
-    border-top: 2px solid var(--ion-color-dorado);
-    margin-top: 15px;
-    margin-left: 19%;
-    width: 81%;
-}
+  li::before {
+    content: "•"; /* Caracter para representar la viñeta */
+    color: #ffd700; /* Amarillo dorado (#FFD700) */
+    font-size: 18px; /* Tamaño de la viñeta */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
-ion-accordion-group{
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-}
+  ion-card-title {
+    text-align: center;
+    font-family: "Kameron-regular";
+    font-size: 23px;
+    margin-top: auto;
+  }
 
-ion-img{
-    height: 100px;
+  ion-card-content {
+    margin: 0;
+    padding: 1%;
+    padding-inline: 3%;
+    font-size: 15px;
+    text-align: justify;
+  }
 }

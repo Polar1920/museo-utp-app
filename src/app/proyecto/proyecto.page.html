@@ -1,41 +1,121 @@
-<ion-header [translucent]="true">
-</ion-header>
+<ion-content>
+  <ion-header [translucent]="true" collapse="fade"></ion-header>
 
-<ion-content [fullscreen]="true" color="light">
   <div class="div-information">
     <ion-icon name="chevron-back-sharp" (click)="regresar()"></ion-icon>
-    <h1>Proyecto</h1>
+    <h1>Sobre el proyecto</h1>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
   </div>
   <hr class="divider">
+  <ion-card>
+    <img style="background-color: #a6a39c;" class="imgs"
+      src="../../assets/img/buho-logo.svg" />
+    <ion-card-header style="padding-inline: 10px;">
+      <ion-card-title>Descripción General<hr class="hr-titulo"></ion-card-title>
+    </ion-card-header>
+    <ul>
+      <li> <ion-card-content>
+          Da un viaje interactivo desde las primeras
+          computadoras hasta la revolución de las comunicaciones y dispositivos
+          icónicos que transformaron nuestras vidas.
+        </ion-card-content></li>
+      <li>
+        <ion-card-content>
+          Museo virtual creado por estudiantes de Desarrollo de Software con la
+          colaboración de profesores.
+        </ion-card-content>
+      </li>
+    </ul>
+  </ion-card>
 
+  <ion-card>
+    <ion-card-header style="padding-inline: 10px;">
+      <ion-card-title>Nuestro Objetivo<hr class="hr-titulo"></ion-card-title>
+    </ion-card-header>
+    <img style="background-color: #FFFFFF;" class="imgs"
+      src="../../assets/img/old_new_mac.jpg" />
+    <ul>
+      <li> <ion-card-content>
+          El museo virtual busca inspirar y conectar a las generaciones actuales
+          y futuras con la historia de la tecnología, fomentando la curiosidad y
+          el aprendizaje sobre cómo la innovación tecnológica ha impactado
+          nuestras vidas y el mundo en general.
+        </ion-card-content></li>
+    </ul>
+  </ion-card>
 
-  <ion-accordion-group [multiple]="true" [value]="['first']">
-    <ion-accordion value="first">
-      <ion-item slot="header" color="light">
-        <ion-label>Info Uno</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <ion-img src="/assets/img/ejemplo.png" ></ion-img>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo suscipit quo unde quisquam doloribus architecto aperiam qui quaerat fugiat.
-      </div>
-    </ion-accordion>
-    <ion-accordion value="second">
-      <ion-item slot="header" color="light">
-        <ion-label>Info Dos</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <ion-img src="/assets/img/ejemplo.png" ></ion-img>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo suscipit quo unde quisquam doloribus architecto aperiam qui quaerat fugiat.
-      </div>
-    </ion-accordion>
-    <ion-accordion value="third">
-      <ion-item slot="header" color="light">
-        <ion-label>Info Tres</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <ion-img src="/assets/img/ejemplo.png" ></ion-img>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo suscipit quo unde quisquam doloribus architecto aperiam qui quaerat fugiat.
-      </div>
-    </ion-accordion>
-  </ion-accordion-group>
-</ion-content>
+  <ion-card>
+    <ion-card-header style="padding-inline: 10px;">
+      <ion-card-title>Tecnologías Utilizadas en el desarrollo de la app<hr
+          class="hr-titulo"></ion-card-title>
+    </ion-card-header>
+    <ul>
+      <li> <ion-card-content>
+          En el desarrollo del Museo Virtual de Artículos Tecnológicos, hemos
+          utilizado un conjunto de tecnologías modernas y potentes para brindar
+          una experiencia interactiva y fluida a nuestros visitantes. Nuestra
+          elección de tecnología se ha enfocado en garantizar un diseño
+          atractivo y una navegación intuitiva.
+        </ion-card-content></li>
+      <img style="background-color: #ffffff00;" class="imgs"
+        src="../../assets/img/ionic_angular.png" />
+      <li> <ion-card-content>
+          Para la construcción de la interfaz de usuario, hemos empleado la
+          combinación
+          de Ionic Angular, que nos ha permitido crear una aplicación web
+          altamente
+          funcional y adaptable a diferentes dispositivos y tamaños de pantalla.
+          La
+          combinación de Angular con el framework Ionic ha sido fundamental para
+          lograr
+          una experiencia de usuario receptiva y de alta calidad.
+        </ion-card-content></li>
+      <img style="background-color: #ffffff00;padding: 0 0 0 0;" class="imgs"
+        src="../../assets/img/swiper.png" />
+      <li> <ion-card-content>
+          Además, para realzar la experiencia visual y brindar una navegación
+          dinámica, hemos integrado el uso de la biblioteca Swiper.js. Esta
+          herramienta ha añadido un toque interactivo a nuestras exposiciones,
+          permitiendo a los visitantes deslizar y explorar las diferentes
+          secciones del museo con facilidad.
+        </ion-card-content></li>
+      <img style="background-color: #0274fe;padding: 0 10% 0 0;margin: 0 auto;"
+        class="imgs"
+        src="../../assets/img/APIs.png" />
+      <li> <ion-card-content>
+          En cuanto a la gestión de datos, hemos implementado una API
+          personalizada
+          junto con una sólida base de datos para almacenar y gestionar la
+          información
+          de usuarios y detalles sobre los artículos tecnológicos exhibidos.
+          Esto nos ha
+          permitido presentar datos precisos y actualizados para enriquecer la
+          experiencia del visitante.
+        </ion-card-content></li>
+
+      <img style="background-color: #ffbf34;padding: 0 10% 0 0;margin: 0 auto;"
+        class="imgs"
+        src="../../assets/img/qrScanner.png" />
+      <li> <ion-card-content>
+          Se ha utilizado una herramienta fundamental y moderna para mejorar la
+          interacción con nuestros visitantes: un QR scanner integrado en la
+          aplicación.
+          Esta herramienta nos ha permitido brindar una experiencia innovadora y
+          enriquecedora, facilitando el acceso a información detallada sobre
+          cada
+          artículo exhibido en el museo.
+        </ion-card-content></li>
+      <li> <ion-card-content>
+          Gracias al QR scanner, los usuarios pueden escanear fácilmente los
+          códigos QR
+          ubicados junto a cada artículo y acceder instantáneamente a una amplia
+          gama de
+          información relevante. Desde detalles históricos sobre el artículo
+          hasta su
+          impacto en la sociedad y sus características técnicas, la información
+          desplegada es completa y de fácil acceso para los visitantes.
+        </ion-card-content></li>
+    </ul>
+  </ion-card>
+  <hr class="divider">

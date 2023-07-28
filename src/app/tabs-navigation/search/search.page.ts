@@ -17,7 +17,7 @@ export class SearchPage {
   articles: any[] = [];
   searchedArticle: any[] = [];
   searchText: string = '';
-
+  
   constructor(private router: Router, private dataService: Data) {}
 
   ngOnInit() {
