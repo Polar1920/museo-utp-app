@@ -1,4 +1,3 @@
-
 <ion-buttons slot="start">
   <ion-back-button defaultHref="/home"></ion-back-button>
 </ion-buttons>
@@ -8,7 +7,7 @@
   <div class="contenedor">
     <div class="div-info">
       <div class="imagenes">
-        <img src="{{articulo?.fotos?.[0]?.url}}"/>
+        <img src="{{articulo?.fotos?.[0]?.url}}" />
       </div>
       <div>
         <div class="div-principio">
@@ -28,18 +27,19 @@
           <h3>{{ articulo.year }}</h3>
           <hr>
         </div>
-        <div class="contenedor-informacion"#informacionContainer >
-        <p class="descripcion">
-          {{ articulo.descripcion }}
-        </p>
+        <div class="contenedor-informacion" #informacionContainer>
+          <p class="descripcion">
+            {{ articulo.descripcion }}
+          </p>
         </div>
 
 
-    
+
         <ion-button class="button-round" expand="full" (click)="goToNarracion()">
           <div class="div-btn">
             <ion-icon name="play-circle-sharp"></ion-icon>
             <span>Narración</span>
+
           </div>
         </ion-button>
 
@@ -65,7 +65,7 @@
         <ion-label>Comentarios</ion-label>
         <hr class="divider1">
 
-        <ng-container *ngIf="comentarios && comentarios.length > 0"> 
+        <ng-container *ngIf="comentarios && comentarios.length > 0">
           <ion-list>
             <ion-item *ngFor="let comentario of comentarios" class="container">
               <ion-avatar slot="start">
@@ -92,7 +92,8 @@
           </ion-avatar>
           <ion-input class="input-coment" type="text" placeholder="Agrega un comentario..."
             [(ngModel)]="nuevoComentario"></ion-input>
-          <ion-icon name="send-sharp" (click)="agregarComentario()" [class.disabled]="nuevoComentario === ''"></ion-icon>
+          <ion-icon name="send-sharp" (click)="agregarComentario()"
+            [class.disabled]="nuevoComentario === ''"></ion-icon>
         </ion-footer>
       </ion-content>
     </ng-template>
