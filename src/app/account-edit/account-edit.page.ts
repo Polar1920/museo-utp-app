@@ -34,6 +34,10 @@ export class AccountEditPage implements OnInit {
     this.navCtrl.back();
   }
 
+  submitProfile(){
+    
+  }
+
   /* NOMBRE */
   enableNameEdt = () => this.editarNombre = true;
   cancelNameEdt = () => this.editarNombre = false;

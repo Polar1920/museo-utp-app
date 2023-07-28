@@ -10,9 +10,10 @@
   <ion-label class="resultados">Resultados: {{ searchedArticle.length }}</ion-label>
 
   <ion-list>
+    <hr class="divider">
     <ion-item *ngFor="let article of searchedArticle" (click)="verArticulo()" [ngClass]="{'selected': isSelected}">
       <div class="div-img">
-        <img src="{{ getFirstPhotoUrl(article) }}" />
+        <img src="{{ getPhotoUrl(article) }}" />
       </div>
       <div class="div-info">
         <h1>{{ article.nombre }}</h1>
@@ -25,8 +26,9 @@
           <h4>{{ article.year }}</h4>  
         </div>
       </div> 
-      <hr class="divider">
+      
     </ion-item>
+    
   </ion-list>
   <div *ngIf="searchedArticle.length === 0" class="no-results">
     No se encontraron resultados.

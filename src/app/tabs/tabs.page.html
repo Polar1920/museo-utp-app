@@ -4,17 +4,16 @@
 
     <ion-tab-button tab="home" [class.custom-selected-tab]="selectedTab === 'home'" class="custom-tab-button">
       <ion-icon name="home-sharp" class="custom-icon"></ion-icon>
-      <ion-label class="custom-label" *ngIf="selectedTab === 'home'">Home</ion-label>
+      <ion-label class="custom-label">Inicio</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="search" [class.custom-selected-tab]="selectedTab === 'search'" class="custom-tab-button">
       <ion-icon name="search-sharp"></ion-icon>  
-      <ion-label class="custom-label" *ngIf="selectedTab === 'search'">Search</ion-label>
+      <ion-label class="custom-label">Buscar</ion-label>
     </ion-tab-button>
 
     <ion-tab-button (click)="scan()" [class.custom-selected-tab]="selectedTab === 'qr'" class="custom-tab-button">
-      <ion-icon name="qr-code-sharp"></ion-icon>
-      <ion-label class="custom-label">QR</ion-label>
+      <ion-icon name="scan-sharp" class="qr"></ion-icon>
     </ion-tab-button>
     <!--
     <ion-tab-button tab="qr" [class.custom-selected-tab]="selectedTab === 'qr'" class="custom-tab-button">
@@ -25,12 +24,12 @@
 
     <ion-tab-button tab="timeline" [class.custom-selected-tab]="selectedTab === 'timeline'" class="custom-tab-button">
       <ion-icon name="time-sharp"></ion-icon>
-      <ion-label class="custom-label" *ngIf="selectedTab === 'timeline'">TimeLine</ion-label>
+      <ion-label class="custom-label">TimeLine</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="account" [class.custom-selected-tab]="selectedTab === 'account'" class="custom-tab-button">
       <ion-icon name="person-sharp"></ion-icon>
-      <ion-label class="custom-label" *ngIf="selectedTab === 'account'">Account</ion-label>
+      <ion-label class="custom-label">Cuenta</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>
