@@ -1,106 +1,98 @@
-<ion-buttons slot="start">
-  <ion-back-button defaultHref="/home"></ion-back-button>
-</ion-buttons>
 
-<ion-content [fullscreen]="true">
-
-  <div class="contenedor">
-    <div class="div-info">
-      <div class="imagenes">
-        <img src={{articulo.fotos[0].url}} />
-      </div>
-      <div>
-        <div class="div-principio">
-          <h1>{{ articulo.nombre }}</h1>
-          <div>
-            <p>341</p>
-            <ion-icon name="eye-sharp"></ion-icon>
-          </div>
-        </div>
-        <!--
-        <div>
-          <ion-icon name="location-outline"></ion-icon>
-          <p>año: {{ articulo.ubicacion }}</p>
-        </div>
-      -->
-
-        <div class="divider">
-          <hr>
-          <p>{{ articulo.year }}</p>
-        </div>
-        <p class="descripcion">
-          {{ articulo.descripcion }}
-        </p>
-
-        <ion-button class="button-round" expand="full" (click)="goToNarracion()">
-          <div class="div-btn">
-            <ion-icon name="play-circle-sharp"></ion-icon>
-            <span>Narración</span>
-          </div>
-        </ion-button>
-
-        <ion-button class="button-round" expand="full" (click)="goToHistory()">
-          <div class="div-btn">
-            <ion-icon name="play-circle-sharp"></ion-icon>
-            <span>Ver historia</span>
-          </div>
-        </ion-button>
-
-      </div>
-    </div>
-
-    <hr class="hr-divider1">
-    <h5 class="comentarios" (click)="openModal()">Comentarios</h5>
-    <hr class="hr-divider2">
-    <ion-modal #modal [isOpen]="false" [initialBreakpoint]="0.99" [breakpoints]="[0.99, 0]" [backdropDismiss]="true"
-      [backdropBreakpoint]="0">
-      <ng-template>
-        <ion-content class="ion-padding">
-          <ion-label>Comentarios</ion-label>
-          <hr class="divider1">
-
-          <ion-list *ngIf="comentarios.length > 0">
-            <ion-item *ngFor="let comentario of comentarios" class="container">
-
-              <ion-avatar slot="start">
-                <img src="../../assets/img/Foto.jpeg" />
-              </ion-avatar>
-
-              <div class="info">
-                <ion-label class="nomHora">
-                  <h2 class="nombre">JuanitoZamora507</h2>
-                  <h3 class="hora">1 h</h3>
-                </ion-label>
-
-                <p class="comments">{{ comentario.contenido }}</p>
-
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+        
+        <ion-content [fullscreen]="true">
+        
+          <div class="contenedor">
+            <div class="div-info">
+              <div class="imagenes">
+                <img src={{articulo.fotos[0].url}} />
               </div>
-
-            </ion-item>
-          </ion-list>
-
-          <div *ngIf="comentarios.length === 0" class="no-comentarios">
-            No hay comentarios
+              <div>
+                <div class="div-principio">
+                  <h1>{{ articulo.nombre }}</h1>
+                  <p>ID del artículo: {{ articuloId }}</p> <!--esto es nuevo-->
+                  <div>
+                    <p>341</p>
+                    <ion-icon name="eye-sharp"></ion-icon>
+                  </div>
+                </div>
+                <!--
+                <div>
+                  <ion-icon name="location-outline"></ion-icon>
+                  <p>año: {{ articulo.ubicacion }}</p>
+                </div>
+                -->
+        
+                <div class="divider">
+                  <hr>
+                  <p>{{ articulo.year }}</p>
+                </div>
+                <p class="descripcion">
+                  {{ articulo.descripcion }}
+                </p>
+        
+                <ion-button class="button-round" expand="full" (click)="goToNarracion()">
+                  <div class="div-btn">
+                    <ion-icon name="play-circle-sharp"></ion-icon>
+                    <span>Narración</span>
+                  </div>
+                </ion-button>
+        
+                <ion-button class="button-round" expand="full" (click)="goToHistory()">
+                  <div class="div-btn">
+                    <ion-icon name="play-circle-sharp"></ion-icon>
+                    <span>Ver historia</span>
+                  </div>
+                </ion-button>
+              </div>
+            </div>
+        
+            <hr class="hr-divider1">
+            <h5 class="comentarios" (click)="openModal()">Comentarios</h5>
+            <hr class="hr-divider2">
           </div>
-
+        
+          <ion-modal #modal [isOpen]="false" [initialBreakpoint]="0.99" [breakpoints]="[0.99, 0]" [backdropDismiss]="true"
+            [backdropBreakpoint]="0">
+            <ng-template>
+              <ion-content class="ion-padding">
+                <ion-label>Comentarios</ion-label>
+                <hr class="divider1">
+        
+                <ng-container *ngIf="comentarios && comentarios.length > 0"> 
+                  <ion-list>
+                    <ion-item *ngFor="let comentario of comentarios" class="container">
+                      <ion-avatar slot="start">
+                        <img src="../../assets/img/Foto.jpeg" />
+                      </ion-avatar>
+                      <div class="info">
+                        <ion-label class="nomHora">
+                          <h2 class="nombre">{{ comentario.nombre }} {{ comentario.apellido }}</h2>
+                          <h3 class="hora">1 h</h3>
+                        </ion-label>
+                        <p class="comments">{{ comentario.comentario }}</p>
+                      </div>
+                    </ion-item>
+                  </ion-list>
+                </ng-container>
+        
+                <div *ngIf="comentarios && comentarios.length === 0" class="no-comentarios">
+                  No hay comentarios
+                </div>
+        
+                <ion-footer>
+                  <ion-avatar slot="start">
+                    <img class="img-footer" src="../../assets/img/Foto.jpeg" />
+                  </ion-avatar>
+                  <ion-input class="input-coment" type="text" placeholder="Agrega un comentario..."
+                    [(ngModel)]="nuevoComentario"></ion-input>
+                  <ion-icon name="send-sharp" (click)="agregarComentario()" [class.disabled]="nuevoComentario === ''"></ion-icon>
+                </ion-footer>
+              </ion-content>
+            </ng-template>
+          </ion-modal>
         </ion-content>
-        <ion-footer>
-          <ion-avatar slot="start">
-            <img class="img-footer" src="../../assets/img/Foto.jpeg" />
-          </ion-avatar>
-          <ion-input class="input-coment" type="text" placeholder="Agrega un comentario..."
-            [(ngModel)]="nuevoComentario"></ion-input>
-          <ion-icon name="send-sharp" (click)="agregarComentario(nuevoComentario)"
-            [class.disabled]="nuevoComentario === ''"></ion-icon>
-        </ion-footer>
-      </ng-template>
-    </ion-modal>
-  </div>
-
-
-
-
-</ion-content>
-
-<!--h2></h2-->
-<!--p>{{ comentario.contenido }}</p-->
+        
