@@ -10,26 +10,24 @@
   <ion-label class="resultados">Resultados: {{ searchedArticle.length }}</ion-label>
 
   <ion-list>
-    <hr class="divider">
     <ion-item *ngFor="let article of searchedArticle" (click)="verArticulo()" [ngClass]="{'selected': isSelected}">
       <div class="div-img">
         <img src="{{ getFirstPhotoUrl(article) }}" />
       </div>
       <div class="div-info">
         <h1>{{ article.nombre }}</h1>
-        <p>{{ article.descripcion }}</p>
+        <p>{{ getLimitedDescription (article.descripcion, 200) }}</p>
         <div class="div-abajo">
           <h5>{{ article.vistas }}</h5>
           <ion-icon name="eye-sharp"></ion-icon>
           <h5>{{ article.comentarios }}</h5>
           <ion-icon name="chatbubble-sharp"></ion-icon>        
-          <h4>{{ article.year }}</h4>      
+          <h4>{{ article.year }}</h4>  
         </div>
-      </div>
+      </div> 
+      <hr class="divider">
     </ion-item>
-    <hr class="divider">
   </ion-list>
-
   <div *ngIf="searchedArticle.length === 0" class="no-results">
     No se encontraron resultados.
   </div>

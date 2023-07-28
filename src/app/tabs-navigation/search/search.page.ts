@@ -17,6 +17,13 @@ export class SearchPage {
   articles: any[] = [];
   searchedArticle: any[] = [];
   searchText: string = '';
+
+  getLimitedDescription(description: string, maxLength: number):string{
+    if(description && description.length > maxLength ){
+      return description.substring(0, maxLength) + '...';
+    }
+    return description;
+  }
   
   constructor(private router: Router, private dataService: Data) {}
 

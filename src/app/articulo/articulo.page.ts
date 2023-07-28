@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../data/data';
@@ -11,6 +11,8 @@ import { HttpClient,HttpHeaders  } from '@angular/common/http';
   styleUrls: ['./articulo.page.scss'],
 })
 export class ArticuloPage implements OnInit {
+  @ViewChild('informacionContainer', { static: false })
+  informacionContainer!: ElementRef;
   articulo: any;
   primeraFoto: any;
   
@@ -177,6 +179,19 @@ export class ArticuloPage implements OnInit {
 
   goToHistory() {
     this.router.navigate(['/history']);
+  }
+  scrollDown() {
+    const element = document.getElementById('contenedor-informacion');
+    if (element) {
+      element.scrollTop = element.scrollHeight;
+    }
+  }
+  scrollDownAutomatically() {
+    const element = this.informacionContainer.nativeElement;
+    const lastMessage = element.lastElementChild;
+    if (lastMessage) {
+      lastMessage.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
   }
 
 }
