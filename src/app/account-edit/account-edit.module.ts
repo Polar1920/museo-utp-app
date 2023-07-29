@@ -8,13 +8,18 @@ import { AccountEditPageRoutingModule } from './account-edit-routing.module';
 
 import { AccountEditPage } from './account-edit.page';
 
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+
 @NgModule({
   imports: [
+    IonicModule,
     CommonModule,
     FormsModule,
-    IonicModule,
     AccountEditPageRoutingModule
   ],
-  declarations: [AccountEditPage]
+  declarations: [AccountEditPage],
+  providers: [
+    ImagePicker,
+  ]
 })
 export class AccountEditPageModule {}
