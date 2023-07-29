@@ -3,30 +3,33 @@
   <h1>Titi</h1>
   <ion-icon name="information-circle-outline" (click)="viewInformation()"></ion-icon>
 </ion-header>
-<!--a-->
+
 <ion-content [fullscreen]="true">
   <ion-searchbar placeholder="Nombre de un artículo..." (ionInput)="searchArticle($event)" [(ngModel)]="searchText"></ion-searchbar>
 
   <ion-label class="resultados">Resultados: {{ searchedArticle.length }}</ion-label>
 
   <ion-list>
-    <ion-item *ngFor="let article of searchedArticle" (click)="verArticulo()" [ngClass]="{'selected': isSelected}">
+    <hr class="divider">
+    <ion-item *ngFor="let article of searchedArticle" (click)="viewArticle(article)" [ngClass]="{'selected': isSelected}">
       <div class="div-img">
-        <img src="{{ getPhotoUrl(article) }}" />
+        <img src="{{ getFirstPhotoUrl(article) }}" />
       </div>
       <div class="div-info">
         <h1>{{ article.nombre }}</h1>
-        <p>{{ getLimitedDescription (article.descripcion, 200) }}</p>
+        <p>{{ article.descripcion }}</p>
         <div class="div-abajo">
           <h5>{{ article.vistas }}</h5>
           <ion-icon name="eye-sharp"></ion-icon>
           <h5>{{ article.comentarios }}</h5>
           <ion-icon name="chatbubble-sharp"></ion-icon>        
-          <h4>{{ article.year }}</h4>  
+          <h4>{{ article.year }}</h4>      
         </div>
-      </div> 
-    </ion-item>    
+      </div>
+    </ion-item>
+    <hr class="divider">
   </ion-list>
+
   <div *ngIf="searchedArticle.length === 0" class="no-results">
     No se encontraron resultados.
   </div>
