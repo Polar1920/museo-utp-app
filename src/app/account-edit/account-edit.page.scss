@@ -15,21 +15,53 @@
 }
 
 .imagen {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    position: relative;
+    width: 30%;
     margin-top: 30px;
     margin-bottom: 20px;
+    justify-content: center;
+    display: flex;
 }
 
 .imagen img {
+    width: 100%;
+    height: auto;
     border-radius: 100%;
 }
 
-.imagen ion-icon {
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+}
+
+.overlay:hover {
+    opacity: 1;
+}
+
+.overlay ion-icon {
     font-size: 30px;
+    color: white;
+    cursor: pointer;
     opacity: 0.8;
-    margin-left: -25px
+}
+
+.overlay input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }
 
 .div-info {
