@@ -1,6 +1,8 @@
-<ion-buttons slot="start">
-  <ion-back-button defaultHref="/tabs/home"></ion-back-button>
-</ion-buttons>
+
+  <ion-buttons>
+    <ion-back-button size="large" defaultHref="/tabs/home"></ion-back-button>
+  </ion-buttons>
+
 
 <ion-content [fullscreen]="true">
 
@@ -11,9 +13,10 @@
 
   <div class="contenedor">
     <div class="div-info">
-      <div class="imagenes">
-        <img src="{{ getPhotoUrl(articulo) }}" />
-      </div>
+      <swiper-container (slidechange)="swiperSlideChanged($event)" class="imagenes" [pagination]="true" >
+        <swiper-slide><img src="{{ getPhotoUrl(articulo) }}" /></swiper-slide>
+        <swiper-slide><img src="https://i.kym-cdn.com/photos/images/newsfeed/002/559/519/e31.jpg" alt="image example" /></swiper-slide>
+      </swiper-container>
       <div class="div-parte-inferior">
         <div class="div-principio">
           <h1>{{ articulo.nombre }}</h1>

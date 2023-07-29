@@ -220,4 +220,8 @@ export class ArticuloPage implements OnInit {
     }
   }
 
+  swiperSlideChanged(e: any) {
+    console.log('changed', e);
+  }
+
 }
