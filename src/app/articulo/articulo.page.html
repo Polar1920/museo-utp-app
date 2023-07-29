@@ -1,5 +1,5 @@
 <ion-buttons slot="start">
-  <ion-back-button defaultHref="/home"></ion-back-button>
+  <ion-back-button defaultHref="/tabs/home"></ion-back-button>
 </ion-buttons>
 
 <ion-content [fullscreen]="true">
@@ -13,7 +13,7 @@
       <div class="imagenes">
         <img src="{{ getPhotoUrl(articulo) }}" />
       </div>
-      <div>
+      <div class="div-parte-inferior">
         <div class="div-principio">
           <h1>{{ articulo.nombre }}</h1>
           <h2>{{ articulo.categoria }}</h2>          
