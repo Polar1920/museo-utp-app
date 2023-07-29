@@ -46,15 +46,14 @@ export class RegisterPage implements OnInit {
   facultades: any = [];
 
 
-
   constructor(private router: Router, private data: Data) { }
 
 
   ngOnInit() {
     this.obtenerCarreras();
     this.obtenerFacultades();
-
   }
+
   obtenerCarreras() {
     this.data.getCarreras().subscribe(
       (response) => {
@@ -104,6 +103,7 @@ export class RegisterPage implements OnInit {
       }
     );
   }
+  
   goToLogin() {
     this.router.navigate(['/login']);
   }

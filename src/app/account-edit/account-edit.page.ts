@@ -12,13 +12,17 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
 export class AccountEditPage implements OnInit {
 
   usuario: any; // Definir la propiedad "usuario"
+  carreras: any = [];
+  facultades: any = [];
 
+  /*
   editarNombre: boolean = false;
   editarApellido: boolean = false;
   editarCedula: boolean = false;
   editarNivel: boolean = false;
   editarFacultad: boolean = false;
   editarCarrera: boolean = false;
+  */
 
   name: string = '';
   lastname: string = '';
@@ -29,21 +33,17 @@ export class AccountEditPage implements OnInit {
   foto: string = '';
   fotoE: File = new File([], '');
 
-  usuarioEditado = {
-    nombre: '',
-    apellido: '',
-    cedula: '',
-    nivel: 0,
-    id_facultad: 0,
-    id_carrera: 0,
-    foto: null
-  };
+  selectedFacultad: number = 0;
+  selectedCarrera: number = 0;
 
   apiUrl = 'https://ds6.glaciar.club/api';
 
   constructor(private router: Router, private navCtrl: NavController, private data: Data, private imagePicker: ImagePicker) { }
 
   ngOnInit() {
+    this.obtenerCarreras();
+    this.obtenerFacultades();
+
     // Obtener el objeto de usuario del localStorage
     let usuarioString = localStorage.getItem('usuario');
 
@@ -55,9 +55,15 @@ export class AccountEditPage implements OnInit {
     this.lastname = this.usuario.apellido;
     this.cedula = this.usuario.cedula;
     this.level = this.usuario.nivel;
-    this.facultad = this.usuario.facultad;
-    this.carrera = this.usuario.carrera;
+    this.facultad = this.usuario.facultad_id;
+    this.carrera = this.usuario.carrera_id;
     this.foto = "";
+
+    // Establecer la facultad seleccionada segun estaba guardado
+    this.selectedFacultad = this.usuario.facultad_id;
+
+    // Establecer la carrera seleccionada segun estaba guardado, y la facultad seleccionad
+    this.selectedCarrera = this.usuario.carrera_id;
   }
 
   goToBack() {
@@ -111,11 +117,11 @@ export class AccountEditPage implements OnInit {
       myHeaders.append("x-token", token);
 
       const formdata = new FormData();// Crear un objeto FormData para incluir los datos del usuario y la imagen
-      formdata.append("nombre", "David");
-      formdata.append("apellido", "AAAAAAAAA");
-      formdata.append("nivel", "3");
-      formdata.append("facultad_id", "1");
-      formdata.append("carrera_id", "1");
+      formdata.append("nombre", this.name);
+      formdata.append("apellido", this.lastname);
+      formdata.append("nivel", this.level.toString());
+      formdata.append("facultad_id", this.selectedFacultad.toString());
+      formdata.append("carrera_id", this.selectedCarrera.toString());
 
       const requestOptions = {
         method: 'PUT',
@@ -123,7 +129,7 @@ export class AccountEditPage implements OnInit {
         body: formdata,
         redirect: 'follow' as RequestRedirect // Establecer la propiedad redirect en follow
       };
-      
+
       fetch("https://ds6.glaciar.club/api/usuarios", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
@@ -132,6 +138,30 @@ export class AccountEditPage implements OnInit {
       console.error('No se encontró un token de sesión. Debe iniciar sesión para actualizar su perfil.');
       // Aquí puedes agregar código adicional para mostrar un mensaje de error o redirigir al usuario a la página de inicio de sesión
     }
+  }
+
+  obtenerCarreras() {
+    this.data.getCarreras().subscribe(
+      (response) => {
+        this.carreras = response;
+        console.log(this.carreras);
+      },
+      (error) => {
+        console.log('Error al obtener las carreras:', error);
+      }
+    );
+  }
+
+  obtenerFacultades() {
+    this.data.getFacultades().subscribe(
+      (response) => {
+        this.facultades = response;
+        console.log(this.facultades);
+      },
+      (error) => {
+        console.log('Error al obtener las facultades:', error);
+      }
+    );
   }
 
   /* LOGICA ANTIGUA - MUCHOS REQUEST
