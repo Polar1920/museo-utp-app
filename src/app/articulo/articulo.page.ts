@@ -1,9 +1,9 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../data/data';
-import { HttpClient,HttpHeaders  } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NavController } from '@ionic/angular';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -15,24 +15,32 @@ export class ArticuloPage implements OnInit {
   @ViewChild('informacionContainer', { static: false })
   informacionContainer!: ElementRef;
   articulo: any;
+  articuloDescConv: any;
   primeraFoto: any;
 
   mostrarImagen: boolean = true;
-  imagenUrl: string = '../../assets/img/Negro.jpg'; 
-  
-  articuloId: number | null=null;
+  imagenUrl: string = '../../assets/img/Negro.jpg';
+
+  articuloId: number | null = null;
+
+  descripcion: any[] = [];
+  conversaciones: any[] = [];
+
   comentarios: any[] = [];
   nuevoComentario: string = "";
 
   @ViewChild('modal')
   modal: any;
 
-  constructor(private navCtrl: NavController, private router: Router, private data: Data,private http: HttpClient) { }
+  constructor(private navCtrl: NavController, private router: Router, private data: Data, private http: HttpClient, private location: Location) { }
 
   async ngOnInit() {
     await this.cargarArticulo();
-    
-    
+  }
+
+  goBack() {
+    this.router.navigate(['/home']);
+    //this.location.back();
   }
 
   async ionViewWillEnter() {
@@ -55,34 +63,46 @@ export class ArticuloPage implements OnInit {
     if (articulo_id != null) {
       this.articuloId = +articulo_id;
 
-      if (this.articuloId != null) { 
-      const showby = localStorage.getItem('showby');
+      if (this.articuloId != null) {
+        const showby = localStorage.getItem('showby');
 
-      if (showby === 'qr') { // Si el valor es "qr"
-        this.data.getArticuloQR(articulo_id.toString()).subscribe(
-          (response) => {
-            this.articulo = response;
-            localStorage.setItem('articulo', this.articulo);
-            //this.data.presentAlert('articulo obtenido de api', this.articulo);
-          },
-          (error) => {
-            //this.data.presentAlert('Error al obtener articulo de api' , error);
-          }
-        );
-      } else { // De lo contrario, usar getArticuloID
-        this.data.getArticuloID(articulo_id.toString()).subscribe(
-          (response) => {
-            this.articulo = response;
-            localStorage.setItem('articulo', this.articulo);
-            //this.data.presentAlert('articulo obtenido de api', this.articulo);
-          },
-          (error) => {
-            //this.data.presentAlert('Error al obtener articulo de api' , error);
-          }
-        );
+        if (showby === 'qr') { // Si el valor es "qr"
+          this.data.getArticuloQR(articulo_id.toString()).subscribe(
+            (response) => {
+              this.articulo = response;
+              localStorage.setItem('articulo', this.articulo);
+              localStorage.setItem('articuloDescConv', this.articulo.descripcion);
+
+              localStorage.setItem('narTitulo', this.articulo.nombre);
+              localStorage.setItem('narCategoria', this.articulo.categoria);
+              localStorage.setItem('narYear', this.articulo.year);
+              localStorage.setItem('narFoto', this.articulo.fotos[0] || "../../assets/img/buho-logo.svg");
+            },
+            (error) => {
+              this.data.presentAlert('Error al obtener articulo de api' , error);
+            }
+          );
+        } else { // De lo contrario, usar getArticuloID
+          this.data.getArticuloID(articulo_id.toString()).subscribe(
+            (response) => {
+              this.articulo = response;
+              localStorage.setItem('articulo', this.articulo);
+              localStorage.setItem('articuloDescConv', this.articulo.descripcion);
+
+              localStorage.setItem('narTitulo', this.articulo.nombre);
+              localStorage.setItem('narCategoria', this.articulo.categoria);
+              localStorage.setItem('narYear', this.articulo.year);
+
+              if (this.articulo.fotos[0] == null) { this.articulo.fotos[0] = "../../assets/img/buho-logo.svg" }
+              localStorage.setItem('narFoto', this.articulo.fotos[0].url);
+            },
+            (error) => {
+              this.data.presentAlert('Error al obtener articulo de api' , error);
+            }
+          );
+        }
       }
     }
-  }
 
     let articuloString = localStorage.getItem('articulo');
     console.log("ejecutando carga de articulo");
@@ -101,22 +121,27 @@ export class ArticuloPage implements OnInit {
         "fotos": [
           {
             "id_multimedio": 1,
-            "url": "../../assets/img/iPhone.jpeg",
+            "url": "../../assets/img/buho-logo.svg",
             "tipo": "imagen"
           }
         ],
         "videos": [],
         "audios": []
       };
-      //this.data.presentAlert("articulo en local", this.articulo.toString());
     } else {
       console.log("existe");
-      //this.data.presentAlert("articulo existe en api", articuloString);
-      this.articulo = articuloString;//localStorage.getItem('articulo');
-      //this.data.presentAlert("objeto generado", this.articulo);
+
+      this.articulo = articuloString;
+      
+      localStorage.setItem('conversaciones', this.descripcion[1]);
+
+      this.descripcion = localStorage.getItem('articuloDescConv')?.split('*') || [];
+
+      console.log(localStorage.getItem('narFoto'))
       
       if (this.articulo.fotos[0] == null) { this.articulo.fotos[0] = "../../assets/img/buho-logo.svg" }
     }
+
     await this.cargarComentarios();
   }
 
@@ -139,11 +164,11 @@ export class ArticuloPage implements OnInit {
         }
       }
     }
-    return '../../assets/img/buho-logo.svg'; 
+    return '../../assets/img/buho-logo.svg';
   }
 
 
-  
+
   cargarComentarios() {
     if (this.articuloId === null) {
       console.error('El artículoId es nulo. Asegúrate de cargar el artículo antes de los comentarios.');
@@ -167,29 +192,29 @@ export class ArticuloPage implements OnInit {
     if (!this.nuevoComentario.trim()) {
       return;
     }
-  
+
     const token = localStorage.getItem('token');
     if (!token) {
       console.error('No se ha proporcionado un token de sesión válido.');
       return;
     }
-  
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'x-token': token
     });
-  
+
     const body = {
       comentario: this.nuevoComentario
     };
-  
+
     this.http.post<any>(`https://ds6.glaciar.club/api/comentarios/${this.articuloId}`, body, { headers }).subscribe(
       (response) => {
         console.log('Comentario agregado:', response);
-  
+
         // Agregar el nuevo comentario a la lista local de comentarios
         this.comentarios.push(response);
-  
+
         // Limpiar el campo de nuevoComentario después de agregarlo con éxito
         this.nuevoComentario = "";
       },

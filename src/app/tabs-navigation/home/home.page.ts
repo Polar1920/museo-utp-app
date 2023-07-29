@@ -1,7 +1,7 @@
-import { Component, OnInit  } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { NavController, Platform } from '@ionic/angular';
+import { Location } from '@angular/common';
 import { Data } from '../../data/data';
-
 
 @Component({
   selector: 'app-home',
@@ -13,11 +13,38 @@ export class HomePage implements OnInit {
   articulos: any = [];
   categorias: any = [];
 
-  constructor(private navCtrl: NavController, private data: Data) {}
+  constructor(private navCtrl: NavController, private data: Data, private platform: Platform, private location: Location) { }
 
   ngOnInit() {
     this.obtenerArticulos();
     this.obtenerArticulosCat();
+
+    this.platform.backButton.subscribeWithPriority(0, () => {
+      if (history.length > 1) {
+        history.back();
+      } else {
+        const alert = document.createElement('ion-alert');
+        alert.header = 'Cerrar aplicación';
+        alert.message = '¿Está seguro que desea cerrar la aplicación?';
+        alert.buttons = [
+          {
+            text: 'Cancelar',
+            role: 'cancel'
+          }, {
+            text: 'Cerrar',
+            handler: () => {
+              console.log('El usuario intentó cerrar la aplicación.');
+            }
+          }
+        ];
+        document.body.appendChild(alert);
+        alert.present();
+      }
+    });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   obtenerArticulos() {
@@ -56,7 +83,6 @@ export class HomePage implements OnInit {
     );
   }
 
-  
   getPhotoUrl(article: any): string {
     if (article.fotos && article.fotos.length > 0) {
       for (const foto of article.fotos) {
@@ -71,7 +97,7 @@ export class HomePage implements OnInit {
         }
       }
     }
-    return '../../assets/img/buho-logo.svg'; 
+    return '../../assets/img/buho-logo.svg';
   }
 
   viewArticle(articulo: any) {

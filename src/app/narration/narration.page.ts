@@ -8,6 +8,12 @@ import { NavController } from '@ionic/angular';
 })
 export class NarrationPage implements OnInit {
 
+  titulo: any;
+  categoria: any;
+  year: any;
+  foto: any;
+  conversaciones: any[] = [];
+
   conversacion: { emisor: boolean, mensaje: string }[] = [];
   mensajes: string[] = [
     'Sí, son conocidas por su apariencia y su sistema operativo intuitivo.',
@@ -21,6 +27,19 @@ export class NarrationPage implements OnInit {
   constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
+    this.titulo = localStorage.getItem('narTitulo');
+    this.foto = localStorage.getItem('narFoto');
+    this.categoria = localStorage.getItem('narCategoria');
+    this.year = localStorage.getItem('narYear');
+
+    this.conversaciones = localStorage.getItem('conversaciones')?.split('|') || [];
+
+    console.log(this.titulo);
+    console.log(this.foto);
+    console.log(this.categoria);
+    console.log(this.year);
+
+    console.log(this.conversaciones);
     // Mensajes inicial
     this.agregarMensajeInicial(true, 'La Apple Macintosh es reconocida por su diseño elegante y facilidad de uso.');
     this.agregarMensajeInicial(false, 'Sí, son conocidas por su apariencia y su sistema operativo intuitivo.');

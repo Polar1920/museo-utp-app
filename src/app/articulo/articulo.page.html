@@ -3,7 +3,6 @@
     <ion-back-button size="large" defaultHref="/tabs/home"></ion-back-button>
   </ion-buttons>
 
-
 <ion-content [fullscreen]="true">
 
   <div *ngIf="mostrarImagen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.8); z-index: 999;">
@@ -27,7 +26,7 @@
           <hr>
         </div>
         <div class="contenedor-informacion" #informacionContainer>
-          <p class="descripcion">{{ articulo.descripcion }}</p>
+          <p class="descripcion">{{ descripcion[0] }}</p>
         </div>
         <ion-button class="button-round" expand="full" (click)="goToNarracion()">
           <div class="div-btn">
@@ -61,7 +60,7 @@
           <ion-list>
             <ion-item *ngFor="let comentario of comentarios" class="container">
               <ion-avatar slot="start">
-                <img src="../../assets/img/Foto.jpeg" />
+                <img src="{{ comentario.foto }}" />
               </ion-avatar>
               <div class="info">
                 <ion-label class="nomHora">
