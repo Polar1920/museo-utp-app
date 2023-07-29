@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import Swiper from 'swiper';
+
 
 @Component({
   selector: 'app-timeline',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timeline.page.scss'],
 })
 export class TimelinePage implements OnInit {
-
+ 
   constructor() { }
 
   ngOnInit() {
@@ -16,8 +18,9 @@ export class TimelinePage implements OnInit {
     console.log('changed', e)
   }
 
-  getRenderBullet(index: number, className: string) {
-    return '<span"' + className + '">' + (index + 1) + "</span>";
-  }
+
+
+  
+
 
 }

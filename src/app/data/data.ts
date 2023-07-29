@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { AlertController } from '@ionic/angular';
 
 @Injectable({
@@ -46,6 +46,14 @@ export class Data {
 
   registerUser(nombre_usuario: string, password: string, nombre: string, apellido: string, cedula: string, nivel: number, id_facultad: number, id_carrera: number, foto: string) {
     return this.http.post(`${this.apiUrl}/usuarios`, { nombre_usuario, password, nombre, apellido, cedula, nivel, id_facultad, id_carrera, foto });
+  }
+
+  updateUser(formData: any, token: string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-token': token
+    });
+    return this.http.put(`${this.apiUrl}/usuarios`, JSON.stringify(formData), { headers });
   }
 
   getCarreras() {
