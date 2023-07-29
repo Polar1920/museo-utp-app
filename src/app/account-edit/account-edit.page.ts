@@ -115,28 +115,37 @@ export class AccountEditPage implements OnInit {
     if (token) {
       const myHeaders = new Headers();
       myHeaders.append("x-token", token);
-
+  
       const formdata = new FormData();// Crear un objeto FormData para incluir los datos del usuario y la imagen
       formdata.append("nombre", this.name);
       formdata.append("apellido", this.lastname);
       formdata.append("nivel", this.level.toString());
       formdata.append("facultad_id", this.selectedFacultad.toString());
       formdata.append("carrera_id", this.selectedCarrera.toString());
-
+  
+      // Agregar la imagen "fotoE" al objeto FormData solo si no es nula
+      if (this.fotoE) {
+        formdata.append("foto", this.fotoE, 'foto.png');
+      }
+  
       const requestOptions = {
         method: 'PUT',
         headers: myHeaders,
         body: formdata,
         redirect: 'follow' as RequestRedirect // Establecer la propiedad redirect en follow
       };
-
+  
       fetch("https://ds6.glaciar.club/api/usuarios", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
+        .then(response => response.json())
+        .then(result => {
+          console.log(result);
+          // Actualizar el objeto "usuario" en localStorage con la nueva URL o imagen generada por la API
+          this.usuario.foto = result.foto;
+          localStorage.setItem('usuario', JSON.stringify(this.usuario));
+        })
         .catch(error => console.log('error', error));
     } else {
       console.error('No se encontró un token de sesión. Debe iniciar sesión para actualizar su perfil.');
-      // Aquí puedes agregar código adicional para mostrar un mensaje de error o redirigir al usuario a la página de inicio de sesión
     }
   }
 
