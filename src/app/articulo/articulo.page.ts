@@ -158,7 +158,9 @@ export class ArticuloPage implements OnInit {
     this.modal.present();
   }
 
-  getPhotoUrl(articulo: any): string {
+  getPhotoUrls(articulo: any): string[] {
+    const photoUrls: string[] = [];
+  
     if (articulo.fotos && articulo.fotos.length > 0) {
       for (const foto of articulo.fotos) {
         const url = foto.url;
@@ -168,11 +170,17 @@ export class ArticuloPage implements OnInit {
         const fileName = urlPartEndParts[0];
         const extension = fileName.split(".")[1];
         if (extension === 'png') {
-          return foto.url;
+          photoUrls.push(foto.url);
         }
       }
     }
-    return '../../assets/img/buho-logo.svg';
+  
+    if (photoUrls.length > 0) {
+      console.log(photoUrls);
+      return photoUrls;
+    } else {
+      return ['../../assets/img/buho-logo.svg'];
+    }
   }
 
 

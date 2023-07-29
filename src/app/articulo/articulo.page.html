@@ -12,9 +12,10 @@
 
   <div class="contenedor">
     <div class="div-info">
-      <swiper-container (slidechange)="swiperSlideChanged($event)" class="imagenes" [pagination]="true" >
-        <swiper-slide><img src="{{ getPhotoUrl(articulo) }}" /></swiper-slide>
-        <swiper-slide><img src="https://i.kym-cdn.com/photos/images/newsfeed/002/559/519/e31.jpg" alt="image example" /></swiper-slide>
+      <swiper-container (slidechange)="swiperSlideChanged($event)" class="imagenes" [pagination]="true">
+        <swiper-slide *ngFor="let url of getPhotoUrls(articulo)">
+          <img [src]="url" />
+        </swiper-slide>
       </swiper-container>
       <div class="div-parte-inferior">
         <div class="div-principio">
