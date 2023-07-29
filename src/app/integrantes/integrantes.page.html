@@ -3,7 +3,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-spinner name="dots"></ion-spinner>
   <div class="div-information">
     <ion-icon name="chevron-back-sharp" (click)="regresar()"></ion-icon>
     <h1>Integrantes</h1>
@@ -28,13 +27,8 @@
     </div>
     <div class="card ">
       <ion-icon name="images-outline"
-        (click)="MostrarGrupo('MM')"></ion-icon>
+        (click)="MostrarGrupo('MULTIMEDIOS')"></ion-icon>
       <h3>RECURSOS<br>MULTIMEDIOS</h3>
-    </div>
-    <div class="card ">
-      <ion-icon name="laptop-outline"
-        (click)="MostrarGrupo('WEB')"></ion-icon>
-      <h3>WEB<br>APP</h3>
     </div>
     <div class="card ">
       <ion-icon name="earth-outline"
@@ -47,29 +41,31 @@
       <h3>Q.A.<br><br></h3>
     </div>
   </div>
-  <!-- Tarjeta con los grupos, lider e integrantes-->
+  <!-- Tarjeta con los grupos, líder e integrantes -->
   <ion-card>
     <ion-card-header style="padding-inline: 10px;">
-      <ion-card-title>Equipo</ion-card-title>
-      <ion-card-title>{{nombreGrupo}}</ion-card-title>
-      <hr class="divider">
       <div style="display: flex; flex-direction: column; align-items: center;">
+        <ion-card-title>Líder del Equipo <br> {{nombreGrupo}}</ion-card-title>
         <ion-avatar style="margin-bottom: 10px;">
-          <img
-            src="https://www.themoviedb.org/t/p/original/xMGWSdT0mcqzentuImFmVhkEgAQ.jpg"
-            alt>
+          <img src="{{fotoLider}}" alt>
         </ion-avatar>
         <h2>{{nombreLider}} {{apellidoLider}}</h2>
       </div>
+      <hr class="divider">
+      <ion-list>
+        <ion-card-title>Integrantes del Equipo <br> {{nombreGrupo}}</ion-card-title>
+        <ion-item *ngFor="let integrante of selectedGroupMembers">
+          <ion-avatar style="margin-left: 10px;">
+            <img src="{{integrante.foto}}" alt>
+          </ion-avatar>
+          <h2 style="padding-left: 10px;">{{integrante.nombre}}
+            {{integrante.apellido}}</h2>
+        </ion-item>
+      </ion-list>
+      <hr class="divider">
+
     </ion-card-header>
 
-    <ion-list>
-      <ion-item>
-        <ion-avatar style="margin-left: 10px;">
-          <img src alt>
-        </ion-avatar>
-        <h2>Nombre Apellido</h2>
-      </ion-item>
-    </ion-list>
   </ion-card>
+
 </ion-content>

@@ -16,32 +16,39 @@ export class IntegrantesPage implements OnInit {
   foto: string = '';
   nombreGrupo: string = '';
 
+  // Mapeo de nombres de departamentos
+  nombreDepartamentos: { [key: string]: string } = {
+    'APP': 'APP',
+    'BD': 'BASE DE DATOS',
+    'API': 'API',
+    'MULTIMEDIOS': 'RECURSOS MULTIMEDIOS',
+    'WEB': 'WEB APP',
+    'QA': 'Q.A.',
+  };
+
   constructor(private navCtrl: NavController, private http: HttpClient) { }
 
   ngOnInit() {
-    this.MostrarGrupo('APP');
-
+    this.MostrarGrupo('API'); // Cambié 'APP' por 'API' para mostrar los datos de la API.
   }
 
   regresar() {
     this.navCtrl.back(); // Navegar a la página anterior
   }
 
-
   MostrarGrupo(departamento: string): void {
     const apiGroupMembersUrl = `https://ds6.glaciar.club/api/participantes/all?departamento=${departamento}`;
 
-    // Realiza la solicitud GET al API
     this.http.get<any[]>(apiGroupMembersUrl).subscribe(
       (data) => {
-        this.nombreGrupo = departamento;
-        console.log(data); // Muestra los datos en la consola (puedes quitar esta línea si no deseas mostrar los datos en la consola).
+        this.nombreGrupo = this.nombreDepartamentos[departamento]; // Utilizamos el mapeo para obtener el nombre completo del departamento
         this.nombreLider = data[0].nombre;
         this.apellidoLider = data[0].apellido;
         this.fotoLider = data[0].foto;
+
+        this.selectedGroupMembers = data.slice(1);
       },
       (error) => {
-        // Maneja los errores en caso de que la solicitud falle.
         console.error('Error al obtener datos del API:', error);
       }
     );
