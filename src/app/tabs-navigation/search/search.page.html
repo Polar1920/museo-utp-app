@@ -11,7 +11,7 @@
 
   <ion-list>
     <hr class="divider">
-    <ion-item *ngFor="let article of searchedArticle" (click)="verArticulo()" [ngClass]="{'selected': isSelected}">
+    <ion-item *ngFor="let article of searchedArticle" (click)="viewArticle(article)" [ngClass]="{'selected': isSelected}">
       <div class="div-img">
         <img src="{{ getFirstPhotoUrl(article) }}" />
       </div>

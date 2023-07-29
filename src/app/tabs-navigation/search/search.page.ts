@@ -1,23 +1,20 @@
-import { Component,OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../../data/data';
 
 @Component({
-
-  
   selector: 'app-search',
   templateUrl: './search.page.html',
-  styleUrls: ['./search.page.scss']
+  styleUrls: ['./search.page.scss'],
 })
-
-export class SearchPage {
+export class SearchPage implements OnInit {
   isSelected = false;
   numeroResultados: number = 0;
   resultados: any[] = [];
   articles: any[] = [];
   searchedArticle: any[] = [];
   searchText: string = '';
-  
+
   constructor(private router: Router, private dataService: Data) {}
 
   ngOnInit() {
@@ -51,10 +48,11 @@ export class SearchPage {
     this.router.navigate(['/information']);
   }
 
-  verArticulo() {
+  viewArticle(article: any) {
     this.isSelected = true;
+    localStorage.setItem('showby', 'tc');
+    localStorage.setItem('articulo_id', article.id);
     this.router.navigate(['/articulo']);
-    this.isSelected = false;
   }
 
   getFirstPhotoUrl(article: any): string {
