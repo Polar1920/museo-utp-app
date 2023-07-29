@@ -1,17 +1,13 @@
-import { Component,OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../../data/data';
 
-//a
 @Component({
-
-  
   selector: 'app-search',
   templateUrl: './search.page.html',
-  styleUrls: ['./search.page.scss']
+  styleUrls: ['./search.page.scss'],
 })
-
-export class SearchPage {
+export class SearchPage implements OnInit {
   isSelected = false;
   numeroResultados: number = 0;
   resultados: any[] = [];
@@ -19,13 +15,6 @@ export class SearchPage {
   searchedArticle: any[] = [];
   searchText: string = '';
 
-  getLimitedDescription(description: string, maxLength: number):string{
-    if(description && description.length > maxLength ){
-      return description.substring(0, maxLength) + '...';
-    }
-    return description;
-  }
-  
   constructor(private router: Router, private dataService: Data) {}
 
   ngOnInit() {
@@ -59,26 +48,19 @@ export class SearchPage {
     this.router.navigate(['/information']);
   }
 
-  verArticulo() {
+  viewArticle(article: any) {
     this.isSelected = true;
+    localStorage.setItem('showby', 'tc');
+    localStorage.setItem('articulo_id', article.id);
     this.router.navigate(['/articulo']);
-    this.isSelected = false;
   }
 
-  getPhotoUrl(article: any): string {
+  getFirstPhotoUrl(article: any): string {
     if (article.fotos && article.fotos.length > 0) {
-      for (const foto of article.fotos) {
-        const url = foto.url;
-        const urlParts = url.split("/");
-        const urlPartEnd = urlParts[urlParts.length - 1];
-        const urlPartEndParts = urlPartEnd.split("?");
-        const fileName = urlPartEndParts[0];
-        const extension = fileName.split(".")[1];
-        if (extension === 'jpg') {
-          return foto.url;
-        }
-      }
+      return article.fotos[0].url;
     }
-    return '../../assets/img/buho-logo.svg'; 
+    // Si no hay fotos, se puede retornar una URL de imagen por defecto o un mensaje de error.
+    return '/assets/imagen-no-disponible.jpg';
   }
 }
+
