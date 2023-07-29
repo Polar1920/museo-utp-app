@@ -115,7 +115,7 @@ export class ArticuloPage implements OnInit {
       this.articulo = articuloString;//localStorage.getItem('articulo');
       //this.data.presentAlert("objeto generado", this.articulo);
       
-      if (this.articulo.fotos[0] == null) { this.articulo.fotos[0] = "../../assets/img/iPhone.jpeg" }
+      if (this.articulo.fotos[0] == null) { this.articulo.fotos[0] = "../../assets/img/buho-logo.svg" }
     }
     await this.cargarComentarios();
   }
