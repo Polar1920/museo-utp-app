@@ -4,42 +4,31 @@
 
 <ion-content [fullscreen]="true">
 
+  <div *ngIf="mostrarImagen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.8); z-index: 999;">
+    <img [src]="imagenUrl" alt="Imagen" style="width: 100%; height: 100%; object-fit: cover;" />
+  </div>
+
   <div class="contenedor">
     <div class="div-info">
       <div class="imagenes">
-        <img src="{{articulo?.fotos?.[0]?.url}}" />
+        <img src="{{ getPhotoUrl(articulo) }}" />
       </div>
       <div>
         <div class="div-principio">
           <h1>{{ articulo.nombre }}</h1>
-          <h2>{{ articulo.categoria }}</h2>
-          <!-- <h2>{{ articuloId }}</h2>  <!--esto es nuevo-->
-
+          <h2>{{ articulo.categoria }}</h2>          
         </div>
-        <!--
-        <div>
-          <ion-icon name="location-outline"></ion-icon>
-          <p>año: {{ articulo.ubicacion }}</p>
-        </div>
-        -->
-
         <div class="divider">
           <h3>{{ articulo.year }}</h3>
           <hr>
         </div>
         <div class="contenedor-informacion" #informacionContainer>
-          <p class="descripcion">
-            {{ articulo.descripcion }}
-          </p>
+          <p class="descripcion">{{ articulo.descripcion }}</p>
         </div>
-
-
-
         <ion-button class="button-round" expand="full" (click)="goToNarracion()">
           <div class="div-btn">
             <ion-icon name="play-circle-sharp"></ion-icon>
             <span>Narración</span>
-
           </div>
         </ion-button>
 
@@ -51,7 +40,6 @@
         </ion-button>
       </div>
     </div>
-
 
     <hr class="hr-divider1">
     <h5 class="comentarios" (click)="openModal()">Comentarios</h5>

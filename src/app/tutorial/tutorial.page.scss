@@ -3,6 +3,14 @@ ion-icon {
   margin-top: 10px;
   margin-right: 10px;
 }
+
+ion-item ion-icon {
+  font-size: 20px;
+  color: var(--ion-color-dorado);
+}
+ion-label {
+  margin: 0;
+}
 ion-accordion-group {
   margin-left: 10px;
   margin-right: 10px;
