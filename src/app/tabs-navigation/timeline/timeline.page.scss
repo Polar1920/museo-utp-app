@@ -2,12 +2,15 @@ ion-content {
     --background: url('/assets/img/fondo_timeline.png') no-repeat fixed;
 }
 
+//MANEJO DEL SWIPER
 swiper-container {
     width: 100%;
     height: 100%;
 }
 
 swiper-slide h1 {
+    width: 100%;
+    height: 5%;
     font-family: 'Inter-SemiBold';
     font-size: 25px;
     text-align: center;
@@ -15,14 +18,18 @@ swiper-slide h1 {
 }
 
 swiper-slide h3 {
+    width: 100%;
+    height: 3%;
     font-family: 'Inter-Medium';
     text-align: center;
     margin-top: 0;
-    font-size: 17px;    
+    font-size: 17px;
+
 }
 
-swiper-slide div {
+.contenedor-imagen {
     width: 100%;
+    height: 35%;
     display: flex;
     justify-content: center;
 }
@@ -36,15 +43,69 @@ swiper-slide img {
     border-radius:20px;
 }
 
-swiper-slide h2{
-    font-family: 'Kameron-Regular';
-    font-size: 30px;
-    text-align: center;
-}
 
 swiper-slide p{
+    height: 40%;
     font-family: 'Inter-Regular';
-    font-size: 20px;
-    margin: 20px;
+    font-size: 15px;
+    margin: 20px 20px 0 20px;
     text-align: justify;
+    word-spacing: 0.5;
+    white-space: pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.fecha-pagination{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.fecha-pagination div{
+    display: flex;
+    justify-content: center;
+    width: 33%;
+}
+
+.d-start h5, .d-end h5 {
+    font-size: 10px;
+}
+
+.d-center h5 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    padding: 8px;
+}
+
+.d-center{
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    color: aliceblue;
+    background: rgba(0, 0, 0, 0.308);
+    animation: timelapse 1s ease-in-out;
+}
+
+@keyframes timelapse {
+    0% {
+      transform: scale(1); /* Tamaño normal */
+      opacity: 0.5; /* Opacidad reducida */
+    }
+    50% {
+      transform: scale(1.1); /* Aumentamos el tamaño */
+      opacity: 1; /* Opacidad completa */
+      color: var(--ion-color-dorado);
+    }
+    100% {
+      transform: scale(1); /* Volvemos al tamaño normal */
+      opacity: 0.5; /* Opacidad reducida */
+    }
+  }
+
+
+
+
+

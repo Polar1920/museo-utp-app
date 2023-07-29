@@ -10,38 +10,39 @@ import { HttpClient } from '@angular/common/http';
 export class IntegrantesPage implements OnInit {
   groupLeaders: string[] = []; // This array will hold the group leaders' names
   selectedGroupMembers: any[] = []; // This array will hold the selected group members
+  nombreLider: string = '';
+  apellidoLider: string = '';
+  fotoLider: string = '';
+  foto: string = '';
+  nombreGrupo: string = '';
 
   constructor(private navCtrl: NavController, private http: HttpClient) { }
 
   ngOnInit() {
-    // Call the function to fetch the data from the API
-    this.getGroupLeaders();
+    this.MostrarGrupo('APP');
+
   }
 
   regresar() {
     this.navCtrl.back(); // Navegar a la página anterior
   }
 
-  getGroupLeaders(): void {
-    const apiUrl = 'https://rickandmortyapi.com/api/character/418'; // Replace with your actual API endpoint
-    this.http.get<string[]>(apiUrl).subscribe(
-      (data) => {
-        this.groupLeaders = data; // Assign the API response to the groupLeaders array
-      },
-      (error) => {
-        console.error('Error fetching group leaders:', error);
-      }
-    );
-  }
 
-  buttonClicked(index: number): void {
-    const apiGroupMembersUrl = `###`; // Replace with the actual API endpoint to fetch group members
+  MostrarGrupo(departamento: string): void {
+    const apiGroupMembersUrl = `https://ds6.glaciar.club/api/participantes/all?departamento=${departamento}`;
+
+    // Realiza la solicitud GET al API
     this.http.get<any[]>(apiGroupMembersUrl).subscribe(
       (data) => {
-        this.selectedGroupMembers = data; // Assign the API response to the selectedGroupMembers array
+        this.nombreGrupo = departamento;
+        console.log(data); // Muestra los datos en la consola (puedes quitar esta línea si no deseas mostrar los datos en la consola).
+        this.nombreLider = data[0].nombre;
+        this.apellidoLider = data[0].apellido;
+        this.fotoLider = data[0].foto;
       },
       (error) => {
-        console.error('Error fetching group members:', error);
+        // Maneja los errores en caso de que la solicitud falle.
+        console.error('Error al obtener datos del API:', error);
       }
     );
   }

@@ -17,8 +17,8 @@ export class ArticuloPage implements OnInit {
   articulo: any;
   primeraFoto: any;
 
-  //mostrarImagen: boolean = true;
-  //imagenUrl: string = '../../assets/img/Foto.jpeg'; 
+  mostrarImagen: boolean = true;
+  imagenUrl: string = '../../assets/img/Negro.jpg'; 
   
   articuloId: number | null=null;
   comentarios: any[] = [];
@@ -45,10 +45,10 @@ export class ArticuloPage implements OnInit {
 
   async cargarArticulo() {
     // Mostrar la imagen por 1 segundo
-    //this.mostrarImagen = true;
-    //setTimeout(() => {
-      //this.mostrarImagen = false;
-    //}, 1000);
+    this.mostrarImagen = true;
+    setTimeout(() => {
+      this.mostrarImagen = false;
+    }, 1000);
 
     let articulo_id = localStorage.getItem('articulo_id');
 
@@ -115,7 +115,7 @@ export class ArticuloPage implements OnInit {
       this.articulo = articuloString;//localStorage.getItem('articulo');
       //this.data.presentAlert("objeto generado", this.articulo);
       
-      if (this.articulo.fotos[0] == null) { this.articulo.fotos[0] = "../../assets/img/iPhone.jpeg" }
+      if (this.articulo.fotos[0] == null) { this.articulo.fotos[0] = "../../assets/img/buho-logo.svg" }
     }
     await this.cargarComentarios();
   }

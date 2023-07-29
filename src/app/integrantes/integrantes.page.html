@@ -1,8 +1,9 @@
+
 <ion-header [translucent]="true">
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
+  <ion-spinner name="dots"></ion-spinner>
   <div class="div-information">
     <ion-icon name="chevron-back-sharp" (click)="regresar()"></ion-icon>
     <h1>Integrantes</h1>
@@ -11,102 +12,64 @@
 
   <div class="scrolling-wrapper">
     <div class="card">
-      <ion-icon style="background-color: #62e815;" name="phone-portrait-outline"
-        (click)="buttonClicked(0)"></ion-icon>
-      <h3>APP</h3>
+      <ion-icon name="phone-portrait-outline"
+        (click)="MostrarGrupo('APP')"></ion-icon>
+      <h3>APP<br><br></h3>
+    </div>
+    <div class="card ">
+      <ion-icon name="server-outline"
+        (click)="MostrarGrupo('BD')"></ion-icon>
+      <h3>BASE<br>DE DATOS</h3>
+    </div>
+    <div class="card ">
+      <ion-icon name="cloud-outline"
+        (click)="MostrarGrupo('API')"></ion-icon>
+      <h3>API<br><br></h3>
+    </div>
+    <div class="card ">
+      <ion-icon name="images-outline"
+        (click)="MostrarGrupo('MM')"></ion-icon>
+      <h3>RECURSOS<br>MULTIMEDIOS</h3>
+    </div>
+    <div class="card ">
+      <ion-icon name="laptop-outline"
+        (click)="MostrarGrupo('WEB')"></ion-icon>
+      <h3>WEB<br>APP</h3>
+    </div>
+    <div class="card ">
+      <ion-icon name="earth-outline"
+        (click)="MostrarGrupo('WEB')"></ion-icon>
+      <h3>SITIO<br>WEB</h3>
     </div>
     <div class="card">
-      <ion-icon style="background-color: #15e8ba;" name="server-outline"
-        (click)="buttonClicked(1)"></ion-icon>
-      <h3>BASE DE DATOS</h3>
-    </div>
-    <div class="card">
-      <ion-icon style="background-color: #15a5e8;" name="cloud-outline"
-        (click)="buttonClicked(2)"></ion-icon>
-      <h3>API</h3>
-    </div>
-    <div class="card">
-      <ion-icon style="background-color: #4e51e9;" name="images-outline"
-        (click)="buttonClicked(3)"></ion-icon>
-      <h3>MULTIMEDIOS</h3>
-    </div>
-    <div class="card">
-      <ion-icon style="background-color: #a34ee9;" name="laptop-outline"
-        (click)="buttonClicked(4)"></ion-icon>
-      <h3>WEB APP</h3>
-    </div>
-    <div class="card">
-      <ion-icon style="background-color: #24c41e;" name="earth-outline"
-        (click)="buttonClicked(5)"></ion-icon>
-      <h3>SITIO WEB</h3>
-    </div>
-    <div class="card">
-      <ion-icon style="background-color: #e45353;" name="pulse-outline"
-        (click)="buttonClicked(6)"></ion-icon>
-      <h3>Q.A.</h3>
+      <ion-icon name="pulse-outline"
+        (click)="MostrarGrupo('QA')"></ion-icon>
+      <h3>Q.A.<br><br></h3>
     </div>
   </div>
-
+  <!-- Tarjeta con los grupos, lider e integrantes-->
   <ion-card>
     <ion-card-header style="padding-inline: 10px;">
-      <ion-card-title>NombreLider</ion-card-title>
+      <ion-card-title>Equipo</ion-card-title>
+      <ion-card-title>{{nombreGrupo}}</ion-card-title>
+      <hr class="divider">
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <ion-avatar style="margin-bottom: 10px;">
+          <img
+            src="https://www.themoviedb.org/t/p/original/xMGWSdT0mcqzentuImFmVhkEgAQ.jpg"
+            alt>
+        </ion-avatar>
+        <h2>{{nombreLider}} {{apellidoLider}}</h2>
+      </div>
     </ion-card-header>
-    <img class="img-lider"
-      src="https://res.cloudinary.com/ds20uoypo/image/upload/v1690582887/Fotos%20Integrantes/jqfk4rl0uwwnmibss5dt.jpg" />
-    <ion-card-content>
-      Da un viaje interactivo desde las primeras
-      computadoras hasta la revolución de las comunicaciones y dispositivos
-      icónicos que transformaron nuestras vidas.
-    </ion-card-content>
+
+    <ion-list>
+      <ion-item>
+        <ion-avatar style="margin-left: 10px;">
+          <img src alt>
+        </ion-avatar>
+        <h2>Nombre Apellido</h2>
+      </ion-item>
+    </ion-list>
   </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Equipo X</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <ion-avatar>
-              <img alt="Silhouette of a person's head"
-                src="https://res.cloudinary.com/ds20uoypo/image/upload/v1690582886/Fotos%20Integrantes/oybof9vfpqnwwblpaz9e.jpg " />
-            </ion-avatar>
-          </ion-thumbnail>
-          <ion-label>Integrante</ion-label>
-        </ion-item>
-
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <ion-avatar>
-              <img alt="Silhouette of a person's head"
-                src="https://res.cloudinary.com/ds20uoypo/image/upload/v1690582890/Fotos%20Integrantes/skmzauqqfeqsr7wuviqm.png" />
-            </ion-avatar>
-          </ion-thumbnail>
-          <ion-label>Integrante</ion-label>
-        </ion-item>
-
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <ion-avatar>
-              <img alt="Silhouette of a person's head"
-                src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-            </ion-avatar>
-          </ion-thumbnail>
-          <ion-label>Integrante</ion-label>
-        </ion-item>
-
-        <ion-item lines="none">
-          <ion-thumbnail slot="start">
-            <ion-avatar>
-              <img alt="Silhouette of a person's head"
-                src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-            </ion-avatar>
-          </ion-thumbnail>
-          <ion-label>Integrante</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
 </ion-content>
