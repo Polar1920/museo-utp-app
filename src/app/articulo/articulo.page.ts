@@ -29,6 +29,8 @@ export class ArticuloPage implements OnInit {
   comentarios: any[] = [];
   nuevoComentario: string = "";
 
+  usuario: any; // Definir la propiedad "usuario"
+
   @ViewChild('modal')
   modal: any;
 
@@ -36,6 +38,12 @@ export class ArticuloPage implements OnInit {
 
   async ngOnInit() {
     await this.cargarArticulo();
+    // Obtener el objeto de usuario del localStorage
+    let usuarioString = localStorage.getItem('usuario');
+
+    if (usuarioString !== null) {
+      this.usuario = JSON.parse(usuarioString);
+    }
   }
 
   goBack() {
@@ -79,7 +87,7 @@ export class ArticuloPage implements OnInit {
               localStorage.setItem('narFoto', this.articulo.fotos[0] || "../../assets/img/buho-logo.svg");
             },
             (error) => {
-              this.data.presentAlert('Error al obtener articulo de api' , error);
+              this.data.presentAlert('Error al obtener articulo de api', error);
             }
           );
         } else { // De lo contrario, usar getArticuloID
@@ -97,7 +105,7 @@ export class ArticuloPage implements OnInit {
               localStorage.setItem('narFoto', this.articulo.fotos[0].url);
             },
             (error) => {
-              this.data.presentAlert('Error al obtener articulo de api' , error);
+              this.data.presentAlert('Error al obtener articulo de api', error);
             }
           );
         }
@@ -132,13 +140,13 @@ export class ArticuloPage implements OnInit {
       console.log("existe");
 
       this.articulo = articuloString;
-      
+
       localStorage.setItem('conversaciones', this.descripcion[1]);
 
       this.descripcion = localStorage.getItem('articuloDescConv')?.split('*') || [];
 
       console.log(localStorage.getItem('narFoto'))
-      
+
       if (this.articulo.fotos[0] == null) { this.articulo.fotos[0] = "../../assets/img/buho-logo.svg" }
     }
 
@@ -170,21 +178,23 @@ export class ArticuloPage implements OnInit {
 
 
   cargarComentarios() {
-    if (this.articuloId === null) {
+    const id = localStorage.getItem('articulo_id');
+    if (id === null) {
       console.error('El artículoId es nulo. Asegúrate de cargar el artículo antes de los comentarios.');
       return;
+    } else {
+      const apiUrl = `https://ds6.glaciar.club/api/comentarios/${id}`;
+
+      this.http.get<any[]>(apiUrl).subscribe(
+        (response) => {
+          this.comentarios = response;
+          console.log(this.comentarios);
+        },
+        (error) => {
+          console.error('Error al obtener los comentarios:', error);
+        }
+      );
     }
-
-    const apiUrl = `https://ds6.glaciar.club/api/comentarios/${this.articuloId}`;
-
-    this.http.get<any[]>(apiUrl).subscribe(
-      (response) => {
-        this.comentarios = response;
-      },
-      (error) => {
-        console.error('Error al obtener los comentarios:', error);
-      }
-    );
   }
 
 
