@@ -3,22 +3,24 @@
 <ion-content [fullscreen]="true">
 
   <swiper-container (slidechange)="swiperSlideChanged($event)">
-    <swiper-slide>
-      <h1>Nintendo Switch</h1>
-      <h3>宮本茂</h3>
-      <div class="contenedor-imagen">
-        <img src="https://back.panafoto.com/media/catalog/product/cache/22adb41f3f66ba957b3b3b7b0df44fe6/1/4/141587-1.jpg" />
-      </div>
-      <p>Es una consola de videojuegos desarrollada por Nintendo. Conocida en el desarrollo por su nombre código «NX», se dio a conocer en octubre de 2016 y fue lanzada mundialmente el 3 de marzo de 2017.
-        Nintendo considera a Switch una consola híbrida. Se puede utilizar como consola de sobremesa con la unidad principal insertada en una estación de acoplamiento para conectarla con un televisor.</p>
 
+    <swiper-slide *ngFor="let articulo of articulos">
+      <h1>{{ articulo.nombre }}</h1>
+      <h3>{{ articulo.categoria }}</h3>
+      <div class="contenedor-imagen">
+        <img src="{{ getPhotoUrl(articulo) }}" />
+      </div>
+      <h3>{{ articulo.dueno }}</h3>
+      <p>{{ articulo.descripcion }}</p>
+    
       <div class="fecha-pagination">
-        <div class="d-start"><h5>2023</h5></div>
-        <div class="d-center" ><h5>2024</h5></div>
-        <div class="d-end"><h5>2025</h5></div>
+        <div class="d-start"><h5>{{ (articulos[articulos.indexOf(articulo) - 1] && articulos[articulos.indexOf(articulo) - 1].year) || '' }}</h5></div>
+        <div class="d-center" ><h5>{{ articulo.year }}</h5></div>
+        <div class="d-end"><h5>{{ (articulos[articulos.indexOf(articulo) + 1] && articulos[articulos.indexOf(articulo) + 1].year) || '' }}</h5></div>
       </div>
     </swiper-slide>
 
+    <!--
     <swiper-slide>
       <h1>Tarjeta Perforada</h1>
       <h3>Herman noseque</h3>
@@ -34,6 +36,6 @@
         <div class="d-end"><h5>2026</h5></div>
       </div>
     </swiper-slide>
-
+    -->
 
   </swiper-container>

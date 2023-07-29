@@ -68,6 +68,10 @@ export class Data {
     return this.http.get(`${this.apiUrl}/articulos/all`);
   }
 
+  getArticulosTimeLine() {
+    return this.http.get(`${this.apiUrl}/articulos/all?min=1800`);
+  }
+
   getArticulosCat() {
     return this.http.get(`${this.apiUrl}/categorias/all`);
   }
