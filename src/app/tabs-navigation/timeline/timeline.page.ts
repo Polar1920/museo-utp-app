@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Data } from '../../data/data';
 import Swiper from 'swiper';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-timeline',
@@ -11,12 +12,19 @@ export class TimelinePage implements OnInit {
 
   articulos: any = [];
   swiper: Swiper | undefined;
+  reload: boolean = false;
 
-  constructor(private data: Data) { }
+  constructor(private data: Data, private location: Location) { }
 
   ngOnInit() {
     this.obtenerArticulos();
     this.inicializarSwiper();
+    /*
+    if(this.reload != true){
+      this.reload = true;
+      
+      window.location.reload(); // recargar la página
+    }*/
   }
 
   obtenerArticulos() {
