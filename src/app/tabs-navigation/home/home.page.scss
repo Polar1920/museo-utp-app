@@ -75,8 +75,8 @@ ion-segment-button {
 }
 
 ion-segment-button ion-button {
-    font-family: 'Inter-SemiBold';
-    --background: var(--ion-color-dorado);
+    font-family: 'Inter-Regular';
+    --background: linear-gradient(to bottom, #DAA641, #FFC57C, #FFC34F, #FFBB6B, #E8AF2D, #C6740A);
     text-transform: none;
 }
 
