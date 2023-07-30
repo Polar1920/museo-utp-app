@@ -166,6 +166,10 @@ export class ArticuloPage implements OnInit {
 
     console.log(this.fotos);
 
+    console.log(this.fotos[0]);
+    console.log(this.fotos[1]);
+    console.log(this.fotos[2]);
+
     await this.cargarComentarios();
   }
 
@@ -251,16 +255,26 @@ export class ArticuloPage implements OnInit {
     }
   }
 
+  ngAfterViewInit() {
+    const swiper = new Swiper('.imagenes', {
+      // opciones del swiper
+    });
+  }
+  /*
   inicializarSwiper() {
     this.swiper = new Swiper('.swiper-container', {
       pagination: {
         el: '.swiper-pagination',
       },
     });
-  }
+  }*/
 
   swiperSlideChanged(e: any) {
     console.log('changed', e);
+  }
+
+  ionSlideChanged() {
+    // código para manejar el evento de cambio de diapositiva
   }
 
 }

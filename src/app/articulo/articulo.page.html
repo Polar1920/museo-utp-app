@@ -13,6 +13,14 @@
 
   <div class="contenedor">
     <div class="div-info">
+
+      <!--
+      <ion-slides pager (ionSlideDidChange)="ionSlideChanged()">
+        <ion-slide *ngFor="let foto of fotos">
+          <img [src]="foto" />
+        </ion-slide>
+      </ion-slides>
+      -->
       
       <swiper-container (slidechange)="swiperSlideChanged($event)" class="imagenes" [pagination]="true">
         <swiper-slide *ngFor="let foto of fotos">
