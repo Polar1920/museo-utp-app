@@ -22,12 +22,22 @@
       </ion-slides>
       -->
       
+      
       <swiper-container (slidechange)="swiperSlideChanged($event)" class="imagenes" [pagination]="true">
         <swiper-slide *ngFor="let foto of fotos">
           <img [src]="foto" />
           
         </swiper-slide>
       </swiper-container>
+      
+      <!--
+      <div class="imagenes carousel">
+        <div class="swiper-slide slide" *ngFor="let foto of fotos">
+          <img [src]="foto" />
+        </div>
+      </div>
+      -->
+
       <div class="div-parte-inferior">
         <div class="div-principio">
           <h1>{{ articulo.nombre }}</h1>

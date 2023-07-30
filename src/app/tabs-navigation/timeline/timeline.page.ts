@@ -16,6 +16,7 @@ export class TimelinePage implements OnInit {
 
   ngOnInit() {
     this.obtenerArticulos();
+    this.inicializarSwiper();
   }
 
   obtenerArticulos() {
@@ -23,7 +24,6 @@ export class TimelinePage implements OnInit {
       (response) => {
         this.articulos = response;
         console.log(this.articulos);
-        this.inicializarSwiper();
       },
       (error) => {
         console.log('Error al obtener los articulos:', error);

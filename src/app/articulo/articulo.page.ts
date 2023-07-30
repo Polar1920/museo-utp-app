@@ -171,6 +171,7 @@ export class ArticuloPage implements OnInit {
     console.log(this.fotos[2]);
 
     await this.cargarComentarios();
+    await this.inicializarSwiper();
   }
 
   async openModal() {
@@ -256,18 +257,20 @@ export class ArticuloPage implements OnInit {
   }
 
   ngAfterViewInit() {
-    const swiper = new Swiper('.imagenes', {
-      // opciones del swiper
+    this.swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
     });
   }
-  /*
+  
   inicializarSwiper() {
     this.swiper = new Swiper('.swiper-container', {
       pagination: {
         el: '.swiper-pagination',
       },
     });
-  }*/
+  }
 
   swiperSlideChanged(e: any) {
     console.log('changed', e);

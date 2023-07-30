@@ -27,7 +27,37 @@ ion-back-button {
     position: relative;
     bottom: 100px;
 }
+/*
+.imagenes {
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
 
+.imagenes.carousel {
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.swiper-slide.slide {
+    flex: 0 0 300px;
+    height: 200px;
+    scroll-snap-align: start;
+}
+
+.imagenes.carousel img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+*/
 
 .imagenes {
     width: 300px;
@@ -49,6 +79,7 @@ ion-back-button {
     max-height: 100%;
     object-fit: cover;
 }
+
 
 
 .div-parte-inferior {
