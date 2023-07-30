@@ -60,6 +60,10 @@ export class Data {
     return this.http.get(`${this.apiUrl}/carreras/all`);
   }
 
+  getCarrerasfacultad(facultadid: number) {
+    return this.http.get(`${this.apiUrl}/carreras/facultad/${facultadid}`);
+  }
+
   getFacultades() {
     return this.http.get(`${this.apiUrl}/facultades/all`);
   }

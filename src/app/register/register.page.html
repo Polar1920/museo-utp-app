@@ -59,7 +59,7 @@
       <ion-list>
         <ion-item class="ion-item-inputs">
           <ion-select interface="popover" class="a" type="text" label="Facultad" labelPlacement="floating"
-            placeholder="Escoga su facultad" [(ngModel)]="selectedFacultad" name="selectedFacultad">
+            placeholder="Escoga su facultad" [(ngModel)]="selectedFacultad" name="selectedFacultad" (ionChange)="obtenerCarreras(selectedFacultad)">
             <ion-select-option *ngFor="let facultad of facultades" [value]="facultad.id">{{ facultad.nombre }}</ion-select-option>
 
           </ion-select>

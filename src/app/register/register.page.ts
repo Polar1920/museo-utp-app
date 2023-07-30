@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../data/data';
+import { HttpClient } from '@angular/common/http';
+
 //import Navigation from 'swiper';
 
 //import * as internal from 'stream';
@@ -46,19 +48,20 @@ export class RegisterPage implements OnInit {
   facultades: any = [];
 
 
-  constructor(private router: Router, private data: Data) { }
+  constructor(private router: Router,private data: Data) { }
 
 
   ngOnInit() {
-    this.obtenerCarreras();
     this.obtenerFacultades();
   }
 
-  obtenerCarreras() {
-    this.data.getCarreras().subscribe(
+  obtenerCarreras(selectedFacultad: number) {
+    this.data.getCarrerasfacultad(selectedFacultad).subscribe(
       (response) => {
         this.carreras = response;
         console.log(this.carreras);
+        const carrerasAsString = JSON.stringify(response);
+        console.log(carrerasAsString);
       },
       (error) => {
         console.log('Error al obtener las carreras:', error);
