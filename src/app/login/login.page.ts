@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../data/data';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +15,13 @@ export class LoginPage {
   remember: boolean = false;
   rememberChecked: boolean = false;
 
-  constructor(private router: Router, private data: Data) { }
+  articulos: any;
+  categorias: any;
+
+  constructor(private router: Router, private data: Data, private dataService: DataService) { }
 
   ngOnInit() {
+    this.obtenerArticulosDelAPI();
     let rememberString = localStorage.getItem('remember');
     if (rememberString !== null) {
       this.rememberChecked = JSON.parse(rememberString);
@@ -25,6 +30,7 @@ export class LoginPage {
     this.username = user ?? '';
     let pass = localStorage.getItem('log_password');
     this.password = pass ?? '';
+    this.obtenerArticulos();
   }
 
   checkBoxChanged(event: any) {
@@ -62,7 +68,7 @@ export class LoginPage {
           let usuario = resp.usuario;
 
           if (usuario.rol == "ESTUD") {
-            if(usuario.foto==null){usuario.foto="../../../assets/img/foto_perfil.jpg"}
+            if (usuario.foto == null) { usuario.foto = "../../../assets/img/foto_perfil.jpg" }
             console.log(usuario.foto);
             let usuarioString = JSON.stringify(usuario);
             // Guardar el objeto de usuario en el localStorage
@@ -96,4 +102,42 @@ export class LoginPage {
     });
     this.router.navigate(['/register']);
   }
+
+  // NUEVO MANEJO DE DATOS
+  obtenerArticulos() {
+    // Obtener los datos de IndexedDB
+    console.log('Obtener los articulos de IndexedDB');
+    this.dataService.getArticulosFromIndexedDB().then(
+      (response) => {
+        if (response.length > 0) {
+          // Si hay datos en IndexedDB, utilizarlos
+          this.articulos = response;
+          console.log('Articulos obtenidos de IndexedDB:');
+          console.log(response);
+        } else {
+          console.log('No hay Datos en IndexedDB');
+        }
+      },
+      (error) => {
+        console.log('Error al obtener los articulos:', error);
+      }
+    );
+  }
+
+  // Obtener los datos de API y guardarlos IndexedDB
+  obtenerArticulosDelAPI() {
+    // Obtener los datos de IndexedDB
+    console.log('Obtener los datos de IndexedDB');
+    // Si no hay datos en IndexedDB, obtenerlos de la API
+    this.dataService.getArticulosAll().subscribe(
+      (response) => {
+        this.articulos = response;
+        console.log('Datos obtenidos de la API y Guardados en indexedDB');
+      },
+      (error) => {
+        console.log('Error al obtener los articulos:', error);
+      }
+    );
+  }
+
 }

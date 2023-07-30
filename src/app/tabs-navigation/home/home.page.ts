@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, Platform } from '@ionic/angular';
 import { Location } from '@angular/common';
 import { Data } from '../../data/data';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomePage implements OnInit {
   articulos: any = [];
   categorias: any = [];
 
-  constructor(private navCtrl: NavController, private data: Data, private platform: Platform, private location: Location) { }
+  constructor(private navCtrl: NavController, private data: Data, private platform: Platform, private location: Location, private dataService: DataService) { }
 
   ngOnInit() {
     this.obtenerArticulos();
@@ -47,11 +48,20 @@ export class HomePage implements OnInit {
     this.location.back();
   }
 
+  // NUEVO MANEJO DE DATOS
   obtenerArticulos() {
-    this.data.getArticulosAll().subscribe(
+    // Obtener los datos de IndexedDB
+    console.log('Obtener los articulos de IndexedDB');
+    this.dataService.getArticulosFromIndexedDB().then(
       (response) => {
-        this.articulos = response;
-        console.log(this.articulos);
+        if (response.length > 0) {
+          // Si hay datos en IndexedDB, utilizarlos
+          this.articulos = response;
+          console.log('Articulos obtenidos de IndexedDB:');
+          console.log(response);
+        } else {
+          console.log('No hay Datos en IndexedDB');
+        }
       },
       (error) => {
         console.log('Error al obtener los articulos:', error);

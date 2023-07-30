@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Data } from '../../data/data';
 import Swiper from 'swiper';
 import { Location } from '@angular/common';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-timeline',
@@ -14,7 +15,7 @@ export class TimelinePage implements OnInit {
   swiper: Swiper | undefined;
   reload: boolean = false;
 
-  constructor(private data: Data, private location: Location) { }
+  constructor(private data: Data, private location: Location, private dataService: DataService) { }
 
   ngOnInit() {
     this.obtenerArticulos();
@@ -27,11 +28,20 @@ export class TimelinePage implements OnInit {
     }*/
   }
 
+  // NUEVO MANEJO DE DATOS
   obtenerArticulos() {
-    this.data.getArticulosTimeLine().subscribe(
+    // Obtener los datos de IndexedDB
+    console.log('Obtener los articulos de IndexedDB');
+    this.dataService.getArticulosFromIndexedDB().then(
       (response) => {
-        this.articulos = response;
-        console.log(this.articulos);
+        if (response.length > 0) {
+          // Si hay datos en IndexedDB, utilizarlos
+          this.articulos = response;
+          console.log('Articulos obtenidos de IndexedDB:');
+          console.log(response);
+        } else {
+          console.log('No hay Datos en IndexedDB');
+        }
       },
       (error) => {
         console.log('Error al obtener los articulos:', error);
