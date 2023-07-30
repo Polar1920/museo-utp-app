@@ -68,7 +68,19 @@
     <div class="div-info">
       <div class="div-div-info">
         <ion-label class="lbl">Año</ion-label>
-        <ion-input class="p" value="{{ usuario.nivel }}" [(ngModel)]="level" name="level"></ion-input>
+        <ion-list>
+          <ion-item class="ion-item-inputs">
+            <ion-select interface="popover" class="p" value="{{ usuario.nivel }}" type="text" label="Año" labelPlacement="floating"
+              placeholder="Escoga su Año" [(ngModel)]="level" name="level">
+              <ion-select-option>1</ion-select-option>
+              <ion-select-option>2</ion-select-option>
+              <ion-select-option>3</ion-select-option>
+              <ion-select-option>4</ion-select-option>
+              <ion-select-option>5</ion-select-option>
+  
+            </ion-select>
+          </ion-item>
+        </ion-list>
       </div><!--
       <ion-icon name="create-outline" *ngIf="!editarNivel" (click)="enableNivelEdt()"></ion-icon>
       <div class="edits" *ngIf="editarNivel">
