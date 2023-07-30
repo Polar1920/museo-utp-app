@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../../data/data';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-search',
@@ -15,20 +16,29 @@ export class SearchPage implements OnInit {
   searchedArticle: any[] = [];
   searchText: string = '';
 
-  constructor(private router: Router, private dataService: Data) {}
+  constructor(private router: Router, private dataService: DataService) {}
 
   ngOnInit() {
     this.loadArticles();
   }
 
   loadArticles() {
-    this.dataService.getArticulosAll().subscribe(
-      (response: any) => {
-        this.articles = response;
-        this.searchedArticle = response; // Asignar todos los artículos a la propiedad searchedArticle al cargar la página
+    // Obtener los datos de IndexedDB
+    console.log('Obtener los articulos de IndexedDB');
+    this.dataService.getArticulosFromIndexedDB().then(
+      (response) => {
+        if (response.length > 0) {
+          // Si hay datos en IndexedDB, utilizarlos
+          this.articles = response;
+          this.searchedArticle = response;
+          console.log('Articulos obtenidos de IndexedDB:');
+          console.log(response);
+        } else {
+          console.log('No hay Datos en IndexedDB');
+        }
       },
       (error) => {
-        console.error('Error al obtener datos de los artículos:', error);
+        console.log('Error al obtener los articulos:', error);
       }
     );
   }
