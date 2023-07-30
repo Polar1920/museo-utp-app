@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../data/data';
-import { HttpClient } from '@angular/common/http';
-
+import { Platform, NavController } from '@ionic/angular';
 //import Navigation from 'swiper';
 
 //import * as internal from 'stream';
@@ -48,11 +47,15 @@ export class RegisterPage implements OnInit {
   facultades: any = [];
 
 
-  constructor(private router: Router,private data: Data) { }
+  constructor(private router: Router, private data: Data, private platform: Platform, private navController: NavController) { }
 
 
   ngOnInit() {
     this.obtenerFacultades();
+
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      this.navController.pop();
+    });
   }
 
   obtenerCarreras(selectedFacultad: number) {

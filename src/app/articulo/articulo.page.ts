@@ -52,6 +52,7 @@ export class ArticuloPage implements OnInit {
     if (usuarioString !== null) {
       this.usuario = JSON.parse(usuarioString);
     }
+    this.inicializarSwiper();
   }
 
   goBack() {
@@ -256,18 +257,20 @@ export class ArticuloPage implements OnInit {
   }
 
   ngAfterViewInit() {
-    const swiper = new Swiper('.imagenes', {
-      // opciones del swiper
+    this.swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
     });
   }
-  /*
+  
   inicializarSwiper() {
     this.swiper = new Swiper('.swiper-container', {
       pagination: {
         el: '.swiper-pagination',
       },
     });
-  }*/
+  }
 
   swiperSlideChanged(e: any) {
     console.log('changed', e);
