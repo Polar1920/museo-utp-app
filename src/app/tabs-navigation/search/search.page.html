@@ -17,7 +17,7 @@
       </div>
       <div class="div-info">
         <h1>{{ article.nombre }}</h1>
-        <p>{{ article.descripcion }}</p>
+        <p>{{ getLimitedDescription (article.descripcion, 200) }}</p>
         <div class="div-abajo">
           <h5>{{ article.vistas }}</h5>
           <ion-icon name="eye-sharp"></ion-icon>

@@ -62,5 +62,12 @@ export class SearchPage implements OnInit {
     // Si no hay fotos, se puede retornar una URL de imagen por defecto o un mensaje de error.
     return '/assets/imagen-no-disponible.jpg';
   }
+
+  getLimitedDescription(description: string, maxLength: number):string{
+    if(description && description.length > maxLength ){
+      return description.substring(0, maxLength) + '...';
+    }
+    return description;
+  }
 }
 

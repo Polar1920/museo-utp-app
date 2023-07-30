@@ -41,15 +41,25 @@
     </form>
 
     <form (submit)="submitRegister()" *ngIf="mostrarSegundaParte">
-      <ion-item class="ion-item-inputs">
-        <ion-input class="a" type="number" label="Año" labelPlacement="floating" placeholder="Nivel"
-          [(ngModel)]="level" name="level"></ion-input>
-      </ion-item>
+
+      <ion-list>
+        <ion-item class="ion-item-inputs">
+          <ion-select interface="popover" class="a" type="text" label="Año" labelPlacement="floating"
+            placeholder="Escoga su Año" [(ngModel)]="level" name="level">
+            <ion-select-option>1</ion-select-option>
+            <ion-select-option>2</ion-select-option>
+            <ion-select-option>3</ion-select-option>
+            <ion-select-option>4</ion-select-option>
+            <ion-select-option>5</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+      </ion-list>
 
       <ion-list>
         <ion-item class="ion-item-inputs">
           <ion-select interface="popover" class="a" type="text" label="Facultad" labelPlacement="floating"
-            placeholder="Escoga su facultad" [(ngModel)]="selectedFacultad" name="selectedFacultad">
+            placeholder="Escoga su facultad" [(ngModel)]="selectedFacultad" name="selectedFacultad" (ionChange)="obtenerCarreras(selectedFacultad)">
             <ion-select-option *ngFor="let facultad of facultades" [value]="facultad.id">{{ facultad.nombre }}</ion-select-option>
 
           </ion-select>

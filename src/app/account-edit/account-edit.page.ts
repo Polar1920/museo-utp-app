@@ -41,7 +41,6 @@ export class AccountEditPage implements OnInit {
   constructor(private router: Router, private navCtrl: NavController, private data: Data, private imagePicker: ImagePicker) { }
 
   ngOnInit() {
-    this.obtenerCarreras();
     this.obtenerFacultades();
 
     // Obtener el objeto de usuario del localStorage
@@ -75,39 +74,39 @@ export class AccountEditPage implements OnInit {
       maximumImagesCount: 1,
       outputType: 2 // Cambiar a 2 para formato PNG
     };
-
+  
     this.imagePicker.getPictures(options).then((results) => {
       if (results.length > 0) {
         const file = results[0]; // Obtener el archivo como una cadena de base64
-
+  
         // Crear un objeto File a partir de la cadena de base64
-        const blob = this.dataURItoBlob(file);
-        const fileObject = new File([blob], 'foto.png', { type: 'image/png' });
-
+        const fileObject = this.dataURLtoFile(file, 'foto.png');
+  
         // Verificar el tamaño del archivo
         if (fileObject.size > 1000000) {
           // Mostrar un mensaje de error
           console.error('El archivo es demasiado grande. El tamaño máximo permitido es de 1MB.');
           return;
         }
-
+  
         // Asignar el objeto File a this.fotoE
-        this.fotoE = fileObject;
+        this.fotoE = file;
       }
     }, (err) => {
       console.log(err);
     });
   }
-
-  dataURItoBlob(dataURI: string): Blob {
-    const byteString = atob(dataURI.split(',')[1]);
-    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-    const ab = new ArrayBuffer(byteString.length);
-    const ia = new Uint8Array(ab);
-    for (let i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
+  
+  dataURLtoFile(dataURL: string, filename: string): File {
+    const arr = dataURL.split(',');
+    const mime = arr[0]?.match(/:(.*?);/)?.[1] || '';
+    const bstr = atob(arr[1]);
+    let n = bstr.length;
+    const u8arr = new Uint8Array(n);
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
     }
-    return new Blob([ab], { type: mimeString });
+    return new File([u8arr], filename, { type: mime });
   }
 
   submitProfile() {
@@ -122,11 +121,13 @@ export class AccountEditPage implements OnInit {
       formdata.append("nivel", this.level.toString());
       formdata.append("facultad_id", this.selectedFacultad.toString());
       formdata.append("carrera_id", this.selectedCarrera.toString());
+
+      //formdata.append("foto", this.fotoE, 'foto');
   
       // Agregar la imagen "fotoE" al objeto FormData solo si no es nula
-      if (this.fotoE) {
-        formdata.append("foto", this.fotoE, 'foto.png');
-      }
+      /*if (this.fotoE) {
+        formdata.append("foto", this.fotoE, 'foto');
+      }*/
   
       const requestOptions = {
         method: 'PUT',
@@ -149,11 +150,13 @@ export class AccountEditPage implements OnInit {
     }
   }
 
-  obtenerCarreras() {
-    this.data.getCarreras().subscribe(
+  obtenerCarreras(selectedFacultad: number) {
+    this.data.getCarrerasfacultad(selectedFacultad).subscribe(
       (response) => {
         this.carreras = response;
         console.log(this.carreras);
+        const carrerasAsString = JSON.stringify(response);
+        console.log(carrerasAsString);
       },
       (error) => {
         console.log('Error al obtener las carreras:', error);

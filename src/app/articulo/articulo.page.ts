@@ -4,7 +4,13 @@ import { Data } from '../data/data';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NavController } from '@ionic/angular';
 import { Location } from '@angular/common';
+import Swiper from 'swiper';
 
+interface Foto {
+  id: number;
+  url: string;
+  tipo: string;
+}
 
 @Component({
   selector: 'app-articulo',
@@ -12,11 +18,13 @@ import { Location } from '@angular/common';
   styleUrls: ['./articulo.page.scss'],
 })
 export class ArticuloPage implements OnInit {
+  swiper: Swiper | undefined;
+
   @ViewChild('informacionContainer', { static: false })
   informacionContainer!: ElementRef;
   articulo: any;
   articuloDescConv: any;
-  primeraFoto: any;
+  fotos: any[] = [];
 
   mostrarImagen: boolean = true;
   imagenUrl: string = '../../assets/img/Negro.jpg';
@@ -44,6 +52,7 @@ export class ArticuloPage implements OnInit {
     if (usuarioString !== null) {
       this.usuario = JSON.parse(usuarioString);
     }
+    this.inicializarSwiper();
   }
 
   goBack() {
@@ -84,7 +93,13 @@ export class ArticuloPage implements OnInit {
               localStorage.setItem('narTitulo', this.articulo.nombre);
               localStorage.setItem('narCategoria', this.articulo.categoria);
               localStorage.setItem('narYear', this.articulo.year);
-              localStorage.setItem('narFoto', this.articulo.fotos[0] || "../../assets/img/buho-logo.svg");
+
+              const fotosOBJ: Foto[] = this.articulo.fotos;
+
+              this.fotos = fotosOBJ.map(foto => foto.url);
+
+              if (this.fotos[0] == null) { this.fotos[0] = "../../assets/img/buho-logo.svg" }
+              localStorage.setItem('narFoto', this.fotos[0]);
             },
             (error) => {
               this.data.presentAlert('Error al obtener articulo de api', error);
@@ -101,8 +116,12 @@ export class ArticuloPage implements OnInit {
               localStorage.setItem('narCategoria', this.articulo.categoria);
               localStorage.setItem('narYear', this.articulo.year);
 
-              if (this.articulo.fotos[0] == null) { this.articulo.fotos[0] = "../../assets/img/buho-logo.svg" }
-              localStorage.setItem('narFoto', this.articulo.fotos[0].url);
+              const fotosOBJ: Foto[] = this.articulo.fotos;
+
+              this.fotos = fotosOBJ.map(foto => foto.url);
+
+              if (this.fotos[0] == null) { this.fotos[0] = "../../assets/img/buho-logo.svg" }
+              localStorage.setItem('narFoto', this.fotos[0]);
             },
             (error) => {
               this.data.presentAlert('Error al obtener articulo de api', error);
@@ -144,11 +163,13 @@ export class ArticuloPage implements OnInit {
       localStorage.setItem('conversaciones', this.descripcion[1]);
 
       this.descripcion = localStorage.getItem('articuloDescConv')?.split('*') || [];
-
-      console.log(localStorage.getItem('narFoto'))
-
-      if (this.articulo.fotos[0] == null) { this.articulo.fotos[0] = "../../assets/img/buho-logo.svg" }
     }
+
+    console.log(this.fotos);
+
+    console.log(this.fotos[0]);
+    console.log(this.fotos[1]);
+    console.log(this.fotos[2]);
 
     await this.cargarComentarios();
   }
@@ -157,33 +178,6 @@ export class ArticuloPage implements OnInit {
     await this.cargarComentarios();
     this.modal.present();
   }
-
-  getPhotoUrls(articulo: any): string[] {
-    const photoUrls: string[] = [];
-  
-    if (articulo.fotos && articulo.fotos.length > 0) {
-      for (const foto of articulo.fotos) {
-        const url = foto.url;
-        const urlParts = url.split("/");
-        const urlPartEnd = urlParts[urlParts.length - 1];
-        const urlPartEndParts = urlPartEnd.split("?");
-        const fileName = urlPartEndParts[0];
-        const extension = fileName.split(".")[1];
-        if (extension === 'png') {
-          photoUrls.push(foto.url);
-        }
-      }
-    }
-  
-    if (photoUrls.length > 0) {
-      console.log(photoUrls);
-      return photoUrls;
-    } else {
-      return ['../../assets/img/buho-logo.svg'];
-    }
-  }
-
-
 
   cargarComentarios() {
     const id = localStorage.getItem('articulo_id');
@@ -204,7 +198,6 @@ export class ArticuloPage implements OnInit {
       );
     }
   }
-
 
   agregarComentario() {
     if (!this.nuevoComentario.trim()) {
@@ -263,8 +256,28 @@ export class ArticuloPage implements OnInit {
     }
   }
 
+  ngAfterViewInit() {
+    this.swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  }
+  
+  inicializarSwiper() {
+    this.swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  }
+
   swiperSlideChanged(e: any) {
     console.log('changed', e);
+  }
+
+  ionSlideChanged() {
+    // código para manejar el evento de cambio de diapositiva
   }
 
 }

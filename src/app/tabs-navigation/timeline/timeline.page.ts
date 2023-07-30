@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Data } from '../../data/data';
-import { IonicSlides } from '@ionic/angular';
 import Swiper from 'swiper';
 
 @Component({
@@ -17,6 +16,7 @@ export class TimelinePage implements OnInit {
 
   ngOnInit() {
     this.obtenerArticulos();
+    this.inicializarSwiper();
   }
 
   obtenerArticulos() {
@@ -24,7 +24,6 @@ export class TimelinePage implements OnInit {
       (response) => {
         this.articulos = response;
         console.log(this.articulos);
-        this.inicializarSwiper();
       },
       (error) => {
         console.log('Error al obtener los articulos:', error);
