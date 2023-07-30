@@ -47,7 +47,7 @@ ion-accordion div {
 
 h2 {
   font-family: "Kameron-Regular";
-  font-size: 20px;
+  font-size: 60%;
   text-align: center;
   padding: 0;
   margin: 0;
@@ -55,7 +55,7 @@ h2 {
 
 p {
   font-family: "Inter-Regular";
-  font-size: 15px;
+  font-size: 60%;
   margin: 0;
   padding: 5px;
   text-align: justify;
@@ -70,4 +70,42 @@ ion-accordion {
   padding: 1%;
   height: 60%;
   width: 100%;
+}
+
+@media only screen and (min-width: 750px) {
+  ion-accordion {
+    padding: 5px;
+    font-size: 50px;
+  }
+
+
+  p {
+    font-family: "Inter-Regular";
+    font-size: 20px;
+    margin: 0;
+    padding: 5px;
+    text-align: justify;
+  }
+
+  h2 {
+    font-family: "Kameron-Regular";
+    font-size: 30px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  ion-item{
+    font-size: 40px;
+    margin: 10px;
+  }
+
+  ion-item ion-icon {
+    font-size: 60px;
+    color: var(--ion-color-dorado);
+  }
+
+
+  
+  
 }

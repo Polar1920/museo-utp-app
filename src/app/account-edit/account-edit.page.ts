@@ -143,6 +143,8 @@ export class AccountEditPage implements OnInit {
           // Actualizar el objeto "usuario" en localStorage con la nueva URL o imagen generada por la API
           this.usuario.foto = result.foto;
           localStorage.setItem('usuario', JSON.stringify(this.usuario));
+
+          alert("Usuario actualizado, para evitar errores se recomienda volver a iniciar sesión");
         })
         .catch(error => console.log('error', error));
     } else {
