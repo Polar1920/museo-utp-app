@@ -3,7 +3,7 @@ ion-buttons {
     height: 6%;
     display: flex;
     align-items: center;
-    
+
     justify-content: start;
 }
 
@@ -18,38 +18,38 @@ ion-back-button {
     height: 82%;
     background: var(--ion-color-blanco);
     border-radius: 50px 50px 0 0;
-    -webkit-box-shadow: 0px -14px 16px -2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -14px 16px -2px rgba(0,0,0,0.75);
-    box-shadow: 0px -14px 16px -2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px -14px 16px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -14px 16px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px -14px 16px -2px rgba(0, 0, 0, 0.75);
 }
 
-.div-info{
+.div-info {
     position: relative;
     bottom: 100px;
 }
 
 
 .imagenes {
-    width: 300px; 
-    height: 200px; 
-    margin: 0 auto; 
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
-  }
-  
-  .imagenes swiper-slide {
+}
+
+.imagenes swiper-slide {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
-  }
-  
-  .imagenes img {
+}
+
+.imagenes img {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
-  }
-  
+}
+
 
 .div-parte-inferior {
     position: relative;
@@ -57,10 +57,10 @@ ion-back-button {
 }
 
 
-.div-principio {    
+.div-principio {
     display: flex;
     align-items: center;
-    flex-direction: column;        
+    flex-direction: column;
 }
 
 .div-principio h1 {
@@ -78,7 +78,7 @@ ion-back-button {
     font-size: 20px;
     opacity: 0.6;
     margin-top: 0;
-        margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .divider {
@@ -101,17 +101,18 @@ ion-back-button {
 .divider hr {
     height: 1px;
     width: 90%;
-    border-top: 2px solid var(--ion-color-dorado);    
+    border-top: 2px solid var(--ion-color-dorado);
     margin: 0;
 }
 
 .contenedor-informacion {
     display: flex;
-    height: 28vh; /* Ajusta esto según tus necesidades */
+    height: 28vh;
+    /* Ajusta esto según tus necesidades */
     overflow-y: auto;
     padding-inline: 5px;
     margin-bottom: 15px;
-  }
+}
 
 .descripcion {
     font-family: 'Inter-Bold';
@@ -127,7 +128,7 @@ ion-button {
     --padding-bottom: 10px;
     --background: var(--ion-color-dorado);
     --border-radius: 15px;
-    margin-bottom: 10px;  
+    margin-bottom: 10px;
 }
 
 
@@ -146,15 +147,15 @@ ion-button {
     color: black;
     font-size: 16px;
     font-family: 'inter-regular';
-    text-transform: none; 
+    text-transform: none;
     margin-left: 25px;
 }
 
-.hr-divider1 {    
+.hr-divider1 {
     border-top: 2px solid var(--ion-color-dorado);
     position: absolute;
-    bottom: 0;    
-    width: 45%;    
+    bottom: 0;
+    width: 45%;
     margin-bottom: 50px;
     right: 0;
 }
@@ -169,11 +170,11 @@ ion-button {
     margin-bottom: 20px;
 }
 
-.hr-divider2{
+.hr-divider2 {
     border-top: 2px solid var(--ion-color-dorado);
     position: absolute;
-    bottom: 0;    
-    width: 45%; 
+    bottom: 0;
+    width: 45%;
     margin-bottom: 10px;
 }
 
@@ -189,7 +190,7 @@ ion-modal {
     margin-top: 20px;
 }
 
-.divider1 {       
+.divider1 {
     border-top: 1px solid var(--ion-color-dorado);
     margin: 20px 15px;
 }
@@ -200,9 +201,9 @@ ion-modal {
     background: transparent;
 }
 
-.container { 
+.container {
     margin-bottom: 15px;
-    --background: transparent; 
+    --background: transparent;
 }
 
 .info {
@@ -214,7 +215,7 @@ ion-label.nomHora.sc-ion-label-md-h.sc-ion-label-md-s.md.hydrated {
     justify-content: start;
 }
 
-.nombre{
+.nombre {
     font-family: 'inter-regular';
     font-size: 12px;
 }
@@ -235,8 +236,8 @@ ion-label.nomHora.sc-ion-label-md-h.sc-ion-label-md-s.md.hydrated {
     justify-content: center;
     align-items: center;
     height: 80%;
-    font-size: 20px;    
-  }
+    font-size: 20px;
+}
 
 ion-footer {
     display: grid;
@@ -272,14 +273,16 @@ ion-footer ion-icon {
 }
 
 ion-icon.disabled {
-    opacity: 0.5; /* Ajusta la opacidad o agrega otros estilos para desactivar visualmente el ícono */
-    pointer-events: none; /* Opcional: deshabilita los eventos de clic en el ícono */
-  }
-  
-  @media (max-height: 843px) {
+    opacity: 0.5;
+    /* Ajusta la opacidad o agrega otros estilos para desactivar visualmente el ícono */
+    pointer-events: none;
+    /* Opcional: deshabilita los eventos de clic en el ícono */
+}
+
+@media (max-height: 843px) {
     .div-principio {
         font-size: 26px;
-    }    
+    }
 
     .div-principio div p {
         font-size: 15px;
@@ -293,4 +296,4 @@ ion-icon.disabled {
         margin-top: 20px;
         margin-bottom: 30px;
     }
-  }
+}

@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Data } from '../../data/data';
-import { IonicSlides } from '@ionic/angular';
 import Swiper from 'swiper';
 
 @Component({
