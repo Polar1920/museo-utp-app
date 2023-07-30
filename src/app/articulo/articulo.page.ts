@@ -52,6 +52,7 @@ export class ArticuloPage implements OnInit {
     if (usuarioString !== null) {
       this.usuario = JSON.parse(usuarioString);
     }
+    this.inicializarSwiper();
   }
 
   goBack() {
@@ -171,7 +172,6 @@ export class ArticuloPage implements OnInit {
     console.log(this.fotos[2]);
 
     await this.cargarComentarios();
-    await this.inicializarSwiper();
   }
 
   async openModal() {
