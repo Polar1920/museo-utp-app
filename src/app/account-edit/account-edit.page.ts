@@ -41,7 +41,6 @@ export class AccountEditPage implements OnInit {
   constructor(private router: Router, private navCtrl: NavController, private data: Data, private imagePicker: ImagePicker) { }
 
   ngOnInit() {
-    this.obtenerCarreras();
     this.obtenerFacultades();
 
     // Obtener el objeto de usuario del localStorage
@@ -151,11 +150,13 @@ export class AccountEditPage implements OnInit {
     }
   }
 
-  obtenerCarreras() {
-    this.data.getCarreras().subscribe(
+  obtenerCarreras(selectedFacultad: number) {
+    this.data.getCarrerasfacultad(selectedFacultad).subscribe(
       (response) => {
         this.carreras = response;
         console.log(this.carreras);
+        const carrerasAsString = JSON.stringify(response);
+        console.log(carrerasAsString);
       },
       (error) => {
         console.log('Error al obtener las carreras:', error);
