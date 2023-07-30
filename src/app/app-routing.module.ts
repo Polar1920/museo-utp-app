@@ -7,6 +7,26 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
+    path: 'home',
+    loadChildren: () => import('./tabs-navigation/home/home.module').then(m => m.HomePageModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./tabs-navigation/search/search.module').then( m => m.SearchPageModule)
+  },
+  {
+    path: 'qr',
+    loadChildren: () => import('./tabs-navigation/qr/qr.module').then( m => m.QrPageModule)
+  },
+  {
+    path: 'timeline',
+    loadChildren: () => import('./tabs-navigation/timeline/timeline.module').then( m => m.TimelinePageModule)
+  },
+  {
+    path: 'account',
+    loadChildren: () => import('./tabs-navigation/account/account.module').then( m => m.AccountPageModule)
+  },
+  {
     path: 'index',
     loadChildren: () => import('./index/index.module').then( m => m.IndexPageModule)
   },
@@ -49,7 +69,8 @@ const routes: Routes = [
   {
     path: 'history',
     loadChildren: () => import('./history/history.module').then( m => m.HistoryPageModule)
-  },  {
+  },
+  {
     path: 'account-edit',
     loadChildren: () => import('./account-edit/account-edit.module').then( m => m.AccountEditPageModule)
   }

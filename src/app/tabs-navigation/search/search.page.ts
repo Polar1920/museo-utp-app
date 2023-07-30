@@ -1,37 +1,44 @@
-import { Component,OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../../data/data';
+import { DataService } from '../../services/data.service';
 
 @Component({
-
-  
   selector: 'app-search',
   templateUrl: './search.page.html',
-  styleUrls: ['./search.page.scss']
+  styleUrls: ['./search.page.scss'],
 })
-
-export class SearchPage {
+export class SearchPage implements OnInit {
   isSelected = false;
   numeroResultados: number = 0;
   resultados: any[] = [];
   articles: any[] = [];
   searchedArticle: any[] = [];
   searchText: string = '';
-  
-  constructor(private router: Router, private dataService: Data) {}
+
+  constructor(private router: Router, private dataService: DataService) {}
 
   ngOnInit() {
     this.loadArticles();
   }
 
   loadArticles() {
-    this.dataService.getArticulosAll().subscribe(
-      (response: any) => {
-        this.articles = response;
-        this.searchedArticle = response; // Asignar todos los artículos a la propiedad searchedArticle al cargar la página
+    // Obtener los datos de IndexedDB
+    console.log('Obtener los articulos de IndexedDB');
+    this.dataService.getArticulosFromIndexedDB().then(
+      (response) => {
+        if (response.length > 0) {
+          // Si hay datos en IndexedDB, utilizarlos
+          this.articles = response;
+          this.searchedArticle = response;
+          console.log('Articulos obtenidos de IndexedDB:');
+          console.log(response);
+        } else {
+          console.log('No hay Datos en IndexedDB');
+        }
       },
       (error) => {
-        console.error('Error al obtener datos de los artículos:', error);
+        console.log('Error al obtener los articulos:', error);
       }
     );
   }
@@ -51,10 +58,11 @@ export class SearchPage {
     this.router.navigate(['/information']);
   }
 
-  verArticulo() {
+  viewArticle(article: any) {
     this.isSelected = true;
+    localStorage.setItem('showby', 'tc');
+    localStorage.setItem('articulo_id', article.id);
     this.router.navigate(['/articulo']);
-    this.isSelected = false;
   }
 
   getFirstPhotoUrl(article: any): string {
@@ -64,4 +72,12 @@ export class SearchPage {
     // Si no hay fotos, se puede retornar una URL de imagen por defecto o un mensaje de error.
     return '/assets/imagen-no-disponible.jpg';
   }
+
+  getLimitedDescription(description: string, maxLength: number):string{
+    if(description && description.length > maxLength ){
+      return description.substring(0, maxLength) + '...';
+    }
+    return description;
+  }
 }
+

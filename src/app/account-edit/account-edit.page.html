@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -9,94 +9,126 @@
     <ion-label>Editar cuenta</ion-label>
   </div>
 
-  <div class="imagen">
-    <img src="assets/img/foto_perfil.png">
-    <ion-icon name="add-circle-sharp"></ion-icon>
-  </div>
+  <form (submit)="submitProfile()">
 
-<!-- Nombre -->
-<div class="div-info">
-  <div class="div-div-info">
-    <ion-label class="lbl">Nombre</ion-label>
-    <ion-input class="p" value="{{ usuario.nombre }}" [readonly]="!editarNombre"></ion-input>
-  </div>
-  <ion-icon name="create-outline" *ngIf="!editarNombre" (click)="enableNameEdt()"></ion-icon>
-  <div class="edits" *ngIf="editarNombre">
-    <ion-icon name="close-sharp" *ngIf="editarNombre" (click)="cancelNameEdt()"></ion-icon>
-    <ion-icon name="checkmark-sharp" *ngIf="editarNombre" (click)="saveName()"></ion-icon>
-  </div>  
-</div>
-<hr class="divider">
+    <div class="imagen">
+      <img src="{{usuario.foto}}">
+      <div class="overlay">
+        <ion-icon name="add-circle-sharp"></ion-icon>
+        <input type="file" accept=".jpeg,.jpg,.png" (change)="onFileSelected($event)" #fileInput>
+      </div>
+    </div>
 
-<!-- Apellido -->
-<div class="div-info">
-  <div class="div-div-info">
-    <ion-label class="lbl">Apellido</ion-label>
-    <ion-input class="p" value="{{ usuario.apellido }}" [readonly]="!editarApellido"></ion-input>
-  </div>
-  <ion-icon name="create-outline" *ngIf="!editarApellido" (click)="enableApellidoEdt()"></ion-icon>
-  <div class="edits" *ngIf="editarApellido">
-    <ion-icon name="close-sharp" *ngIf="editarApellido" (click)="cancelApellidoEdt()"></ion-icon>
-    <ion-icon name="checkmark-sharp" *ngIf="editarApellido" (click)="saveApellido()"></ion-icon>
-  </div>  
-</div>
-<hr class="divider">
+    <!-- Nombre -->
+    <div class="div-info">
+      <div class="div-div-info">
+        <ion-label class="lbl">Nombre</ion-label>
+        <!--[readonly]="!editarNombre"-->
+        <ion-input class="p" value="{{ usuario.nombre }}" [(ngModel)]="name" name="name"></ion-input>
+      </div>
+      <!--
+      <ion-icon name="create-outline" *ngIf="!editarNombre" (click)="enableNameEdt()"></ion-icon>
+      <div class="edits" *ngIf="editarNombre">
+        <ion-icon name="close-sharp" *ngIf="editarNombre" (click)="cancelNameEdt()"></ion-icon>
+        <ion-icon name="checkmark-sharp" *ngIf="editarNombre" (click)="saveName()"></ion-icon>
+      </div>-->
+    </div>
+    <hr class="divider">
 
-<!-- Cédula -->
-<div class="div-info">
-  <div class="div-div-info">
-    <ion-label class="lbl">Cedula</ion-label>
-    <ion-input class="p" value="{{ usuario.cedula }}" [readonly]="!editarCedula"></ion-input>
-  </div>
-  <ion-icon name="create-outline" *ngIf="!editarCedula" (click)="enableCedulaEdt()"></ion-icon>
-  <div class="edits" *ngIf="editarCedula">
-    <ion-icon name="close-sharp" *ngIf="editarCedula" (click)="cancelCedulaEdt()"></ion-icon>
-    <ion-icon name="checkmark-sharp" *ngIf="editarCedula" (click)="saveCedula()"></ion-icon>
-  </div>  
-</div>
-<hr class="divider">
+    <!-- Apellido -->
+    <div class="div-info">
+      <div class="div-div-info">
+        <ion-label class="lbl">Apellido</ion-label>
+        <ion-input class="p" value="{{ usuario.apellido }}" [(ngModel)]="lastname" name="lastname"></ion-input>
+      </div>
+      <!--
+      <ion-icon name="create-outline" *ngIf="!editarApellido" (click)="enableApellidoEdt()"></ion-icon>
+      <div class="edits" *ngIf="editarApellido">
+        <ion-icon name="close-sharp" *ngIf="editarApellido" (click)="cancelApellidoEdt()"></ion-icon>
+        <ion-icon name="checkmark-sharp" *ngIf="editarApellido" (click)="saveApellido()"></ion-icon>
+      </div> -->
+    </div>
+    <hr class="divider">
 
-<!-- Año -->
-<div class="div-info">
-  <div class="div-div-info">
-    <ion-label class="lbl">Año</ion-label>
-    <ion-input class="p" value="{{ usuario.nivel }}" [readonly]="!editarNivel"></ion-input>
-  </div>
-  <ion-icon name="create-outline" *ngIf="!editarNivel" (click)="enableNivelEdt()"></ion-icon>
-  <div class="edits" *ngIf="editarNivel">
-    <ion-icon name="close-sharp" *ngIf="editarNivel" (click)="cancelNivelEdt()"></ion-icon>
-    <ion-icon name="checkmark-sharp" *ngIf="editarNivel" (click)="saveNivel()"></ion-icon>
-  </div>  
-</div>
-<hr class="divider">
-
-<!-- Facultad -->
-<div class="div-info">
-  <div class="div-div-info">
-    <ion-label class="lbl">Facultad</ion-label>
-    <ion-input class="p" value="{{ usuario.facultad }}" [readonly]="!editarFacultad"></ion-input>
-  </div>
-  <ion-icon name="create-outline" *ngIf="!editarFacultad" (click)="enableFacultadEdt()"></ion-icon>
-  <div class="edits" *ngIf="editarFacultad">
-    <ion-icon name="close-sharp" *ngIf="editarFacultad" (click)="cancelFacultadEdt()"></ion-icon>
-    <ion-icon name="checkmark-sharp" *ngIf="editarFacultad" (click)="saveFacultad()"></ion-icon>
-  </div>  
-</div>
-<hr class="divider">
-
-<!-- Carrera -->
-<div class="div-info">
-  <div class="div-div-info">
-    <ion-label class="lbl">Carrera</ion-label>
-    <ion-input class="p" value="{{ usuario.carrera }}" [readonly]="!editarCarrera"></ion-input>
-  </div>
-  <ion-icon name="create-outline" *ngIf="!editarCarrera" (click)="enableCarreraEdt()"></ion-icon>
-  <div class="edits" *ngIf="editarCarrera">
-    <ion-icon name="close-sharp" *ngIf="editarCarrera" (click)="cancelCarreraEdt()"></ion-icon>
-    <ion-icon name="checkmark-sharp" *ngIf="editarCarrera" (click)="saveCarrera()"></ion-icon>
-  </div>  
-</div>
-<hr class="divider">
+    <!-- Cédula 
+    <div class="div-info">
+      <div class="div-div-info">
+        <ion-label class="lbl">Cedula</ion-label>
+        <ion-input class="p" value="{{ usuario.cedula }}" [(ngModel)]="cedula" name="cedula"></ion-input>
+      </div>
+      <ion-icon name="create-outline" *ngIf="!editarCedula" (click)="enableCedulaEdt()"></ion-icon>
+      <div class="edits" *ngIf="editarCedula">
+        <ion-icon name="close-sharp" *ngIf="editarCedula" (click)="cancelCedulaEdt()"></ion-icon>
+        <ion-icon name="checkmark-sharp" *ngIf="editarCedula" (click)="saveCedula()"></ion-icon>
+      </div>
+    </div>
+    <hr class="divider">
+    -->
+    <!-- Año -->
+    <div class="div-info">
+      <div class="div-div-info">
+        <ion-label class="lbl">Año</ion-label>
+        <ion-list>
+          <ion-item class="ion-item-inputs">
+            <ion-select interface="popover" class="p" value="{{ usuario.nivel }}" type="text" label="Año" labelPlacement="floating"
+              placeholder="Escoga su Año" [(ngModel)]="level" name="level">
+              <ion-select-option>1</ion-select-option>
+              <ion-select-option>2</ion-select-option>
+              <ion-select-option>3</ion-select-option>
+              <ion-select-option>4</ion-select-option>
+              <ion-select-option>5</ion-select-option>
   
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </div><!--
+      <ion-icon name="create-outline" *ngIf="!editarNivel" (click)="enableNivelEdt()"></ion-icon>
+      <div class="edits" *ngIf="editarNivel">
+        <ion-icon name="close-sharp" *ngIf="editarNivel" (click)="cancelNivelEdt()"></ion-icon>
+        <ion-icon name="checkmark-sharp" *ngIf="editarNivel" (click)="saveNivel()"></ion-icon>
+      </div>-->
+    </div>
+    <hr class="divider">
+
+    <!-- Facultad -->
+    <div class="div-info">
+      <div class="div-div-info">
+      <ion-label class="lbl">Facultad</ion-label>
+    
+      <ion-list>
+        <ion-item class="ion-item-inputs">
+          <ion-select interface="popover" class="a" type="text" label="Facultad" labelPlacement="floating"
+            placeholder="Escoga su facultad" [(ngModel)]="selectedFacultad" name="selectedFacultad"  (ionChange)="obtenerCarreras(selectedFacultad)">
+            <ion-select-option class="" *ngFor="let facultad of facultades" [value]="facultad.id">{{ facultad.nombre }}</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>  
+    </div>
+    <hr class="divider">
+
+    <!-- Carrera -->
+    <div class="div-info">
+
+      <div class="div-div-info">
+        <ion-label class="lbl">Carrera</ion-label>
+
+        <ion-list>
+          <ion-item class="ion-item-inputs">
+            <ion-select interface="popover" id="carreraSelect" class="ion-valid" type="text" placeholder="Escoga su carrera" [(ngModel)]="selectedCarrera" name="selectedCarrera" [disabled]="false">
+              <ion-select-option class="p" *ngFor="let carrera of carreras" [value]="carrera.id">{{ carrera.nombre }}</ion-select-option>
+  
+            </ion-select>
+          </ion-item>
+        </ion-list>
+        
+      </div>
+    </div>
+    <hr class="divider">
+
+    <!-- Boton Actualizar/Guardar cambios -->
+    <ion-button class="button-round" expand="full" type="submit">Actualizar</ion-button>
+  </form>
 
 </ion-content>

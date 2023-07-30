@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Data } from '../data/data';
+import { Platform, NavController } from '@ionic/angular';
 //import Navigation from 'swiper';
 
 //import * as internal from 'stream';
@@ -44,22 +45,27 @@ export class RegisterPage implements OnInit {
   highlightLabelFlag: boolean = false;
   carreras: any = [];
   facultades: any = [];
+  errors: string[] = [];
 
 
-
-  constructor(private router: Router, private data: Data) { }
+  constructor(private router: Router, private data: Data, private platform: Platform, private navController: NavController) { }
 
 
   ngOnInit() {
-    this.obtenerCarreras();
     this.obtenerFacultades();
 
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      this.navController.pop();
+    });
   }
-  obtenerCarreras() {
-    this.data.getCarreras().subscribe(
+
+  obtenerCarreras(selectedFacultad: number) {
+    this.data.getCarrerasfacultad(selectedFacultad).subscribe(
       (response) => {
         this.carreras = response;
         console.log(this.carreras);
+        const carrerasAsString = JSON.stringify(response);
+        console.log(carrerasAsString);
       },
       (error) => {
         console.log('Error al obtener las carreras:', error);
@@ -99,11 +105,12 @@ export class RegisterPage implements OnInit {
       },
       (error) => {
         // Manejar cualquier error que se produzca
-        console.log('Error en el registro:', error);
-        alert('Error en el registro.');
+        console.log('Error en el Login:', error.errors);
+        alert(error.errors);
       }
     );
   }
+  
   goToLogin() {
     this.router.navigate(['/login']);
   }

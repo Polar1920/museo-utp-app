@@ -1,41 +1,23 @@
-<ion-header [translucent]="true">
-</ion-header>
+<ion-header [translucent]="true"></ion-header>
 
 <ion-content [fullscreen]="true">
-  <swiper-container (slidechange)="swiperSlideChanged($event)" [pagination]="{clickable:true, dynamicBullets:true}"
-    [zoom]="true">
-    <swiper-slide>
-      <h1>Tarjeta Perforada</h1>
-      <h3>Herman noseque</h3>
-      <div>
-        <img src="/assets/img/iPhone.jpeg" />
+
+  <swiper-container (slidechange)="swiperSlideChanged($event)">
+
+    <swiper-slide *ngFor="let articulo of articulos">
+      <h1>{{ articulo.nombre }}</h1>
+      <h3>{{ articulo.categoria }}</h3>
+      <div class="contenedor-imagen">
+        <img src="{{ getPhotoUrl(articulo) }}" />
       </div>
-      <h2>1960</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nisi. Minus rem expedita obcaecati molestias,
-        dolore autem sed in hic aliquid impedit! Ducimus voluptatem neque, modi soluta obcaecati architecto maiores.</p>
+      <h3>{{ articulo.dueno }}</h3>
+      <p>{{ articulo.descripcion }}</p>
+    
+      <div class="fecha-pagination">
+        <div class="d-start"><h5>{{ (articulos[articulos.indexOf(articulo) - 1] && articulos[articulos.indexOf(articulo) - 1].year) || '' }}</h5></div>
+        <div class="d-center" ><h5>{{ articulo.year }}</h5></div>
+        <div class="d-end"><h5>{{ (articulos[articulos.indexOf(articulo) + 1] && articulos[articulos.indexOf(articulo) + 1].year) || '' }}</h5></div>
+      </div>
     </swiper-slide>
 
-    <swiper-slide>
-      <h1>Tarjeta Perforada2</h1>
-      <h3>Herman noseque</h3>
-      <div>
-        <img src="/assets/img/iPhone.jpeg" />
-      </div>
-      <h2>1960</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nisi. Minus rem expedita obcaecati molestias,
-        dolore autem sed in hic aliquid impedit! Ducimus voluptatem neque, modi soluta obcaecati architecto maiores.</p>
-    </swiper-slide>
-
-    <swiper-slide>
-      <h1>Tarjeta Perforada3</h1>
-      <h3>Herman noseque</h3>
-      <div>
-        <img src="/assets/img/iPhone.jpeg" />
-      </div>
-      <h2>1960</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, nisi. Minus rem expedita obcaecati molestias,
-        dolore autem sed in hic aliquid impedit! Ducimus voluptatem neque, modi soluta obcaecati architecto maiores.</p>
-    </swiper-slide>
   </swiper-container>
-
-</ion-content>

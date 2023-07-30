@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { AlertController } from '@ionic/angular';
 
 @Injectable({
@@ -48,8 +48,20 @@ export class Data {
     return this.http.post(`${this.apiUrl}/usuarios`, { nombre_usuario, password, nombre, apellido, cedula, nivel, id_facultad, id_carrera, foto });
   }
 
+  updateUser(formData: any, token: string){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-token': token
+    });
+    return this.http.put(`${this.apiUrl}/usuarios`, JSON.stringify(formData), { headers });
+  }
+
   getCarreras() {
     return this.http.get(`${this.apiUrl}/carreras/all`);
+  }
+
+  getCarrerasfacultad(facultadid: number) {
+    return this.http.get(`${this.apiUrl}/carreras/facultad/${facultadid}`);
   }
 
   getFacultades() {
@@ -58,6 +70,10 @@ export class Data {
 
   getArticulosAll() {
     return this.http.get(`${this.apiUrl}/articulos/all`);
+  }
+
+  getArticulosTimeLine() {
+    return this.http.get(`${this.apiUrl}/articulos/all?min=1800`);
   }
 
   getArticulosCat() {
