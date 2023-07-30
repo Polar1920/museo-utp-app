@@ -45,6 +45,7 @@ export class RegisterPage implements OnInit {
   highlightLabelFlag: boolean = false;
   carreras: any = [];
   facultades: any = [];
+  errors: string[] = [];
 
 
   constructor(private router: Router, private data: Data, private platform: Platform, private navController: NavController) { }
@@ -104,8 +105,8 @@ export class RegisterPage implements OnInit {
       },
       (error) => {
         // Manejar cualquier error que se produzca
-        console.log('Error en el registro:', error);
-        alert('Error en el registro.');
+        console.log('Error en el Login:', error.errors);
+        alert(error.errors);
       }
     );
   }

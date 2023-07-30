@@ -77,8 +77,8 @@ export class LoginPage {
         },
         (error) => {
           // Manejar cualquier error que se produzca
-          console.log('Error en el Login:', error);
-          alert('Error en el Login.');
+          console.log('Error en el Login:', error.error.msg);
+          alert(error.error.msg);
         }
       );
     }
