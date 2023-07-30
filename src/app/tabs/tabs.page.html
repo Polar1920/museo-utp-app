@@ -1,12 +1,20 @@
 <ion-tabs (ionTabsDidChange)="tabChanged($event)">
 
   <ion-fab vertical="bottom" horizontal="center" translucent="true">
-    <ion-fab-button (click)="scan()" class="center-button" [class.custom-selected-tab]="selectedTab === 'qr'">
+    <ion-fab-button (click)="gotToQR()" class="center-button" [class.custom-selected-tab]="selectedTab === 'qr'">
       <div class="add-circle">
         <ion-icon name="scan-sharp" class="qr"></ion-icon>
       </div>
     </ion-fab-button>
   </ion-fab>
+
+  <!--
+    <ion-fab-button (click)="scan()" class="center-button" [class.custom-selected-tab]="selectedTab === 'qr'">
+      <div class="add-circle">
+        <ion-icon name="scan-sharp" class="qr"></ion-icon>
+      </div>
+    </ion-fab-button>
+  -->
 
   <ion-tab-bar slot="bottom">
 

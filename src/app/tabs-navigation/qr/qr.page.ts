@@ -1,52 +1,56 @@
 import { Component, OnInit } from '@angular/core';
-import { BarcodeScanner, BarcodeScanResult } from '@awesome-cordova-plugins/barcode-scanner/ngx';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Html5QrcodeScanner } from 'html5-qrcode';
 
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.page.html',
   styleUrls: ['./qr.page.scss'],
 })
-export class QrPage implements OnInit {
+export class QrPage {
 
-  ID = '';
+  scanner: any;
+  ID: string = '';
 
-  constructor(private barcodeScanner: BarcodeScanner, private alertController: AlertController) { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
-    this.scan();
+  ionViewDidEnter() {
+    this.scanner = new Html5QrcodeScanner('reader', { fps: 10, qrbox: 250 }, /* verbose= */ false);
+
+    this.startScanning();
   }
 
-  async scan() {
-    /*
-    try {
-      const barcodeData: BarcodeScanResult = await this.barcodeScanner.scan();
-      console.log('Datos escaneados:', barcodeData.text);
-      alert('Datos escaneados: ' + barcodeData.text);
-      this.ID = barcodeData.text;
-      localStorage.setItem('qr_id', this.ID.toString());
-    } catch (error) {
-      console.error('Error al escanear:', error);
-    }*/
-
-    /*
-    const result = await this.barcodeScanner.scan();
-    
-    if (!result.cancelled) {
-      this.ID = result.text;
-      localStorage.setItem('qr_id', this.ID.toString());
-      //this.presentAlert('El código QR escaneado es: '+ this.ID);
-    }*/
+  ionViewWillLeave() {
+    this.scanner.clear();
+    this.scanner.stop();
   }
 
-  async presentAlert(message: string) {
-    const alert = await this.alertController.create({
-      header: 'Código QR escaneado',
-      message: message,
-      buttons: ['Aceptar']
-    });
-
-    await alert.present();
+  success(result: string) {
+    this.ID = result;
+    this.goToArticle();
+    this.scanner.clear();
+    this.scanner.stop();
+    const reader = document.getElementById('reader');
+    if (reader) {
+      reader.remove();
+    }
   }
 
+  error(error: string) {
+    console.error(error);
+  }
+
+  startScanning() {
+    this.scanner.render(this.success.bind(this), this.error.bind(this));
+  }
+
+  goToArticle() {
+
+    localStorage.setItem('articulo_id', this.ID.toString());
+
+    localStorage.setItem('showby', 'qr');
+
+    this.router.navigate(['/articulo']);
+  }
 }
