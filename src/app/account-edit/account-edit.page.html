@@ -80,17 +80,18 @@
 
     <!-- Facultad -->
     <div class="div-info">
-
+      <div class="div-div-info">
+      <ion-label class="lbl">Facultad</ion-label>
+    
       <ion-list>
         <ion-item class="ion-item-inputs">
-          <ion-select interface="popover" class="a" type="text" label="Facultad" labelPlacement="floating"
-            placeholder="Escoga su facultad" [(ngModel)]="selectedFacultad" name="selectedFacultad">
+          <ion-select interface="popover" class="a" type="text" placeholder="Escoga su facultad" [(ngModel)]="selectedFacultad" name="selectedFacultad">
             <ion-select-option class="" *ngFor="let facultad of facultades" [value]="facultad.id">{{ facultad.nombre }}</ion-select-option>
 
           </ion-select>
         </ion-item>
       </ion-list>
-      
+    </div>  
     </div>
     <hr class="divider">
 
@@ -102,8 +103,7 @@
 
         <ion-list>
           <ion-item class="ion-item-inputs">
-            <ion-select interface="popover" id="carreraSelect" class="ion-valid" type="text" label="Carrera" labelPlacement="floating"
-              placeholder="Escoga su carrera" [(ngModel)]="selectedCarrera" name="selectedCarrera" [disabled]="false">
+            <ion-select interface="popover" id="carreraSelect" class="ion-valid" type="text" placeholder="Escoga su carrera" [(ngModel)]="selectedCarrera" name="selectedCarrera" [disabled]="false">
               <ion-select-option class="p" *ngFor="let carrera of carreras" [value]="carrera.id">{{ carrera.nombre }}</ion-select-option>
   
             </ion-select>
