@@ -1,4 +1,4 @@
-<ion-buttons slot="start">
+ <ion-buttons slot="start">
   <ion-back-button defaultHref="/articulo"></ion-back-button>
 </ion-buttons>
 
@@ -32,9 +32,13 @@
     </div>
     <div class="botones-container">
       <ion-button shape="round" class="boton-salir" (click)="navegarAtras()">Salir</ion-button>
-      <ion-button shape="round" class="boton-continuar"
+
+      <ion-button
+        shape="round"
+        class="boton-continuar"
         [class.boton-desactivado]="!hayMensajesPorAgregar()"
-        (click)="agregarMensaje()">Continuar<br>Narración</ion-button>
+        (click)="reproducirSiguienteAudio()"
+        (click)="agregarMensaje()">Continuar</ion-button>
     </div>
   </div>
 </ion-content>
