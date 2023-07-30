@@ -13,9 +13,11 @@
 
   <div class="contenedor">
     <div class="div-info">
+      
       <swiper-container (slidechange)="swiperSlideChanged($event)" class="imagenes" [pagination]="true">
         <swiper-slide *ngFor="let foto of fotos">
           <img [src]="foto" />
+          
         </swiper-slide>
       </swiper-container>
       <div class="div-parte-inferior">
