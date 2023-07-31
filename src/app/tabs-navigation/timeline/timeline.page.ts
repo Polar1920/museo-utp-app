@@ -19,7 +19,7 @@ export class TimelinePage implements OnInit {
 
   ngOnInit() {
     this.obtenerArticulos();
-    this.inicializarSwiper();
+    //this.inicializarSwiper();
     /*
     if(this.reload != true){
       this.reload = true;
@@ -76,5 +76,12 @@ export class TimelinePage implements OnInit {
       }
     }
     return '../../assets/img/buho-logo.svg';
+  }
+
+  getLimitedDescription(description: string, maxLength: number):string{
+    if(description && description.length > maxLength ){
+      return description.substring(0, maxLength) + '...';
+    }
+    return description;
   }
 }
