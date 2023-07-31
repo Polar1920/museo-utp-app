@@ -52,7 +52,7 @@ export class TimelinePage implements OnInit {
   inicializarSwiper() {
     this.swiper = new Swiper('.swiper-container', {
       pagination: {
-        el: '.swiper-pagination',
+        el: '.swiper-pagination'
       },
     });
   }
