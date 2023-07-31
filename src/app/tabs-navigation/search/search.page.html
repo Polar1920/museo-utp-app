@@ -13,16 +13,13 @@
     <hr class="divider">
     <ion-item *ngFor="let article of searchedArticle" (click)="viewArticle(article)" [ngClass]="{'selected': isSelected}">
       <div class="div-img">
-        <img src="{{ getFirstPhotoUrl(article) }}" />
+        <img src="{{ getPhotoUrl(article) }}" />
       </div>
       <div class="div-info">
         <h1>{{ article.nombre }}</h1>
         <p>{{ getLimitedDescription (article.descripcion, 200) }}</p>
         <div class="div-abajo">
-          <h5>{{ article.vistas }}</h5>
-          <ion-icon name="eye-sharp"></ion-icon>
-          <h5>{{ article.comentarios }}</h5>
-          <ion-icon name="chatbubble-sharp"></ion-icon>        
+          <h5>{{ article.categoria }}</h5>       
           <h4>{{ article.year }}</h4>      
         </div>
       </div>

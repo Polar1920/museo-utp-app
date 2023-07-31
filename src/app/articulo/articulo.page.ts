@@ -52,11 +52,11 @@ export class ArticuloPage implements OnInit {
     if (usuarioString !== null) {
       this.usuario = JSON.parse(usuarioString);
     }
-    this.inicializarSwiper();
+    //this.inicializarSwiper();
   }
 
   goBack() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/tabs/home']);
     //this.location.back();
   }
 
@@ -256,28 +256,22 @@ export class ArticuloPage implements OnInit {
     }
   }
 
-  ngAfterViewInit() {
-    this.swiper = new Swiper('.swiper-container', {
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    });
+  getPhotoUrl(article: any): string {
+    if (article.fotos && article.fotos.length > 0) {
+      for (const foto of article.fotos) {
+        const url = foto.url;
+        const urlParts = url.split("/");
+        const urlPartEnd = urlParts[urlParts.length - 1];
+        const urlPartEndParts = urlPartEnd.split("?");
+        const fileName = urlPartEndParts[0];
+        const extension = fileName.split(".")[1];
+        if (extension === 'png') {
+          return foto.url;
+        }
+      }
+    }
+    return '../../assets/img/buho-logo.svg';
   }
+
   
-  inicializarSwiper() {
-    this.swiper = new Swiper('.swiper-container', {
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    });
-  }
-
-  swiperSlideChanged(e: any) {
-    console.log('changed', e);
-  }
-
-  ionSlideChanged() {
-    // código para manejar el evento de cambio de diapositiva
-  }
-
 }

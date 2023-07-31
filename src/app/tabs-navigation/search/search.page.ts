@@ -65,12 +65,21 @@ export class SearchPage implements OnInit {
     this.router.navigate(['/articulo']);
   }
 
-  getFirstPhotoUrl(article: any): string {
+  getPhotoUrl(article: any): string {
     if (article.fotos && article.fotos.length > 0) {
-      return article.fotos[0].url;
+      for (const foto of article.fotos) {
+        const url = foto.url;
+        const urlParts = url.split("/");
+        const urlPartEnd = urlParts[urlParts.length - 1];
+        const urlPartEndParts = urlPartEnd.split("?");
+        const fileName = urlPartEndParts[0];
+        const extension = fileName.split(".")[1];
+        if (extension === 'jpg') {
+          return foto.url;
+        }
+      }
     }
-    // Si no hay fotos, se puede retornar una URL de imagen por defecto o un mensaje de error.
-    return '/assets/imagen-no-disponible.jpg';
+    return '../../assets/img/buho-logo.svg';
   }
 
   getLimitedDescription(description: string, maxLength: number):string{

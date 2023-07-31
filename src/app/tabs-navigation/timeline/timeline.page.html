@@ -2,7 +2,7 @@
 
 <ion-content [fullscreen]="true">
 
-  <swiper-container (slidechange)="swiperSlideChanged($event)">
+  <swiper-container>
 
     <swiper-slide *ngFor="let articulo of articulos">
       <h1>{{ articulo.nombre }}</h1>
@@ -11,7 +11,7 @@
         <img src="{{ getPhotoUrl(articulo) }}" />
       </div>
       <h3>{{ articulo.dueno }}</h3>
-      <p>{{ articulo.descripcion }}</p>
+      <p>{{ getLimitedDescription (articulo.descripcion, 400) }}</p>
     
       <div class="fecha-pagination">
         <div class="d-start"><h5>{{ (articulos[articulos.indexOf(articulo) - 1] && articulos[articulos.indexOf(articulo) - 1].year) || '' }}</h5></div>

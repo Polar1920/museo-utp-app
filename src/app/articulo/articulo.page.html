@@ -17,12 +17,11 @@
   
       
       <!-- EL SWIPER-CONTEINER O SWIPER SE ENCARGA DE SER EL CONTENEDOR DE LAS MULTIPLES IMAGENES
-        CADA SWIPER-SLIDE ES UNA IMAGEN QUE TENDRA EL ARTICULO
+        CADA SWIPER-SLIDE ES UNA IMAGEN QUE TENDRA EL ARTICULO (slidechange)="swiperSlideChanged($event)"
       -->
-      <swiper-container (slidechange)="swiperSlideChanged($event)" class="imagenes" [pagination]="true">
-        <swiper-slide *ngFor="let foto of fotos">
-          <img [src]="foto" />
-          
+      <swiper-container class="imagenes" [pagination]="true">
+        <swiper-slide *ngIf="articulo.fotos && articulo.fotos.length > 0">
+          <img src="{{ getPhotoUrl(articulo) }}"/>          
         </swiper-slide>
       </swiper-container>
       
