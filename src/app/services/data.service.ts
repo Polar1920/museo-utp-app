@@ -76,4 +76,5 @@ export class DataService {
             return store.getAll();
         });
     }
+
 }

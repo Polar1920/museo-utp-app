@@ -13,6 +13,8 @@ export class HomePage implements OnInit {
 
   articulos: any = [];
   categorias: any = [];
+  comentarios: any = [];
+  comentariosPorArticulo: { [key: number]: any } = {};
 
   constructor(private navCtrl: NavController, private data: Data, private platform: Platform, private location: Location, private dataService: DataService) { }
 
@@ -57,6 +59,9 @@ export class HomePage implements OnInit {
         if (response.length > 0) {
           // Si hay datos en IndexedDB, utilizarlos
           this.articulos = response;
+          this.articulos.forEach((articulo: any) => { // Aquí especificamos el tipo 'any' para 'articulo'
+            this.obtenerComentarios(articulo.id);
+          });
           console.log('Articulos obtenidos de IndexedDB:');
           console.log(response);
         } else {
@@ -77,6 +82,19 @@ export class HomePage implements OnInit {
       },
       (error) => {
         console.log('Error al obtener las categorias:', error);
+      }
+    );
+  }
+
+  obtenerComentarios(id: number) {
+    this.data.getComentariosPorArticulo(id).subscribe(
+      (response) => {
+        this.comentariosPorArticulo[id] = response; // Guardar comentarios en el objeto por ID del artículo
+        console.log(this.comentariosPorArticulo[id]);
+        console.log(this.comentariosPorArticulo[id].length);
+      },
+      (error) => {
+        console.log('Error al obtener los comentarios:', error);
       }
     );
   }
