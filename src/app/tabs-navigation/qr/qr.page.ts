@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { Html5QrcodeScanner } from 'html5-qrcode';
+import Quagga from 'quagga';
 
 @Component({
   selector: 'app-qr',
@@ -13,28 +13,20 @@ export class QrPage {
   scanner: any;
   ID: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ionViewDidEnter() {
-    this.scanner = new Html5QrcodeScanner('reader', { fps: 10, qrbox: 250 }, /* verbose= */ false);
-
     this.startScanning();
   }
 
   ionViewWillLeave() {
-    this.scanner.clear();
-    this.scanner.stop();
+    this.stopScanning();
   }
 
   success(result: string) {
     this.ID = result;
-    this.goToArticle();
-    this.scanner.clear();
-    this.scanner.stop();
-    const reader = document.getElementById('reader');
-    if (reader) {
-      reader.remove();
-    }
+    //this.goToArticle();
+    this.stopScanning();
   }
 
   error(error: string) {
@@ -42,7 +34,31 @@ export class QrPage {
   }
 
   startScanning() {
-    this.scanner.render(this.success.bind(this), this.error.bind(this));
+    Quagga.init({
+      inputStream : {
+        name : "Live",
+        type : "LiveStream",
+        target: document.querySelector('#scanner')    // Selector del elemento donde se muestra el escáner
+      },
+      decoder: {
+        readers: ["code_128_reader","ean_reader","ean_8_reader","code_39_reader","code_39_vin_reader","codabar_reader","upc_reader","upc_e_reader","i2of5_reader"]
+      }
+    }, function(err: any) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        Quagga.start();
+    });
+    
+    Quagga.onDetected((result: any) => {
+      this.success(result.codeResult.code);
+    });
+  }
+
+  stopScanning() {
+    Quagga.offDetected(this.success);
+    Quagga.stop();
   }
 
   goToArticle() {
