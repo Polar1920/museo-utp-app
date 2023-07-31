@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Data } from '../data/data';
+import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 
@@ -13,7 +13,7 @@ export class TabsPage {
   ID: String = '';
   articulo: String = '';
 
-  constructor(private router: Router, private data: Data, private platform: Platform) {
+  constructor(private router: Router, private platform: Platform, private barcodeScanner: BarcodeScanner) {
     this.selectedTab = 'home'; // Inicialización predeterminada
     this.platform.backButton.subscribeWithPriority(10, (processNextHandler: () => void) => {
       console.log('Back button pressed');
@@ -22,8 +22,19 @@ export class TabsPage {
     });
   }
 
-  gotToQR() {
-    this.router.navigate(['/tabs/qr']);
+  async scan() {
+    const result = await this.barcodeScanner.scan();
+    if (!result.cancelled) {
+      this.ID = result.text;
+
+      let art: any;
+
+      localStorage.setItem('articulo_id', this.ID.toString());
+
+      localStorage.setItem('showby', 'qr');
+
+      this.router.navigate(['/articulo']);
+    }
   }
 
   tabChanged(event: any) {

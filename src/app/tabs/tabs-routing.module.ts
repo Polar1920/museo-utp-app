@@ -16,10 +16,6 @@ const routes: Routes = [
         loadChildren: () => import('../tabs-navigation/search/search.module').then( m => m.SearchPageModule)
       },
       {
-        path: 'qr',
-        loadChildren: () => import('../tabs-navigation/qr/qr.module').then( m => m.QrPageModule)
-      },
-      {
         path: 'timeline',
         loadChildren: () => import('../tabs-navigation/timeline/timeline.module').then( m => m.TimelinePageModule)
       },
