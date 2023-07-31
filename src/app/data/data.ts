@@ -68,6 +68,15 @@ export class Data {
     return this.http.get(`${this.apiUrl}/facultades/all`);
   }
 
+  getComentarios() {
+    return this.http.get(`${this.apiUrl}/facultades/all`);
+  }
+
+  getComentariosPorArticulo(articuloId: number){
+    // Fetch comments for a specific article from the API
+    return this.http.get(`${this.apiUrl}/comentarios/${articuloId}`);
+  }
+
   getArticulosAll() {
     return this.http.get(`${this.apiUrl}/articulos/all`);
   }
