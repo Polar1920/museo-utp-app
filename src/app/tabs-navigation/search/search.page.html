@@ -13,7 +13,7 @@
     <hr class="divider">
     <ion-item *ngFor="let article of searchedArticle" (click)="viewArticle(article)" [ngClass]="{'selected': isSelected}">
       <div class="div-img">
-        <img src="{{ getFirstPhotoUrl(article) }}" />
+        <img src="{{ getPhotoUrl(article) }}" />
       </div>
       <div class="div-info">
         <h1>{{ article.nombre }}</h1>
