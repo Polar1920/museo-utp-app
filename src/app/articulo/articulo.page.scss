@@ -287,8 +287,12 @@ ion-footer ion-avatar {
 }
 
 ion-footer ion-input {
-    font-size: 18px;
+    font-size: 16px;
+    margin-inline-start: 10px;
+    
 }
+
+
 
 .ion-valid.sc-ion-input-md-h {
     --highlight-color: var(--ion-color-dorado);
@@ -296,6 +300,10 @@ ion-footer ion-input {
 
 .input-wrapper.sc-ion-input-md input.sc-ion-input-md {
     padding-inline: 8px;
+}
+
+.sc-ion-input-md-h {
+    padding-right: 20px !important;
 }
 
 ion-footer ion-icon {

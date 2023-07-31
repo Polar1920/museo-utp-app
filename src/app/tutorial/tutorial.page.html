@@ -9,7 +9,9 @@
   </div>
   <hr class="divider">
 
+  <!-- Grupo de accordions que contendran las explicaciones de las diferentes funcionalidades dentro de la apliacion-->
   <ion-accordion-group [multiple]="false">
+    <!--Accordion #1-->
     <ion-accordion value="first">
       <ion-item slot="header">
         <ion-icon name="compass-outline"></ion-icon>
@@ -26,6 +28,8 @@
       </div>
     </ion-accordion>
 
+
+    <!--Accordion #1-->
     <ion-accordion value="second">
       <ion-item slot="header">
         <ion-icon name="search-outline"></ion-icon>
@@ -44,6 +48,7 @@
       </div>
     </ion-accordion>
 
+    <!--Accordion #2-->
     <ion-accordion value="fourth">
       <ion-item slot="header">
         <ion-label><ion-icon name="qr-code-outline"></ion-icon>Cómo usar el Scanner de códigos QR</ion-label>
@@ -51,16 +56,14 @@
       <div class="ion-padding" slot="content">
         <ion-img class="video" src="/assets/gif/qr.gif"></ion-img>
         <h2>Scanner QR</h2>
-        <p>En los artículos del museo podrás encontrar un código QR que podrás
-          escanear con tu teléfono.</p>
-        <h2>Recuerda otorgar permisos de
-          ser necesario.</h2>
-        <ion-img class="video" src="/assets/img/tabbar_gif.gif"></ion-img>
-        <p>Presiona la pestaña del medio y podrás activar tu cámara. Ahora, solo
-          enfoca el código QR del artículo y recibirás la información de este.</p>
+        <p>Para poder utilizar el lector de codigos QR debes dirigirte a la opcion que esta en medio del menu.
+          esto activara tu camara, una vez con esta puedes enfocar el codigo QR, y asi recibiras la informacion de este.
+        </p>
       </div>
     </ion-accordion>
 
+
+    <!--Accordion #3-->
     <ion-accordion value="fifth">
       <ion-item slot="header">
         <ion-icon name="hourglass-outline"></ion-icon>
@@ -74,6 +77,8 @@
       </div>
     </ion-accordion>
 
+
+    <!--Accordion #4-->
     <ion-accordion value="sixth">
       <ion-item slot="header">
         <ion-icon name="person-circle-outline"></ion-icon>

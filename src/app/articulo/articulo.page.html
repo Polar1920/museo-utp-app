@@ -14,15 +14,11 @@
   <div class="contenedor">
     <div class="div-info">
 
-      <!--
-      <ion-slides pager (ionSlideDidChange)="ionSlideChanged()">
-        <ion-slide *ngFor="let foto of fotos">
-          <img [src]="foto" />
-        </ion-slide>
-      </ion-slides>
+  
+      
+      <!-- EL SWIPER-CONTEINER O SWIPER SE ENCARGA DE SER EL CONTENEDOR DE LAS MULTIPLES IMAGENES
+        CADA SWIPER-SLIDE ES UNA IMAGEN QUE TENDRA EL ARTICULO
       -->
-      
-      
       <swiper-container (slidechange)="swiperSlideChanged($event)" class="imagenes" [pagination]="true">
         <swiper-slide *ngFor="let foto of fotos">
           <img [src]="foto" />
@@ -30,14 +26,11 @@
         </swiper-slide>
       </swiper-container>
       
-      <!--
-      <div class="imagenes carousel">
-        <div class="swiper-slide slide" *ngFor="let foto of fotos">
-          <img [src]="foto" />
-        </div>
-      </div>
-      -->
-
+      
+      <!--El div con principio contiene todo lo esencial del header como:
+      -EL NOMBRE DE LA APP
+      -SU CATEGORIA Y AÑO
+      -DESCRIPCION  -->
       <div class="div-parte-inferior">
         <div class="div-principio">
           <h1>{{ articulo.nombre }}</h1>
@@ -47,6 +40,7 @@
           <h3>{{ articulo.year }}</h3>
           <hr>
         </div>
+        <!--Este es el contenedor con la informacion que incluye lo relacionado al articulo con un minimo de scroll  -->
         <div class="contenedor-informacion" #informacionContainer>
           <p class="descripcion">{{ descripcion[0] }}</p>
         </div>
@@ -66,10 +60,18 @@
       </div>
     </div>
 
+    <!-- COMENTARIOS TITULO -->
     <hr class="hr-divider1">
     <h5 class="comentarios" (click)="openModal()">Comentarios</h5>
     <hr class="hr-divider2">
+
   </div>
+
+  <!-- COMENTARIOS INICIO -->
+  <!-- 
+    MODAL -> ES EL CONTENEDOR PRINCIPAL DE COMENTARIOS Y FUNCIONA PARA QUE PUDA ARRASTRARLO HACIA ARRIBA
+    
+  -->
 
   <ion-modal #modal [isOpen]="false" [initialBreakpoint]="0.99" [breakpoints]="[0.99, 0]" [backdropDismiss]="true"
     [backdropBreakpoint]="0">
