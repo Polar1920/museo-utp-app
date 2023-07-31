@@ -139,6 +139,7 @@ export class AccountEditPage implements OnInit {
       fetch("https://ds6.glaciar.club/api/usuarios", requestOptions)
         .then(response => response.json())
         .then(result => {
+          alert(result);
           console.log(result);
           // Actualizar el objeto "usuario" en localStorage con la nueva URL o imagen generada por la API
           this.usuario.foto = result.foto;
@@ -146,8 +147,9 @@ export class AccountEditPage implements OnInit {
 
           alert("Usuario actualizado, para evitar errores se recomienda volver a iniciar sesión");
         })
-        .catch(error => console.log('error', error));
+        .catch(error => alert('error'+ error));
     } else {
+      alert('No se encontró un token de sesión. Debe iniciar sesión para actualizar su perfil.');
       console.error('No se encontró un token de sesión. Debe iniciar sesión para actualizar su perfil.');
     }
   }
