@@ -16,15 +16,20 @@ export class IntegrantesPage implements OnInit {
   foto: string = '';
   nombreGrupo: string = '';
 
-  // Mapeo de nombres de departamentos
-  nombreDepartamentos: { [key: string]: string } = {
-    'APP': 'APP',
-    'BD': 'BASE DE DATOS',
-    'API': 'API',
-    'MULTIMEDIOS': 'RECURSOS MULTIMEDIOS',
-    'WEB': 'WEB APP',
-    'QA': 'Q.A.',
-  };
+// Mapeo de nombres de departamentos
+nombreDepartamentos: { [key: string]: string } = {
+  'APP': 'APP',
+  'BD': 'Base de Datos',
+  'API': 'API',
+  'MULTIMEDIOS': 'Recursos Multimedios',
+  'WEB': 'WEB',
+  'QA': 'Q.A.',
+  'CONVERSATORIO': 'Conversatorio',
+  'VIDEO': 'Video',
+  'INTEGRACION':'Integración',
+  'VISITAS':'Visitas',
+  'CATEGORIA':'Categoria'
+};
 
   constructor(private navCtrl: NavController, private http: HttpClient) { }
 
